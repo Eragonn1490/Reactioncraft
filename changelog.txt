@@ -1,0 +1,39 @@
+Changelog
+
+fixed seacreeper burning
+fixed seacreeper so that they dont drop gunpowder as a rare drop if burning from sunlight (still drops as regular mob drop)
+added sand to drop from seacreepers as a rare drop..
+
+added end ores
+added end ores to creative
+
+fixed worldgenhandler of RCORES
+added WorldGenMinableEnd
+
+Fixed Freezer turning
+added IceBucket to oreDictionary to add support for future IC2/BC support
+added Ender Gem (future use)
+Fixed Metadata of Walls Mod (had 2 backwords)
+
+Fixed Currency mod bugs (RI5UX)
+Fixed ItemBasic (RI5UX)
+added Update Checker (RI5UX)
+
+Fixed Better Desert Mod Cactus's (still not fixed) but i moved into Reactioncraft Tab
+
+Overwrote Railcraft's removing of the vanilla Rail Recipe (takes to much effort for my linking to craft that way.. but i reduced the amount given)
+
+IC2 basic support for RCORES mod
+bloodstone can be macerated into bloodstone dust that can be smelted into bloodstone ingots
+
+Fixed Pixels in an Items.png
+
+Readded Reactioncraft Better Bookcases
+
+Updated RCB clientproxy (why preload everything if you barely use a sprite sheet)
+
+updated RCOres to make it so that ic2 is needed to create bloodstone tools legitly
+
+Future (adding Recipes to Reactioncraft Better Desert Mod, was broken in the 1.3 to 1.4 transition)
+
+added ability to turn ice buckets back into water
