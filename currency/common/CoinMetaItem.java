@@ -32,7 +32,7 @@ public class CoinMetaItem extends Item
 			
 			case 3:
 				setContainerItem(Item.bucketEmpty);
-				return 0;//Molten Gold  //needs Texture
+				return 201;//Molten Gold
 			
 			case 4:
 				setContainerItem(Item.bucketEmpty);

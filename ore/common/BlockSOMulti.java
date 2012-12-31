@@ -141,31 +141,31 @@ public class BlockSOMulti extends Block
         switch (i)
         {
             case 0:
-                return 11;
+                return 0;
 
             case 1:
-                return 11;
+                return 1;
 
             case 2:
-                return 11;
+                return 2;
 
             case 3:
-                return 11;
+                return 3;
 
             case 4:
-                return 11;
+                return 4;
 
             case 5:
-                return 11;
+                return 5;
 
             case 6:
-                return 11;
+                return 6;
 
             case 7:
-                return 11;
+                return 7;
 
             case 8:
-                return 11;
+                return 8;
 
             case 9:
                 return 9;
@@ -199,6 +199,7 @@ public class BlockSOMulti extends Block
     {
         switch (j)
         {
+        	//Silver
             case 0:
                 switch (i)
                 {
@@ -220,49 +221,51 @@ public class BlockSOMulti extends Block
                     case 5:
                         return 201;
                 }
-
+            
+            //Magma
             case 1:
                 switch (i)
                 {
                     case 0:
-                        return 138;
+                        return 64;
 
                     case 1:
-                        return 138;
+                        return 64;
 
                     case 2:
-                        return 147;
+                        return 64;
 
                     case 3:
-                        return 147;
+                        return 64;
 
                     case 4:
-                        return 147;
+                        return 64;
 
                     case 5:
-                        return 147;
+                        return 64;
                 }
-
+                
+            //Magma Stone
             case 2:
                 switch (i)
                 {
                     case 0:
-                        return 138;
+                        return 66;
 
                     case 1:
-                        return 138;
+                        return 66;
 
                     case 2:
-                        return 148;
+                        return 66;
 
                     case 3:
-                        return 148;
+                        return 66;
 
                     case 4:
-                        return 148;
+                        return 66;
 
                     case 5:
-                        return 148;
+                        return 66;
                 }
 
             case 3:
@@ -540,8 +543,8 @@ public class BlockSOMulti extends Block
     public void getSubBlocks(int i,CreativeTabs tab, List list)
     {
     	list.add(new ItemStack(i,1,0));
-//    	list.add(new ItemStack(i,1,1));
-//    	list.add(new ItemStack(i,1,2));
+    	list.add(new ItemStack(i,1,1));
+    	list.add(new ItemStack(i,1,2));
 //    	list.add(new ItemStack(i,1,3));
 //    	list.add(new ItemStack(i,1,4));
 //    	list.add(new ItemStack(i,1,5));

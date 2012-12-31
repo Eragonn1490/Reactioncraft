@@ -37,8 +37,8 @@ public class ItemOreMulti extends Item
 			//not currently used and need textures (unless noted)
 			case 7:return 2;//dragonstone shard
 			case 8:return 4;//carved dragonstone shard
-			case 9:return 10;
-			case 10:return 11;
+			case 9:return 81;//Superhead Iron Ingot
+			case 10:return 51;//Iron Dust
 			case 11:return 12;
 			case 12:return 13;
 			case 13:return 14;
@@ -62,9 +62,9 @@ public String getItemNameIS(ItemStack is)
 		case 5:return "End Gem";//^
 		case 6:return "Bloodstone Dust"; //^
 		case 7:return "Dragonstone Shard";//going to be dragonstone shard //^
-		case 8:return "null";//going to be carved dragonstone shard //^
-		case 9:return "null"; //^
-		case 10:return "null"; //^
+		case 8:return "Carved Dragonstone";//going to be carved dragonstone shard //^
+		case 9:return "Superheated Iron Ingot"; //^ 
+		case 10:return "Iron Dust"; //^
 		case 11:return "null"; //^
 		case 12:return "null"; //^
 		case 13:return "null"; //^
@@ -77,7 +77,7 @@ public String getItemNameIS(ItemStack is)
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(int itemID, CreativeTabs tab, List itemList) //Adds the metadata items to the creative inventory
 	{
-		for(int i=0;i<8;i++)
+		for(int i=0;i<15;i++)
 		//to add all 15 metas copy whats below
 		//for(int i=0;i<15;i++)
 		{

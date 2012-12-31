@@ -1,15 +1,13 @@
 package Reactioncraft.core.common;
 
-import Reactioncraft.base.common.RCB;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityHanging;
 import net.minecraft.entity.item.EntityItemFrame;
-import net.minecraft.entity.item.EntityPainting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
+import Reactioncraft.base.common.RCB;
 
 public class ItemPainting extends Item
 {

@@ -16,7 +16,7 @@ public class BlockBasic extends Block
        
         public String getTextureFile()
         {
-                return "/Reactioncraft/images/bookcases.png";
+                return "/Reactioncraft/images/Blocks.png";
         }
        
         public int idDropped(int i, Random random)

@@ -2,6 +2,7 @@ package Reactioncraft.ore.common;
 
 import ic2.api.Ic2Recipes;
 import ic2.api.Items;
+import Reactioncraft.base.common.RCB;
 import Reactioncraft.basic.common.ClientProxy;
 import Reactioncraft.basic.common.CommonProxy;
 import net.minecraft.block.Block;
@@ -43,12 +44,14 @@ public class RCORES
 	 public static int netherOresID;
 	 public static int endOresID;
 	 public static int OreItemsIID;
+	 public static int magmaflintIID;
 	 
 	 public static Block surfaceOres;
 	 public static Block netherOres;
 	 public static Block endOres;
 	 
 	 public static Item OreItems;
+	 public static Item magmaflint;
 	 
 	
 	 @PreInit
@@ -67,6 +70,7 @@ public class RCORES
        	 
        	 //Item Ids
        	 OreItemsIID = config.getItem("Ore Items", 10255).getInt();
+       	 magmaflintIID = config.getItem("magmaflint", 10256).getInt() ;
 
          config.save();
 	 }
@@ -82,10 +86,12 @@ public class RCORES
 	    	endOres = new BlockEOMulti(endOresID, Material.rock).setHardness(1.0F).setResistance(1.0F).setBlockName("endOres");
 	    	
 	    	OreItems = new ItemOreMulti(OreItemsIID);
+	    	magmaflint = new ItemBasic(magmaflintIID).setIconCoord(138, 0).setItemName("magmaflint").setCreativeTab(RCB.Reactioncraft);
 	    	
 	    	
 	    	GameRegistry.addRecipe(new ItemStack(OreItems, 1, 0), new Object[]{ "   ", " D ", " D ", Character.valueOf('D'), Item.ingotGold});
-	    	
+	    	GameRegistry.addRecipe(new ItemStack(Item.flintAndSteel, 1), new Object[] {"A ", " B", 'A', Item.ingotIron, 'B', RCORES.magmaflint});
+	    	GameRegistry.addRecipe(new ItemStack(Item.arrow, 8), new Object[] {"X", "#", "Y", 'Y', Item.feather, 'X', RCORES.magmaflint, '#', Item.stick});
 	    	
 	    	//Ore Registration
 	    	GameRegistry.registerBlock(surfaceOres, ItemMulti.class);
@@ -94,6 +100,8 @@ public class RCORES
 	    	
 	    	
 	    	//Ore Items
+		    LanguageRegistry.addName(magmaflint, "Magma Flint");
+		    
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,0), "Golden Rod"); 
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,1), "Obsidian Ingot"); 
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,2), "Black Diamond"); 
@@ -102,10 +110,10 @@ public class RCORES
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,5), "End Gem");
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,6), "Bloodstone Dust");  
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,7), "Dragonstone Shard");
-	    	
-	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,8), "null"); 
-	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,9), "null"); 
-	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,10), "null"); 
+	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,8), "Carved Dragonstone");
+	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,9), "Superheated Iron Ingot"); 
+	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,10), "Iron Dust");
+	    	 
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,11), "null"); 
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,13), "null"); 
 	    	LanguageRegistry.addName(new ItemStack(RCORES.OreItems,1,14), "null"); 
@@ -114,12 +122,13 @@ public class RCORES
 	    	
 	    	//Surface Ores
 	    	LanguageRegistry.addName(new ItemStack(RCORES.surfaceOres, 1, 0), "Silver");
+	    	LanguageRegistry.addName(new ItemStack(RCORES.surfaceOres, 1, 1), "Magma");
 	    	
 	    	
 	    	//Nether Ores
 	    	LanguageRegistry.addName(new ItemStack(RCORES.netherOres, 1, 0), "Bloodstone");
 	    	LanguageRegistry.addName(new ItemStack(RCORES.netherOres, 1, 1), "Black Diamond");
-	    	
+	    	LanguageRegistry.addName(new ItemStack(RCORES.netherOres, 1, 2), "Dragonstone");
 	    	
 	    	//End Ores
 	    	LanguageRegistry.addName(new ItemStack(RCORES.endOres, 1, 0), "Wizimite");
@@ -132,6 +141,7 @@ public class RCORES
 		    OreDictionary.registerOre("diamondBlack", new ItemStack(OreItems,1, 2));
 		    OreDictionary.registerOre("ingotBloodstone", new ItemStack(OreItems,1, 3));
 		    OreDictionary.registerOre("ingotSilver", new ItemStack(OreItems,1, 4));
+		    OreDictionary.registerOre("ingotSuperheatediron", new ItemStack(OreItems,1, 9));
 		    OreDictionary.registerOre("gemWizimite", new ItemStack(OreItems,1, 5));
 		    
 		    
@@ -149,6 +159,9 @@ public class RCORES
 		    
 		    //Obsidian to obsidian ingot
 		    GameRegistry.addSmelting(Block.obsidian.blockID, new ItemStack(RCORES.OreItems.shiftedIndex, 1, 1), 0.5F);
+    
+		   //Iron Dust to Superheated Iron
+		   FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.shiftedIndex, 10, new ItemStack(RCORES.OreItems.shiftedIndex, 1, 9), 0.5F);
 		    
 		    
 		    //World Gen Handlers
@@ -157,8 +170,21 @@ public class RCORES
 	 
 	 public static void loadIndustrialCraft()
 	 {
-		//IC2 SUPPORT :D  Bloodstone block to bloodstone dust
+		//IC2 SUPPORT :D  
+		//Bloodstone block to bloodstone dust
 		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.netherOres, 1, 0), new ItemStack(RCORES.OreItems, 3, 6));
+		
+		//Black Diamond Ore to Black Diamond
+		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.netherOres, 1, 1), new ItemStack(RCORES.OreItems, 1, 2));
+		
+		//Dragonstone to Dragonstone Shard
+		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.netherOres, 1, 2), new ItemStack(RCORES.OreItems, 3, 7));
+		
+		//Magmastone to magmastone flint
+		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.surfaceOres, 1, 2), new ItemStack(RCORES.magmaflint, 10));
+		
+		//Iron Ingot to IronDust
+	    Ic2Recipes.addMaceratorRecipe(new ItemStack(Item.ingotIron, 1, 0), new ItemStack(RCORES.OreItems, 10));
 	 }
 
 	  @PostInit

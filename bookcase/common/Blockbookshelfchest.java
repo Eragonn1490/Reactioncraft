@@ -15,7 +15,6 @@ import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -348,7 +347,7 @@ public class Blockbookshelfchest extends BlockContainer
      */
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
-        TileEntityChest var7 = (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4);
+        TileEntityBookcaseChest var7 = (TileEntityBookcaseChest)par1World.getBlockTileEntity(par2, par3, par4);
 
         if (var7 != null)
         {

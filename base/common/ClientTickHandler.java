@@ -22,7 +22,7 @@ public class ClientTickHandler implements ITickHandler
 	public boolean methodsAccessed = false;
 
     public static String MODNAME = "Reactioncraft-Base";
-    public static String MODVERSION = "6.1.0";
+    public static String MODVERSION = "6.0.0";
     public static String VERSIONURL = "http://dl.dropbox.com/u/84235925/version.txt";
     public static String MOD_ADFLY_LINK = "";
 	

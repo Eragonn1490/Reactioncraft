@@ -128,6 +128,7 @@ public class RCPM
 		
 		
 		//Mojang coco bean to ours... Cooked one to ours
+		GameRegistry.addShapelessRecipe(new ItemStack(AncientSeeds, 3), new Object[] {AncientFruit,});
 		GameRegistry.addRecipe(new ItemStack(CocoSeed, 1), new Object[]{ "   ", " # ", "   ", Character.valueOf('#'), CocoBean});
 		GameRegistry.addRecipe(new ItemStack(CocoSeed, 1), new Object[]{ "   ", " # ", "   ", Character.valueOf('#'), new ItemStack(Item.dyePowder, 1, 3)});
 		GameRegistry.addRecipe(new ItemStack(Item.cookie, 12), new Object[]{ "   ", "   ", "D#D", Character.valueOf('#'), CocoBean, Character.valueOf('D'), Item.wheat});
@@ -136,13 +137,9 @@ public class RCPM
 		OreDictionary.registerOre("cocoBean", new ItemStack(CocoBean));
 		
 		//To aquire ancient plant
-		//DungeonHooks.addDungeonLoot(new ItemStack(AncientSeeds), 1, 1, 2);
+		DungeonHooks.addDungeonLoot(new ItemStack(RCPM.AncientSeeds), (int) 0.65, 1, 8);
 	 }
 	 
-	 public void addDungeonLoot(ItemStack item, int rarity)
-	 {
-	        DungeonHooks.addDungeonLoot(new ItemStack(RCPM.AncientSeeds), 1, 1, 1);
-     }
 
 	 @PostInit
 	 public void modsLoaded(FMLPostInitializationEvent evt)

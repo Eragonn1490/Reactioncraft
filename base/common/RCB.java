@@ -27,7 +27,7 @@ import Reactioncraft.base.common.CommonProxy;
 import Reactioncraft.base.common.FuelHandler;
 
 
-@Mod( modid = "RCB", name="Reactioncraft Basic", version="[1.4.5] Reactioncraft Version 6.0.0")
+@Mod( modid = "RCB", name="Reactioncraft Basic", version="[1.4.6] Reactioncraft Version 6.0.0")
 @NetworkMod(channels = { "RCB" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class)
 
 public class RCB
@@ -87,13 +87,12 @@ public class RCB
 		
 		LanguageRegistry.addName(Mask, "Mask");
 		
-		 GameRegistry.registerFuelHandler(new FuelHandler());
+		GameRegistry.registerFuelHandler(new FuelHandler());
+		 
+		DungeonHooks.addDungeonLoot(new ItemStack(RCB.Mask), (int) 0.65, 1, 8);
+		
+		
 	 }
-	 
-	 public void addDungeonLoot(ItemStack item, int rarity)
-	 {
-	        DungeonHooks.addDungeonLoot(new ItemStack(RCB.Mask), 1, 1, 1);
-     }
 
 	 @PostInit
 	 public void modsLoaded(FMLPostInitializationEvent evt)

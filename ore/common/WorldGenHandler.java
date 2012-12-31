@@ -29,20 +29,15 @@ public class WorldGenHandler implements IWorldGenerator
             int randPosZ = blockZ + random.nextInt(16);
             (new WorldGenMinable(RCORES.surfaceOres.blockID, 0, 5)).generate(world, random, randPosX, randPosY, randPosZ);
 		}
-//  		for(int i = 0; i < 7; i++)
-//  		{
-//                int randPosX = blockX + random.nextInt(16);
-//                int randPosY = random.nextInt(128);
-//                int randPosZ = blockZ + random.nextInt(16);
-//                (new WorldGenMinable(AliensVsPredator.oreDiamondShard.blockID, 4)).generate(world, random, randPosX, randPosY, randPosZ);
-//  		}
-//  		for(int i = 0; i < 9; i++)
-//  		{
-//                int randPosX1 = blockX + random.nextInt(16);
-//                int randPosY1 = random.nextInt(128);
-//                int randPosZ1 = blockZ + random.nextInt(16);
-//                (new WorldGenMinable(AliensVsPredator.oreSilicon.blockID, 5)).generate(world, random, randPosX1, randPosY1, randPosZ1);
-//  		}
+  		
+  		//Magma
+  		for(int i = 0; i < 7; i++)
+  		{
+  			int randPosX = blockX + random.nextInt(16);
+  			int randPosY = random.nextInt(128);
+  			int randPosZ = blockZ + random.nextInt(16);
+  			(new WorldGenMinable(RCORES.surfaceOres.blockID, 1, 4)).generate(world, random, randPosX, randPosY, randPosZ);
+  		}
 //  		for(int i = 0; i < 10; i++)
 //  		{
 //                int randPosX2 = blockX + random.nextInt(16);
@@ -63,21 +58,21 @@ public class WorldGenHandler implements IWorldGenerator
 		            (new WorldGenNether(RCORES.netherOres.blockID, 0, 50)).generate(world, random, Xcoord, Ycoord, Zcoord);
 		        }
 				//Black Diamond
-				for(int x = 0; x < 38; x++)
+				for(int x = 0; x < 2; x++)
 		        {
 		            int Xcoord = blockX + random.nextInt(16);
 		            int Ycoord = random.nextInt(128);
 		            int Zcoord = blockZ + random.nextInt(16);
-		            (new WorldGenNether(RCORES.netherOres.blockID, 1, 5)).generate(world, random, Xcoord, Ycoord, Zcoord);
+		            (new WorldGenNether(RCORES.netherOres.blockID, 1, 1)).generate(world, random, blockX + random.nextInt(20), random.nextInt(128), blockZ + random.nextInt(20));
 		        }
-				//
-//				for(int x = 0; x < 38; x++)
-//		        {
-//		            int Xcoord = blockX + random.nextInt(16);
-//		            int Ycoord = random.nextInt(128);
-//		            int Zcoord = blockZ + random.nextInt(16);
-//		            (new WorldGenNether(RCO.BlackDiamond.blockID, 0, 2)).generate(world, random, Xcoord, Ycoord, Zcoord);
-//		        }
+				//Dragonstone
+				for(int i = 0; i < 4; i++)
+		  		{
+		  			int randPosX1 = blockX + random.nextInt(16);
+		  			int randPosY1 = random.nextInt(128);
+		  			int randPosZ1 = blockZ + random.nextInt(16);
+		  			(new WorldGenMinable(RCORES.netherOres.blockID, 2, 2)).generate(world, random, blockX + random.nextInt(20), random.nextInt(128), blockZ + random.nextInt(20));
+		  		}
 	}
 	
 	public void generateEnd(World world, Random random, int blockX, int blockZ) 
