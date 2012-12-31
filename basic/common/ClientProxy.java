@@ -19,6 +19,7 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.preloadTexture("/Reactioncraft/images/bookcases.png");
 		MinecraftForgeClient.preloadTexture("/Reactioncraft/images/cakes.png");
 		MinecraftForgeClient.preloadTexture("/Reactioncraft/images/ChristmasBlocks.png");
+		MinecraftForgeClient.preloadTexture("/Reactioncraft/images/art/kz.png");
 	}
 	
 	@Override

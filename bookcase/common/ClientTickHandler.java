@@ -23,9 +23,9 @@ public class ClientTickHandler implements ITickHandler
 	public boolean methodsAccessed = false;
 
     public static String MODNAME = "Reactioncraft-Better-Bookcases";
-    public static String MODVERSION = "6.1.0";
+    public static String MODVERSION = "6.2.0";
     public static String VERSIONURL = "https://dl.dropbox.com/u/84235925/bookcases%20version.txt";
-    public static String MOD_ADFLY_LINK = "http://adf.ly/GelWZ";
+    public static String MOD_ADFLY_LINK = "https://dl.dropbox.com/u/84235925/RCBB%20V6.1.1.zip";
 	
     public void tickStart(EnumSet<TickType> type, Object... tickData) {}
 

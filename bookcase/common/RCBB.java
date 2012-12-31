@@ -128,6 +128,8 @@ public class RCBB
 		LanguageRegistry.addName(WoodenBookcasedoor, "Wooden Bookcase Door");
 		LanguageRegistry.addName(IronBookcasedoor, "Iron Bookcase Door");
 		
+		LanguageRegistry.addName(Bookcasechest, "Bookshelf");
+		
 		//Door Blocks
 		LanguageRegistry.addName(WoodenBookcasedoorBlock, "WoodenBookcasedoorBlock");
 		LanguageRegistry.addName(IronBookcasedoorBlock, "IronBookcasedoorBlock");
