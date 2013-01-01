@@ -90,20 +90,7 @@ public class RCORES
 	 public void load(FMLInitializationEvent event)
 	 {
 		    ClientProxy.registerRenderInformation();
-		    
-		    //IC2 integration
-			try 
-			{
-				if(IC2())
-				{
-					Integration.loadIndustrialCraft();
-					System.out.println("IC2 macerator recipe enabled");
-				}
-			}
-			catch (ClassNotFoundException e)	
-			{
-				System.out.println(" did not find IC2, macerator recipe disabled");
-			}
+		   
 		    
 		 	surfaceOres = new BlockSOMulti(surfaceOresID, Material.rock).setHardness(1.0F).setResistance(1.0F).setBlockName("surfaceOres");
 			netherOres = new BlockNOMulti(netherOresID, Material.rock).setHardness(80.0F).setResistance(2000.0F).setBlockName("netherOres");
@@ -190,6 +177,21 @@ public class RCORES
 		    
 		    //World Gen Handlers
 		    GameRegistry.registerWorldGenerator(new WorldGenHandler());
+		    
+		    
+		    //IC2 integration
+			try 
+			{
+				if(IC2())
+				{
+					Integration.loadIndustrialCraft();
+					System.out.println("IC2 macerator recipe enabled");
+				}
+			}
+			catch (ClassNotFoundException e)	
+			{
+				System.out.println(" did not find IC2, macerator recipe disabled");
+			}
 	 }
 
 	  @PostInit
