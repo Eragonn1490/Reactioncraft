@@ -3,6 +3,8 @@ package Reactioncraft.plants.common;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
@@ -136,8 +138,10 @@ public class RCPM
 		//Ore Dict
 		OreDictionary.registerOre("cocoBean", new ItemStack(CocoBean));
 		
-		//To aquire ancient plant
-		DungeonHooks.addDungeonLoot(new ItemStack(RCPM.AncientSeeds), (int) 0.65, 1, 8);
+		//To aquire ancient plant seeds
+		//ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(lootStack, minStackSize, maxStackSize, chance));
+		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST, new WeightedRandomChestContent(new ItemStack(RCPM.AncientFruit), 1, 2, 5));
+		ChestGenHooks.addItem(ChestGenHooks. MINESHAFT_CORRIDOR, new WeightedRandomChestContent(new ItemStack(RCPM.AncientFruit), 1, 5, 15));
 	 }
 	 
 

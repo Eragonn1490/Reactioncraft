@@ -40,8 +40,11 @@ public class ConnectionHandler implements IConnectionHandler
             									 "-Rule 2 dont run from the crawlers.. they like it when you run..\n" +
             									 "-Rule 3 if you find a wizim library burn it... the wizim wont like it but who cares right?\n"));
             
-            pages.appendTag(new NBTTagString("", "Thanks to: Eragonn1490, Wizim, Ri5ux, LexManos, Risugami, Cojo, Corosus, GenuineSounds\n" +
-            									 "Trilby11, Joey, Malkerian, LegendaryTriforce, CPW, DV8FROMTHEWORLD, COWEDOFFACLIFF, AND OTHERS\n" +
+            pages.appendTag(new NBTTagString("", "Thanks to: Eragonn1490 (Primary Coder), Wizim (Texturees, LOGO's), Ri5ux (Code Assitant), LexManos,\n" +
+            									 "Trilby11 (Code), Joey (Code), Malkerian (Code), LegendaryTriforce (Code/Textures),\n"));
+            									 
+            pages.appendTag(new NBTTagString("",  "CPW, DV8FROMTHEWORLD, COWEDOFFACLIFF, CovertJaguar, Fred_Funny (Textures), AND OTHERS\n" + 
+            									 "Risugami, Cojo (Alot of Code), Corosus (Code), GenuineSounds (Code)\n" +
             									 "for helping make Reactioncraft possible"));
            
             book.stackTagCompound.setTag("pages", pages);

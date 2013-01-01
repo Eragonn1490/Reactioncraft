@@ -59,6 +59,18 @@ public class RCMM
 	{
 		return instance;
 	}
+	
+	public static boolean Railcraft() throws ClassNotFoundException 
+	{
+		try{
+			Class.forName("railcraft.common.core.Railcraft");
+		}
+		catch (NoClassDefFoundError ex) 
+		{
+			return false ;
+		}
+		return true ;
+	}
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
@@ -82,41 +94,70 @@ public class RCMM
 	public void load(FMLInitializationEvent event)
 	{
 		ClientProxy.registerRenderInformation();
+		BlockCode();
+		ItemCode();
+		NetworkRegistry.instance().registerGuiHandler(this, proxy);
+		GameRegistry();
+		LanguageRegistry();
+		FreezerRecipes();
+		OreDictionary();
+		
+		//railcraft integration
+		try
+		{
+			if(Railcraft())
+			{
+				Integration.loadRailCraft();
+				System.out.println("Railcraft integration loaded !");
+			}
+		}
+		catch (ClassNotFoundException e)
+		{
+			System.out.println("Reactioncraft Machines did not find railcraft, all integration disabled");
+		}
+	}
 
-		FreezerIdle = (new BlockFreezer(FreezerActiveID, false)).setHardness(3.5F).setBlockName("FreezerIdle").setRequiresSelfNotify().setCreativeTab(RCB.Reactioncraft);
-		FreezerActive = (new BlockFreezer(FreezerIdleID, true)).setHardness(3.5F).setLightValue(0.875F).setBlockName("FreezerActive").setRequiresSelfNotify();
-
+	private void ItemCode() 
+	{
 		IceBucket = (new ItemBasic(IceBucketIID)).setIconCoord(202, 0).setMaxStackSize(1).setItemName("IceBucket").setContainerItem(Item.bucketEmpty);
 		ObsidianBucket = (new ItemBasic(ObsidianBucketIID)).setIconCoord(205, 0).setMaxStackSize(1).setItemName("ObsidianBucket").setContainerItem(Item.bucketEmpty);
 
-		//GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{Block.blockSteel, Block.blockSteel, Block.stoneOvenIdle, Item.redstone, Item.redstone, Item.redstone, Item.redstone, Item.bucketWater, Block.lever});
-		GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{"RSR", "LOW", "RSR",  Character.valueOf('W'), Item.bucketWater ,Character.valueOf('L'), Block.lever ,Character.valueOf('S'), Block.blockSteel ,Character.valueOf('O'), Block.stoneOvenIdle, Character.valueOf('R'), Item.redstone});
-		GameRegistry.addShapelessRecipe(new ItemStack(Block.ice, 1), new Object[]{IceBucket,});
-		GameRegistry.addShapelessRecipe(new ItemStack(Block.obsidian, 1), new Object[]{ObsidianBucket,});
+	}
 
+	private void BlockCode() 
+	{
+		FreezerIdle = (new BlockFreezer(FreezerActiveID, false)).setHardness(3.5F).setBlockName("FreezerIdle").setRequiresSelfNotify().setCreativeTab(RCB.Reactioncraft);
+		FreezerActive = (new BlockFreezer(FreezerIdleID, true)).setHardness(3.5F).setLightValue(0.875F).setBlockName("FreezerActive").setRequiresSelfNotify();
+	}
 
-		GameRegistry.registerBlock(FreezerActive);
-		GameRegistry.registerBlock(FreezerIdle);
-
+	private void LanguageRegistry() 
+	{
 		LanguageRegistry.addName(FreezerIdle, "Freezer");
 		LanguageRegistry.addName(ObsidianBucket, "Bucket Of Obsidian");
 		LanguageRegistry.addName(IceBucket, "\u00a79Bucket Of Ice");
-
-		NetworkRegistry.instance().registerGuiHandler(this, proxy);
-		GameRegistry.registerTileEntity(TileEntityFreezer.class, "Freezer");
-
-		GameRegistry.addSmelting(RCMM.IceBucket.shiftedIndex, new ItemStack(Item.bucketWater, 1), 0.5F);
-
-		FreezerRecipes.smelting().addSmelting(Item.bucketLava.shiftedIndex , new ItemStack(ObsidianBucket, 1, 0), 0.5F);
-		FreezerRecipes.smelting().addSmelting(Item.bucketWater.shiftedIndex, new ItemStack(IceBucket), 0.5F);
-
-		//For Future IC2 / BC Compatable Freezer and Reactioncraft Mods
-		OreDictionary.registerOre("bucketICE", new ItemStack(IceBucket));
 	}
 
-	public static void loadRailCraft()
+	private void GameRegistry() 
 	{
-		RailcraftCraftingManager.blastFurnace.addRecipe(RCMM.ObsidianBucket.shiftedIndex, 1280, new ItemStack(Item.bucketLava, 1));
+		GameRegistry.registerBlock(FreezerActive, "FreezerActive");
+		GameRegistry.registerBlock(FreezerIdle, "FreezerIdle");
+		GameRegistry.addSmelting(RCMM.IceBucket.shiftedIndex, new ItemStack(Item.bucketWater, 1), 0.5F);
+		GameRegistry.registerTileEntity(TileEntityFreezer.class, "Freezer");
+		GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{"RSR", "LOW", "RSR",  Character.valueOf('W'), Item.bucketWater ,Character.valueOf('L'), Block.lever ,Character.valueOf('S'), Block.blockSteel ,Character.valueOf('O'), Block.stoneOvenIdle, Character.valueOf('R'), Item.redstone});
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.ice, 1), new Object[]{IceBucket,});
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.obsidian, 1), new Object[]{ObsidianBucket,});
+	}
+
+	private void FreezerRecipes() 
+	{
+		FreezerRecipes.smelting().addSmelting(Item.bucketLava.shiftedIndex , new ItemStack(ObsidianBucket, 1, 0), 0.5F);
+		FreezerRecipes.smelting().addSmelting(Item.bucketWater.shiftedIndex, new ItemStack(IceBucket), 0.5F);
+	}
+
+	private void OreDictionary() 
+	{
+		//For Future IC2 / BC Compatable Freezer and Reactioncraft Mods
+		OreDictionary.registerOre("bucketICE", new ItemStack(IceBucket));
 	}
 
 	@PostInit

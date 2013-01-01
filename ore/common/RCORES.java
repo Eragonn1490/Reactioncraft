@@ -53,7 +53,17 @@ public class RCORES
 	 public static Item OreItems;
 	 public static Item magmaflint;
 	 
-	
+	 public static boolean IC2() throws ClassNotFoundException 
+	 {
+		 try{
+			 Class.forName("ic2.core.IC2");
+		 }
+		 catch (NoClassDefFoundError ex) {
+			 return false ;
+		 }
+		 return true ;
+	 }
+	 
 	 @PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
 	 {
@@ -80,7 +90,21 @@ public class RCORES
 	 public void load(FMLInitializationEvent event)
 	 {
 		    ClientProxy.registerRenderInformation();
-		 
+		    
+		    //IC2 integration
+			try 
+			{
+				if(IC2())
+				{
+					Integration.loadIndustrialCraft();
+					System.out.println("IC2 macerator recipe enabled");
+				}
+			}
+			catch (ClassNotFoundException e)	
+			{
+				System.out.println(" did not find IC2, macerator recipe disabled");
+			}
+		    
 		 	surfaceOres = new BlockSOMulti(surfaceOresID, Material.rock).setHardness(1.0F).setResistance(1.0F).setBlockName("surfaceOres");
 			netherOres = new BlockNOMulti(netherOresID, Material.rock).setHardness(80.0F).setResistance(2000.0F).setBlockName("netherOres");
 	    	endOres = new BlockEOMulti(endOresID, Material.rock).setHardness(1.0F).setResistance(1.0F).setBlockName("endOres");
@@ -166,25 +190,6 @@ public class RCORES
 		    
 		    //World Gen Handlers
 		    GameRegistry.registerWorldGenerator(new WorldGenHandler());
-	 }
-	 
-	 public static void loadIndustrialCraft()
-	 {
-		//IC2 SUPPORT :D  
-		//Bloodstone block to bloodstone dust
-		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.netherOres, 1, 0), new ItemStack(RCORES.OreItems, 3, 6));
-		
-		//Black Diamond Ore to Black Diamond
-		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.netherOres, 1, 1), new ItemStack(RCORES.OreItems, 1, 2));
-		
-		//Dragonstone to Dragonstone Shard
-		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.netherOres, 1, 2), new ItemStack(RCORES.OreItems, 3, 7));
-		
-		//Magmastone to magmastone flint
-		Ic2Recipes.addMaceratorRecipe(new ItemStack(RCORES.surfaceOres, 1, 2), new ItemStack(RCORES.magmaflint, 10));
-		
-		//Iron Ingot to IronDust
-	    Ic2Recipes.addMaceratorRecipe(new ItemStack(Item.ingotIron, 1, 0), new ItemStack(RCORES.OreItems, 10));
 	 }
 
 	  @PostInit

@@ -20,7 +20,7 @@ public class WorldGenHandler implements IWorldGenerator
 
 	private void generateSurface(World world, Random random, int blockX, int blockZ) 
 	{
-		(new WorldGenWizimLibary()).generate(world, random, blockX + random.nextInt(16), random.nextInt(256), random.nextInt(16));
+		//(new WorldGenWizimLibary()).generate(world, random, blockX + random.nextInt(16), random.nextInt(256), random.nextInt(16));
 	}
 
 	private void generateNether(World world, Random random, int blockX, int blockZ) 

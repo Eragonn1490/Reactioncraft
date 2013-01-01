@@ -33,16 +33,6 @@ public class WorldGenHandler implements IWorldGenerator
 				gen.generate(world, random, x + 8, random.nextInt(170), z + 8);
 			}
 		}
-		
-		if (world.getBiomeGenForCoords(x, z).equals(BiomeGenBase.desert) || world.getBiomeGenForCoords(x, z).equals(BiomeGenBase.plains))
-		{
-			gen.plantBlockId = RcPlantz.WildKush.blockID;
-			gen.limit = 1;
-			for (int i = 0; i <= 2; i++)
-			{
-				gen.generate(world, random, x + 8, random.nextInt(170), z + 8);
-			}
-		}
 
 		if (world.getBiomeGenForCoords(x, z).equals(BiomeGenBase.jungle) || world.getBiomeGenForCoords(x, z).equals(BiomeGenBase.jungleHills))
 		{
@@ -54,15 +44,6 @@ public class WorldGenHandler implements IWorldGenerator
 				gen.generate(world, random, x + 8, random.nextInt(170), z + 8);
 			}
 		}
-
-//		if (world.getSeed() == 40507131 && !world.getBiomeGenForCoords(x, z).equals(BiomeGenBase.ocean))
-//		{
-//			WorldGenMinable w = new WorldGenMinable(Block.oreDiamond.blockID, 25);
-//			for (int i = 0; i <= 10; i++)
-//			{
-//				w.generate(world, random, x + random.nextInt(16), random.nextInt(25) + 30, z + random.nextInt(16));
-//			}
-//		}
 	}
 
 	class TMPPlantGen
@@ -92,7 +73,7 @@ public class WorldGenHandler implements IWorldGenerator
 						run.run(world, i1, j1, k1);
 					}
 					count++;
-					System.out.println("Generated a " + " at " + i1 + ", " + j1 + ", " + k1);
+					//System.out.println("Generated a " + " at " + i1 + ", " + j1 + ", " + k1);
 				}
 			}
 		}

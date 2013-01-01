@@ -48,9 +48,6 @@ public class RCBDM
 	public static int CherrywoodID;
 	public static int CherryTreeSaplingID;
 	
-	
-	public static BiomeGenBase Rcdesert; //= (new BiomeGenRcDesert(25)).setColor(16421912).setBiomeName("RcDesert").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.1F, 0.2F);
-	
 	public static Block DarkSand;
 	public static Block DarkSandstone;
 	public static Block HireoMulti;
@@ -220,8 +217,7 @@ public class RCBDM
 
 	public void addBiomes() 
 	{
-		Rcdesert = (new BiomeGenRcDesert(32)).setColor(16421912).setBiomeName("RcDesert").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.1F, 0.2F);
-		GameRegistry.addBiome(Rcdesert);
+		
 	}
 
 	public void addNames() 
