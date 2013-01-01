@@ -36,21 +36,21 @@ public class CoinMetaItem extends Item
 			
 			case 4:
 				setContainerItem(Item.bucketEmpty);
-				return 0;//Molten Silver //needs Texture
+				return 200;//Molten Silver //needs Texture
 			
 			case 5:
 				setContainerItem(Item.bucketEmpty);
-				return 0;//Molten Bronze //needs Texture
+				return 199;//Molten Bronze //needs Texture
 			
 			case 6:
 				setContainerItem(Item.bucketEmpty);
-				return 0;//Molten Copper //needs Texture
+				return 198;//Molten Copper //needs Texture
 			
 			
-			case 7:return 0;//Gold Ingot Bucket //needs Texture
-			case 8:return 0;//Silver Ingot Bucket //needs Texture
-			case 9:return 0;//Bronze Ingot Bucket //needs Texture
-			case 10:return 0;//Copper Ingot Bucket //needs Texture 
+			case 7:return 206;//Gold Ingot Bucket //needs Texture //206 is right after obsidian bucket
+			case 8:return 207;//Silver Ingot Bucket //needs Texture 
+			case 9:return 209;//Bronze Ingot Bucket //needs Texture //after the special pick
+			case 10:return 210;//Copper Ingot Bucket //needs Texture //2 after the special pick
 			
 			
 			case 11:return 58;//Gold Coin

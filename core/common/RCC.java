@@ -11,6 +11,7 @@ import Reactioncraft.basic.common.BlockBasic;
 import Reactioncraft.basic.common.ClientProxy;
 import Reactioncraft.basic.common.CommonProxy;
 import Reactioncraft.basic.common.ItemBasic;
+import Reactioncraft.basic.common.ItemContainer;
 import Reactioncraft.basic.common.PacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -98,18 +99,20 @@ public class RCC
 	{
 		GameRegistry.registerBlock(snowblock, "snowblock");
 		GameRegistry.registerBlock(redstoneBlock, "redstoneBlock");
-		GameRegistry.registerBlock(chainladder);
+		GameRegistry.registerBlock(chainladder, "chainladder");
+		GameRegistry.registerItem(ChainLoop, "ChainLoop");
 	}
 
 	private void recipes() 
 	{
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"XY ", "   ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"   ", "XY ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"   ", "   ", "XY ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
 		GameRegistry.addRecipe(new ItemStack(Hammer, 1), new Object[]{"XXX", "XIX", " I ", Character.valueOf('I'), Item.stick, Character.valueOf('X'), Item.ingotIron});
 		GameRegistry.addRecipe(new ItemStack(redstoneBlock, 1), new Object[]{ "DDD", "DDD", "DDD", Character.valueOf('D'), new ItemStack(Item.redstone),});
+		GameRegistry.addRecipe(new ItemStack(RCC.chainladder, 2), new Object[] {"Y", "Y", "Y", 'Y', RCC.ChainLoop});
+		GameRegistry.addShapelessRecipe(new ItemStack(RCC.ChainLoop, 3), new Object[]{RCC.chainladder,});
 		GameRegistry.addRecipe(new ItemStack(snowblock, 1), new Object[]{ "DD ", "DD ", "   ", Character.valueOf('D'), Block.ice});
-		GameRegistry.addRecipe(new ItemStack(chainladder, 1), new Object[]{ " D ", " D ", " D ", Character.valueOf('D'), RCC.ChainLoop});
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,1,8), true, new Object[]{"XY ", "   ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,1,8), true, new Object[]{"   ", "XY ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,1,8), true, new Object[]{"   ", "   ", "XY ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
 	}
 
 	public void blockCode() 
@@ -128,7 +131,7 @@ public class RCC
 	 {
 		extrapaintings = new ItemPainting(extrapaintingsIID, ReactioncraftEntityPainting.class).setIconCoord(10, 1).setItemName("painting");
 		ChainLoop = (new ItemBasic(ChainLoopIID)).setIconCoord(82, 0).setItemName("ChainLoop");
-		Hammer = (new ItemBasic(HammerIID)).setIconCoord(108, 0).setItemName("Hammer");
+		Hammer = (new ItemContainer(HammerIID)).setMaxStackSize(1).setIconCoord(108, 0).setItemName("Hammer");
 	 }
 
 	public void addNames() 

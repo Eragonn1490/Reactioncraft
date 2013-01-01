@@ -91,7 +91,7 @@ public class RCORES
 	    	
 	    	GameRegistry.addRecipe(new ItemStack(OreItems, 1, 0), new Object[]{ "   ", " D ", " D ", Character.valueOf('D'), Item.ingotGold});
 	    	GameRegistry.addRecipe(new ItemStack(Item.flintAndSteel, 1), new Object[] {"A ", " B", 'A', Item.ingotIron, 'B', RCORES.magmaflint});
-	    	GameRegistry.addRecipe(new ItemStack(Item.arrow, 8), new Object[] {"X", "#", "Y", 'Y', Item.feather, 'X', RCORES.magmaflint, '#', Item.stick});
+	    	GameRegistry.addRecipe(new ItemStack(Item.arrow, 12), new Object[] {"X", "#", "Y", 'Y', Item.feather, 'X', RCORES.magmaflint, '#', Item.stick});
 	    	
 	    	//Ore Registration
 	    	GameRegistry.registerBlock(surfaceOres, ItemMulti.class);

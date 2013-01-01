@@ -123,8 +123,8 @@ public class RCCM
 		Bag = (new ItemBasic(BagIID).setIconCoord(145, 0).setItemName("Bag"));
 		Sack = (new ItemBasic(SackIID).setIconCoord(64, 0).setItemName("Sack"));
 		Straw = (new ItemBasic(StrawIID).setIconCoord(67, 0).setItemName("Straw"));
-		CoinMould2 = new ItemContainer(CoinMould2IID).setMaxStackSize(1).setIconCoord(253, 0).setItemName("CoinMould");
-		CoinMould = new ItemBasic(CoinMouldIID).setIconCoord(253, 0).setMaxStackSize(1).setItemName("CoinMould").setContainerItem(RCCM.CoinMould2);
+		CoinMould2 = new ItemContainer(CoinMould2IID).setMaxStackSize(1).setIconCoord(197, 0).setItemName("CoinMould");
+		CoinMould = new ItemBasic(CoinMouldIID).setIconCoord(197, 0).setMaxStackSize(1).setItemName("CoinMould").setContainerItem(RCCM.CoinMould2);
 		Crown = (new CurrencyArmor(CrownIID, EnumArmorMaterial.IRON, renderSilver, 0)).setIconCoord(186, 0).setItemName("Crown").setCreativeTab(RCB.Reactioncraft);
 		KinglyChest = (new CurrencyArmor(KinglyChestIID, EnumArmorMaterial.IRON, renderSilver, 1)).setIconCoord(187, 0).setItemName("KinglyChest").setCreativeTab(RCB.Reactioncraft);
 		KinglyLegs = (new CurrencyArmor(KinglyLegsIID, EnumArmorMaterial.IRON, renderSilver, 2)).setIconCoord(188, 0).setItemName("KinglyLegs").setCreativeTab(RCB.Reactioncraft);

@@ -4,15 +4,17 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import Reactioncraft.api.common.FreezerRecipesInterface;
 import Reactioncraft.machines.common.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
-public class FreezerRecipes
+public class FreezerRecipes implements FreezerRecipesInterface
 {
-    private static final FreezerRecipes smeltingBase = new FreezerRecipes();
+    private static final FreezerRecipesInterface smeltingBase = new FreezerRecipes();
 
     /** The list of smelting results. */
     private Map smeltingList = new HashMap();
@@ -23,7 +25,7 @@ public class FreezerRecipes
     /**
      * Used to call methods addSmelting and getSmeltingResult.
      */
-    public static final FreezerRecipes smelting()
+    public static final FreezerRecipesInterface smelting()
     {
         return smeltingBase;
     }
@@ -33,63 +35,70 @@ public class FreezerRecipes
         this.addSmelting(Item.bucketEmpty.shiftedIndex, new ItemStack(RCMM.IceBucket), 0.7F);
     }
 
-    /**
-     * Adds a smelting recipe.
-     */
-    public void addSmelting(int par1, ItemStack par2ItemStack, float par3)
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#addSmelting(int, net.minecraft.item.ItemStack, float)
+	 */
+    @Override
+	public void addSmelting(int par1, ItemStack par2ItemStack, float par3)
     {
         this.smeltingList.put(Integer.valueOf(par1), par2ItemStack);
         this.experienceList.put(Integer.valueOf(par2ItemStack.itemID), Float.valueOf(par3));
     }
 
-    /**
-     * Returns the smelting result of an item.
-     * Deprecated in favor of a metadata sensitive version
-     */
-    @Deprecated
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#getSmeltingResult(int)
+	 */
+    @Override
+	@Deprecated
     public ItemStack getSmeltingResult(int par1)
     {
         return (ItemStack)this.smeltingList.get(Integer.valueOf(par1));
     }
 
-    public Map getSmeltingList()
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#getSmeltingList()
+	 */
+    @Override
+	public Map getSmeltingList()
     {
         return this.smeltingList;
     }
 
-    @Deprecated //In favor of ItemStack sensitive version
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#getExperience(int)
+	 */
+    @Override
+	@Deprecated //In favor of ItemStack sensitive version
     public float getExperience(int par1)
     {
         return this.experienceList.containsKey(Integer.valueOf(par1)) ? ((Float)this.experienceList.get(Integer.valueOf(par1))).floatValue() : 0.0F;
     }
 
-    /**
-     * Add a metadata-sensitive furnace recipe
-     * @param itemID The Item ID
-     * @param metadata The Item Metadata
-     * @param itemstack The ItemStack for the result
-     */
-    @Deprecated //In favor of the exp version, will remove next major MC version.
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#addSmelting(int, int, net.minecraft.item.ItemStack)
+	 */
+    @Override
+	@Deprecated //In favor of the exp version, will remove next major MC version.
     public void addSmelting(int itemID, int metadata, ItemStack itemstack)
     {
         addSmelting(itemID, metadata, itemstack, 0.0f);
     }
 
-    /**
-     * A metadata sensitive version of adding a furnace recipe.
-     */
-    public void addSmelting(int itemID, int metadata, ItemStack itemstack, float experience)
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#addSmelting(int, int, net.minecraft.item.ItemStack, float)
+	 */
+    @Override
+	public void addSmelting(int itemID, int metadata, ItemStack itemstack, float experience)
     {
         metaSmeltingList.put(Arrays.asList(itemID, metadata), itemstack);
         metaExperience.put(Arrays.asList(itemID, metadata), experience);
     }
 
-    /**
-     * Used to get the resulting ItemStack form a source ItemStack
-     * @param item The Source ItemStack
-     * @return The result ItemStack
-     */
-    public ItemStack getSmeltingResult(ItemStack item) 
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#getSmeltingResult(net.minecraft.item.ItemStack)
+	 */
+    @Override
+	public ItemStack getSmeltingResult(ItemStack item) 
     {
         if (item == null)
         {
@@ -103,10 +112,11 @@ public class FreezerRecipes
         return (ItemStack)smeltingList.get(Integer.valueOf(item.itemID));
     }
 
-    /**
-     * Grabs the amount of base experience for this item to give when pulled from the furnace slot.
-     */
-    public float getExperience(ItemStack item)
+    /* (non-Javadoc)
+	 * @see Reactioncraft.machines.common.FreezerRecipesInterface#getExperience(net.minecraft.item.ItemStack)
+	 */
+    @Override
+	public float getExperience(ItemStack item)
     {
         if (item == null || item.getItem() == null)
         {

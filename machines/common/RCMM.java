@@ -34,95 +34,94 @@ public class RCMM
 {
 	//@SidedProxy(clientSide = "Reactioncraft.base.common.ClientProxy", serverSide = "Reactioncraft.base.common.CommonProxy")
 	@SidedProxy(clientSide = "Reactioncraft.machines.common.ClientProxy", serverSide = "Reactioncraft.machines.common.CommonProxy")
-	
+
 	public static CommonProxy proxy;
 	@Instance("RCMM")
 	public static RCMM instance;
-	
+
 	//Config Code
 	public static int FreezerActiveID;
 	public static int FreezerIdleID;
 	public static int IceBucketIID;
 	public static int ObsidianBucketIID;
-	
+
 	//Block code
 	public static Block FreezerActive;
 	public static Block FreezerIdle;
-	
-	
+
+
 	//Item Code
 	public static Item IceBucket;
 	public static Item ObsidianBucket;
-	
-	   
-	 public static RCMM instance()
-	 {
-	        return instance;
-	 }
-	
+
+
+	public static RCMM instance()
+	{
+		return instance;
+	}
+
 	@PreInit
-	 public void preInit(FMLPreInitializationEvent evt)
-	 {
-		 instance = this;
-		 Configuration config = new Configuration(evt.getSuggestedConfigurationFile());
-		 config.load();
-		 
-		 MinecraftForge.EVENT_BUS.register(this);
-		 FreezerActiveID = config.getBlock("Freezer Active", 4000).getInt();
-		 FreezerIdleID   = config.getBlock("Freezer Idle", 4001).getInt();
-		 
-		 IceBucketIID = config.getItem("Ice Bucket", 12000).getInt();
-		 ObsidianBucketIID = config.getItem("Obsidian Bucket", 12001).getInt();
-		 
-		 
-		 config.save();
-	 }
-	
-	 @Init 
-	 public void load(FMLInitializationEvent event)
-	 {
+	public void preInit(FMLPreInitializationEvent evt)
+	{
+		instance = this;
+		Configuration config = new Configuration(evt.getSuggestedConfigurationFile());
+		config.load();
+
+		MinecraftForge.EVENT_BUS.register(this);
+		FreezerActiveID = config.getBlock("Freezer Active", 4000).getInt();
+		FreezerIdleID   = config.getBlock("Freezer Idle", 4001).getInt();
+
+		IceBucketIID = config.getItem("Ice Bucket", 12000).getInt();
+		ObsidianBucketIID = config.getItem("Obsidian Bucket", 12001).getInt();
+
+
+		config.save();
+	}
+
+	@Init 
+	public void load(FMLInitializationEvent event)
+	{
 		ClientProxy.registerRenderInformation();
-		
+
 		FreezerIdle = (new BlockFreezer(FreezerActiveID, false)).setHardness(3.5F).setBlockName("FreezerIdle").setRequiresSelfNotify().setCreativeTab(RCB.Reactioncraft);
 		FreezerActive = (new BlockFreezer(FreezerIdleID, true)).setHardness(3.5F).setLightValue(0.875F).setBlockName("FreezerActive").setRequiresSelfNotify();
-		
+
 		IceBucket = (new ItemBasic(IceBucketIID)).setIconCoord(202, 0).setMaxStackSize(1).setItemName("IceBucket").setContainerItem(Item.bucketEmpty);
 		ObsidianBucket = (new ItemBasic(ObsidianBucketIID)).setIconCoord(205, 0).setMaxStackSize(1).setItemName("ObsidianBucket").setContainerItem(Item.bucketEmpty);
-		
+
 		//GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{Block.blockSteel, Block.blockSteel, Block.stoneOvenIdle, Item.redstone, Item.redstone, Item.redstone, Item.redstone, Item.bucketWater, Block.lever});
 		GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{"RSR", "LOW", "RSR",  Character.valueOf('W'), Item.bucketWater ,Character.valueOf('L'), Block.lever ,Character.valueOf('S'), Block.blockSteel ,Character.valueOf('O'), Block.stoneOvenIdle, Character.valueOf('R'), Item.redstone});
 		GameRegistry.addShapelessRecipe(new ItemStack(Block.ice, 1), new Object[]{IceBucket,});
 		GameRegistry.addShapelessRecipe(new ItemStack(Block.obsidian, 1), new Object[]{ObsidianBucket,});
-		
-		
+
+
 		GameRegistry.registerBlock(FreezerActive);
 		GameRegistry.registerBlock(FreezerIdle);
-		
+
 		LanguageRegistry.addName(FreezerIdle, "Freezer");
 		LanguageRegistry.addName(ObsidianBucket, "Bucket Of Obsidian");
 		LanguageRegistry.addName(IceBucket, "\u00a79Bucket Of Ice");
-		
+
 		NetworkRegistry.instance().registerGuiHandler(this, proxy);
 		GameRegistry.registerTileEntity(TileEntityFreezer.class, "Freezer");
-		
+
+		GameRegistry.addSmelting(RCMM.IceBucket.shiftedIndex, new ItemStack(Item.bucketWater, 1), 0.5F);
+
 		FreezerRecipes.smelting().addSmelting(Item.bucketLava.shiftedIndex , new ItemStack(ObsidianBucket, 1, 0), 0.5F);
 		FreezerRecipes.smelting().addSmelting(Item.bucketWater.shiftedIndex, new ItemStack(IceBucket), 0.5F);
-		
-		GameRegistry.addSmelting(RCMM.IceBucket.shiftedIndex, new ItemStack(Item.bucketWater, 1), 0.5F);
-		
-		
+
 		//For Future IC2 / BC Compatable Freezer and Reactioncraft Mods
 		OreDictionary.registerOre("bucketICE", new ItemStack(IceBucket));
-	 }
-	 
-	 public static void loadRailCraft()
-	 {
-		 RailcraftCraftingManager.blastFurnace.addRecipe(RCMM.ObsidianBucket.shiftedIndex, 1280, new ItemStack(Item.bucketLava, 1));
-	 }
+	}
 
-	 @PostInit
-	 public void modsLoaded(FMLPostInitializationEvent evt)
-	 {
-	 
-	 }
+	public static void loadRailCraft()
+	{
+		RailcraftCraftingManager.blastFurnace.addRecipe(RCMM.ObsidianBucket.shiftedIndex, 1280, new ItemStack(Item.bucketLava, 1));
+	}
+
+	@PostInit
+	public void modsLoaded(FMLPostInitializationEvent evt)
+	{
+
+	}
 }

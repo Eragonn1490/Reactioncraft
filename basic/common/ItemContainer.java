@@ -13,7 +13,6 @@ public class ItemContainer extends Item
 		this.setCreativeTab(RCB.Reactioncraft);
 		this.maxStackSize = 1;
 		this.setContainerItem(this);
-		//this.setCreativeTab(CreativeTabs.tabRedstone);
 	}
 
     /**
