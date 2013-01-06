@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import Reactioncraft.basic.common.BasicSword;
 import Reactioncraft.basic.common.PacketHandler;
@@ -117,6 +118,14 @@ public class RCW
         LanguageRegistry.addName(BloodstoneShovel, "Bloodstone Shovel");
         LanguageRegistry.addName(BloodstoneAxe, "Bloodstone Axe");
         LanguageRegistry.addName(BloodstoneHoe, "Bloodstone Hoe");
+        
+        MinecraftForge.setToolClass(RCW.ObbyPick,    "pickaxe", 4); 
+        MinecraftForge.setToolClass(RCW.ObbyShovel,  "pickaxe", 4);
+        MinecraftForge.setToolClass(RCW.ObbyAxe,     "pickaxe", 3);
+        
+        MinecraftForge.setToolClass(RCW.BloodstonePick,    "pickaxe", 5);
+        MinecraftForge.setToolClass(RCW.BloodstoneShovel,  "pickaxe", 5);
+        MinecraftForge.setToolClass(RCW.BloodstoneAxe,     "pickaxe", 3);
         
         proxy.registerRenderInformation();
     }

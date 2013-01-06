@@ -1,7 +1,9 @@
 Changelog as of 1/6/2013 3:46 PM Eastern Time
 
+Added a Freezer GUI that looks better(not implemented as of yet)
 Added Minecraftforge settings to harvest levels... to the bloodstone / obsidan tools  (RCW)
 Added Minecraftforge settings to blocks to make them require certian levels (RCORES)
+Created Taller Sugarcane Via base edit... (now i need to make a way to 
 
 
 Changelog before 1/6/2013
@@ -17,7 +19,7 @@ fixed worldgenhandler of RCORES
 added WorldGenMinableEnd
 
 Fixed Freezer turning
-added IceBucket to oreDictionary to add support for future IC2/BC support
+added IceBucket to oreDictionary to add support for future IC2/BC support in other Reactioncraft Mods
 added Ender Gem (future use)
 Fixed Metadata of Walls Mod (had 2 backwords)
 

@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -178,6 +179,8 @@ public class RCORES
 		    //World Gen Handlers
 		    GameRegistry.registerWorldGenerator(new WorldGenHandler());
 		    
+		    //Setting Harvest Level
+		    MinecraftForge.setBlockHarvestLevel(RCORES.netherOres,     "pickaxe", 4);
 		    
 		    //IC2 integration
 			try 

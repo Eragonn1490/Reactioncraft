@@ -45,6 +45,8 @@ public class RCPM
 	//config for blocks
 	public static int CocoCropID;
 	public static int AncientPlantID;
+	//public static int sugarcaneID;
+
 	//config for items
 	public static int AncientFruitIID;
 	public static int AncientSeedsIID;
@@ -57,7 +59,7 @@ public class RCPM
 	//Blocks
 	public static Block CocoCrop;
 	public static Block AncientPlant;
-	
+	//public static Block sugarcane;
 	
 	//Items
 	public static Item AncientFruit;
@@ -85,6 +87,7 @@ public class RCPM
         //Claimed IDs 3081 - 3090
         CocoCropID = config.getBlock("Coco Crop", 3081).getInt();
         AncientPlantID = config.getBlock("Ancient Plant", 3082).getInt();
+        //sugarcaneID = config.getBlock("Sugar Cane", 3083).getInt();
         
         AncientSeedsIID = config.getItem("Ancient Seeds", 10301).getInt();
         AncientFruitIID = config.getItem("Ancient Fruit", 10302).getInt();
