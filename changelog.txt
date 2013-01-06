@@ -1,4 +1,10 @@
-Changelog
+Changelog as of 1/6/2013 3:46 PM Eastern Time
+
+Added Minecraftforge settings to harvest levels... to the bloodstone / obsidan tools  (RCW)
+Added Minecraftforge settings to blocks to make them require certian levels (RCORES)
+
+
+Changelog before 1/6/2013
 
 fixed seacreeper burning
 fixed seacreeper so that they dont drop gunpowder as a rare drop if burning from sunlight (still drops as regular mob drop)
