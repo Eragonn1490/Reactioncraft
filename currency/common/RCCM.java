@@ -94,19 +94,19 @@ public class RCCM
 	
 	public void furnaceRecipes() 
 	{
-		GameRegistry.addSmelting(RCCM.Crown.shiftedIndex, new ItemStack(RCCM.Metadatacoin,5,2), 0.5F);
+		GameRegistry.addSmelting(RCCM.Crown.itemID, new ItemStack(RCCM.Metadatacoin,5,2), 0.5F);
 		GameRegistry.addSmelting(Block.tallGrass.blockID, new ItemStack(Straw), 0.5F); 
-		GameRegistry.addSmelting(Item.ingotGold.shiftedIndex, new ItemStack(RCCM.Metadatacoin,1,2), 0.5F); 
+		GameRegistry.addSmelting(Item.ingotGold.itemID, new ItemStack(RCCM.Metadatacoin,1,2), 0.5F); 
 		
 		//Metadata Smelting Recipes
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.shiftedIndex,11, new ItemStack(RCCM.Metadatacoin,1,2), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin2.shiftedIndex,0, new ItemStack(RCCM.Metadatacoin,1,0), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin2.shiftedIndex,5, new ItemStack(RCCM.Metadatacoin,1,1), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.itemID,11, new ItemStack(RCCM.Metadatacoin,1,2), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin2.itemID,0, new ItemStack(RCCM.Metadatacoin,1,0), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin2.itemID,5, new ItemStack(RCCM.Metadatacoin,1,1), 0.5F);
 		
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.shiftedIndex,7, new ItemStack(RCCM.Metadatacoin,1,3), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.shiftedIndex,8, new ItemStack(RCCM.Metadatacoin,1,4), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.shiftedIndex,9, new ItemStack(RCCM.Metadatacoin,1,5), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.shiftedIndex,10, new ItemStack(RCCM.Metadatacoin,1,6), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.itemID,7, new ItemStack(RCCM.Metadatacoin,1,3), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.itemID,8, new ItemStack(RCCM.Metadatacoin,1,4), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.itemID,9, new ItemStack(RCCM.Metadatacoin,1,5), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(RCCM.Metadatacoin.itemID,10, new ItemStack(RCCM.Metadatacoin,1,6), 0.5F);
 	}
 	
 

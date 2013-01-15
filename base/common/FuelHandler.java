@@ -9,11 +9,11 @@ public class FuelHandler implements IFuelHandler {
 	@Override
 	public int getBurnTime(ItemStack fuel)
 	{
-		if(fuel.itemID == Item.book.shiftedIndex)
+		if(fuel.itemID == Item.book.itemID)
 			return 45;
-		else if(fuel.itemID == Item.writableBook.shiftedIndex)
+		else if(fuel.itemID == Item.writableBook.itemID)
 			return 50;
-		else if(fuel.itemID == Item.writtenBook.shiftedIndex)
+		else if(fuel.itemID == Item.writtenBook.itemID)
 			return 55;
 
 		

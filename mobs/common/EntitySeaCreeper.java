@@ -64,7 +64,7 @@ public class EntitySeaCreeper extends EntityWaterMob
      */
     protected int getDropItemId()
     {
-        return Item.gunpowder.shiftedIndex;
+        return Item.gunpowder.itemID;
     }
 
     /**
@@ -76,7 +76,7 @@ public class EntitySeaCreeper extends EntityWaterMob
 
         if (this.isBurning())
         {
-            this.dropItem(Item.chickenCooked.shiftedIndex, 0);
+            this.dropItem(Item.chickenCooked.itemID, 0);
         }
         else
         {
@@ -213,7 +213,7 @@ public class EntitySeaCreeper extends EntityWaterMob
 
             if (var1 > 0 && this.timeSinceIgnited == 0)
             {
-                this.func_85030_a("random.fuse", 1.0F, 0.5F);
+                //this.func_85030_a("random.fuse", 1.0F, 0.5F);
             }
 
             this.timeSinceIgnited += var1;
@@ -273,7 +273,7 @@ public class EntitySeaCreeper extends EntityWaterMob
 
         if (par1DamageSource.getEntity() instanceof EntitySkeleton)
         {
-            int var2 = Item.record13.shiftedIndex + this.rand.nextInt(Item.gunpowder.shiftedIndex - Item.record13.shiftedIndex + 1);
+            int var2 = Item.record13.itemID + this.rand.nextInt(Item.gunpowder.itemID - Item.record13.itemID + 1);
             this.dropItem(var2, 1);
         }
     }

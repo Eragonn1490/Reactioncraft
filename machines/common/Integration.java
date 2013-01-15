@@ -15,6 +15,6 @@ public class Integration
 {	
 	public static void loadRailCraft()
 	{
-		RailcraftCraftingManager.blastFurnace.addRecipe(RCMM.ObsidianBucket.shiftedIndex, 1280, new ItemStack(Item.bucketLava, 1));
+		RailcraftCraftingManager.blastFurnace.addRecipe(RCMM.ObsidianBucket.itemID, 1280, new ItemStack(Item.bucketLava, 1));
 	}
 }

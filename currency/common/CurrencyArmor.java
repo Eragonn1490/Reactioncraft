@@ -19,12 +19,12 @@ public CurrencyArmor(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3
 // This Sets What The Armor Is Supposed To Render Like
 @Override
 public String getArmorTextureFile(ItemStack stack){
-	if(stack.itemID == RCCM.Crown.shiftedIndex || stack.itemID == RCCM.KinglyChest.shiftedIndex || stack.itemID == RCCM.KinglyBoots.shiftedIndex)
+	if(stack.itemID == RCCM.Crown.itemID || stack.itemID == RCCM.KinglyChest.itemID || stack.itemID == RCCM.KinglyBoots.itemID)
 	{
 		return "/Reactioncraft/images/armor/goldcrown_1.png";
 	}
 
-if(stack.itemID == RCCM.KinglyLegs.shiftedIndex)
+if(stack.itemID == RCCM.KinglyLegs.itemID)
 	{
 	return "/Reactioncraft/images/armor/kingspants2.png";
 	}

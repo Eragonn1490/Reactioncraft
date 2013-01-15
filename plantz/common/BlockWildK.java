@@ -87,35 +87,35 @@ public class BlockWildK extends BlockFlower
             int w = par2Random.nextInt(60);
             if (w == 0)
             {
-                return RcPlantz.Toke.shiftedIndex;
+                return RcPlantz.Toke.itemID;
             }
             if (w == 15)
             {
-                return RcPlantz.OKSeed.shiftedIndex;
+                return RcPlantz.OKSeed.itemID;
             }
             if (w == 20)
             {
-                return RcPlantz.LKSeed.shiftedIndex;
+                return RcPlantz.LKSeed.itemID;
             }
             if (w == 35)
             {
-                return RcPlantz.FireSeed.shiftedIndex;
+                return RcPlantz.FireSeed.itemID;
             }
             if (w == 40)
             {
-                return  RcPlantz.CrystalSeed.shiftedIndex;
+                return  RcPlantz.CrystalSeed.itemID;
             }
             if (w == 55)
             {
-                return  RcPlantz.BYYSeed.shiftedIndex;
+                return  RcPlantz.BYYSeed.itemID;
             }
             if (w == 60)
             {
-                return  RcPlantz.BlueDreamSeed.shiftedIndex;
+                return  RcPlantz.BlueDreamSeed.itemID;
             }
             else
             {
-                return RcPlantz.WildKSeed.shiftedIndex;
+                return RcPlantz.WildKSeed.itemID;
             }         
     }
 

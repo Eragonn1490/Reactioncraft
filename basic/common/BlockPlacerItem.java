@@ -13,10 +13,11 @@ public class BlockPlacerItem extends ItemReed
     /** The ID of the block the reed will spawn when used from inventory bar. */
     private int spawnID;
 
-    public BlockPlacerItem(int par1, Block par2Block)
+    public BlockPlacerItem(int par1, Block par2Block, String par3)
     {
         super(par1, par2Block);
         this.spawnID = par2Block.blockID;
+        par3 = getTextureFile();
     }
 
     /**
@@ -77,14 +78,14 @@ public class BlockPlacerItem extends ItemReed
             if (par3World.canPlaceEntityOnSide(this.spawnID, par4, par5, par6, false, par7, (Entity)null))
             {
                 Block var12 = Block.blocksList[this.spawnID];
-                int var13 = var12.func_85104_a(par3World, par4, par5, par6, par7, par8, par9, par10, 0);
+                int var13 = var12.onBlockPlaced(par3World, par4, par5, par6, par7, par8, par9, par10, 0);
 
                 if (par3World.setBlockAndMetadataWithNotify(par4, par5, par6, this.spawnID, var13))
                 {
                     if (par3World.getBlockId(par4, par5, par6) == this.spawnID)
                     {
                         Block.blocksList[this.spawnID].onBlockPlacedBy(par3World, par4, par5, par6, par2EntityPlayer);
-                        Block.blocksList[this.spawnID].func_85105_g(par3World, par4, par5, par6, var13);
+                        Block.blocksList[this.spawnID].onPostBlockPlaced(par3World, par4, par5, par6, var13);
                     }
 
                     par3World.playSoundEffect((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), var12.stepSound.getPlaceSound(), (var12.stepSound.getVolume() + 1.0F) / 2.0F, var12.stepSound.getPitch() * 0.8F);

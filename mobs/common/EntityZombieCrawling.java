@@ -184,20 +184,20 @@ public class EntityZombieCrawling extends EntityMob
         return "mob.zombie.death";
     }
 
-    /**
-     * Plays step sound at given x, y, z for the entity
-     */
-    protected void playStepSound(int par1, int par2, int par3, int par4)
-    {
-        this.func_85030_a("mob.zombie.step", 0.15F, 1.0F);
-    }
+//    /**
+//     * Plays step sound at given x, y, z for the entity
+//     */
+//    protected void playStepSound(int par1, int par2, int par3, int par4)
+//    {
+//        this.func_85030_a("mob.zombie.step", 0.15F, 1.0F);
+//    }
 
     /**
      * Returns the item ID for the item the mob drops on death.
      */
     protected int getDropItemId()
     {
-        return Item.rottenFlesh.shiftedIndex;
+        return Item.rottenFlesh.itemID;
     }
 
     /**
@@ -213,13 +213,13 @@ public class EntityZombieCrawling extends EntityMob
         switch (this.rand.nextInt(3))
         {
             case 0:
-            	this.entityDropItem(new ItemStack(Item.skull.shiftedIndex, 1, 2), 0.0F);
+            	this.entityDropItem(new ItemStack(Item.skull.itemID, 1, 2), 0.0F);
                 break;
             case 1:
-            	this.entityDropItem(new ItemStack(Item.skull.shiftedIndex, 1, 2), 0.0F);
+            	this.entityDropItem(new ItemStack(Item.skull.itemID, 1, 2), 0.0F);
                 break;
             case 2:
-            	this.entityDropItem(new ItemStack(Item.skull.shiftedIndex, 1, 2), 0.0F);
+            	this.entityDropItem(new ItemStack(Item.skull.itemID, 1, 2), 0.0F);
         }
     }
 }

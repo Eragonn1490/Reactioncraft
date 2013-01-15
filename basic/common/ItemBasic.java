@@ -1,7 +1,6 @@
 package Reactioncraft.basic.common;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import Reactioncraft.base.common.RCB;
 
 public class ItemBasic extends Item

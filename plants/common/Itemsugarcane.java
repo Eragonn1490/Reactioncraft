@@ -1,4 +1,4 @@
-package Reactioncraft.food.common;
+package Reactioncraft.plants.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -6,25 +6,22 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import Reactioncraft.base.common.RCB;
 
-
-public class BlockCakePlacerItem extends ItemReed
+public class Itemsugarcane extends ItemReed
 {
     /** The ID of the block the reed will spawn when used from inventory bar. */
     private int spawnID;
 
-    public BlockCakePlacerItem(int par1, Block par2Block)
+    public Itemsugarcane(int par1, Block par2Block)
     {
         super(par1, par2Block);
         this.spawnID = par2Block.blockID;
-        this.setCreativeTab(RCB.Reactioncraftfood);
     }
     
     @Override
-	public String getTextureFile()
-	{
-		return "/Reactioncraft/images/Items.png";
+	public String getTextureFile() 
+    {
+		return "/Reactioncraft/images/mojangitems.png";
 	}
     
     /**

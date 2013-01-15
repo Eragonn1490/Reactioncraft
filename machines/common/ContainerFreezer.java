@@ -47,11 +47,11 @@ public class ContainerFreezer extends Container
     }
 
     /**
-     * Updates crafting matrix; called from onCraftMatrixChanged. Args: none
+     * Looks for changes made in the container, sends them to every listener.
      */
-    public void updateCraftingResults()
+    public void detectAndSendChanges()
     {
-        super.updateCraftingResults();
+        super.detectAndSendChanges();
 
         for (int var1 = 0; var1 < this.crafters.size(); ++var1)
         {

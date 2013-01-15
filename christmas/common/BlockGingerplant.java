@@ -176,7 +176,7 @@ public class BlockGingerplant extends BlockFlower
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return par1 == 7 ? RCHRM.GingerRoot.shiftedIndex : -1;
+        return par1 == 7 ? RCHRM.GingerRoot.itemID : -1;
     }
 
     /**

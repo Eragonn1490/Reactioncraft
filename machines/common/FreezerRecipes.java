@@ -32,7 +32,7 @@ public class FreezerRecipes implements FreezerRecipesInterface
 
     private FreezerRecipes()
     {
-        this.addSmelting(Item.bucketEmpty.shiftedIndex, new ItemStack(RCMM.IceBucket), 0.7F);
+        this.addSmelting(Item.bucketEmpty.itemID, new ItemStack(RCMM.IceBucket), 0.7F);
     }
 
     /* (non-Javadoc)

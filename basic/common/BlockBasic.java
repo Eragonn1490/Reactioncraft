@@ -14,6 +14,15 @@ public class BlockBasic extends Block
                 this.setCreativeTab(RCB.Reactioncraft);
         }
        
+        /**
+         * Disable statistics for the block, the block will no count for mined or placed.
+         */
+        public Block disableStats()
+        {
+            this.enableStats = false;
+            return this;
+        }
+        
         public String getTextureFile()
         {
                 return "/Reactioncraft/images/Blocks.png";

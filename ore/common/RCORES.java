@@ -164,16 +164,16 @@ public class RCORES
 		    //Furnace stuff 
 		    
 		    //Gold rod to gold ingot
-		    FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.shiftedIndex, new ItemStack(Item.ingotGold.shiftedIndex, 1, 0), 0.5F);
+		    FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.itemID, new ItemStack(Item.ingotGold.itemID, 1, 0), 0.5F);
 		    
 		    //Bloodstone dust to bloodstone ingot
-		    FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.shiftedIndex, 6, new ItemStack(RCORES.OreItems.shiftedIndex, 1, 3), 0.5F);
+		    FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.itemID, 6, new ItemStack(RCORES.OreItems.itemID, 1, 3), 0.5F);
 		    
 		    //Obsidian to obsidian ingot
-		    GameRegistry.addSmelting(Block.obsidian.blockID, new ItemStack(RCORES.OreItems.shiftedIndex, 1, 1), 0.5F);
+		    GameRegistry.addSmelting(Block.obsidian.blockID, new ItemStack(RCORES.OreItems.itemID, 1, 1), 0.5F);
     
 		   //Iron Dust to Superheated Iron
-		   FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.shiftedIndex, 10, new ItemStack(RCORES.OreItems.shiftedIndex, 1, 9), 0.5F);
+		   FurnaceRecipes.smelting().addSmelting(RCORES.OreItems.itemID, 10, new ItemStack(RCORES.OreItems.itemID, 1, 9), 0.5F);
 		    
 		    
 		    //World Gen Handlers
@@ -193,7 +193,7 @@ public class RCORES
 			}
 			catch (ClassNotFoundException e)	
 			{
-				System.out.println(" did not find IC2, macerator recipe disabled");
+				System.out.println(" Reactioncraft Ores did not find IC2, macerator recipe disabled");
 			}
 	 }
 

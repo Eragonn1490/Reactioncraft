@@ -25,7 +25,7 @@ public class EntityBee extends EntityAnimal
         float f = 0.25F;
         tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(1, new EntityAIPanic(this, 0.38F));
-        tasks.addTask(3, new EntityAITempt(this, 0.25F, Item.wheat.shiftedIndex, false));
+        tasks.addTask(3, new EntityAITempt(this, 0.25F, Item.wheat.itemID, false));
         tasks.addTask(4, new EntityAIFollowParent(this, 0.28F));
         tasks.addTask(5, new EntityAIWander(this, f));
         tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
@@ -95,7 +95,7 @@ public class EntityBee extends EntityAnimal
      */
     protected int getDropItemId()
     {
-        return isBurning() ? null : ModRCMM.RcBee.shiftedIndex;
+        return isBurning() ? null : ModRCMM.RcBee.itemID;
     }
 
     public boolean getSaddled()
@@ -150,9 +150,14 @@ public class EntityBee extends EntityAnimal
         return new EntityBee(worldObj);
     }
 
-	@Override
 	public EntityAgeable func_90011_a(EntityAgeable var1) 
 	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EntityAgeable createChild(EntityAgeable var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}

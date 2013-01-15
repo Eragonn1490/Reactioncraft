@@ -177,7 +177,7 @@ public class BlockBbyyy extends BlockFlower
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return par1 == 7 ? RcPlantz.BYYSeed.shiftedIndex : -1;
+        return par1 == 7 ? RcPlantz.BYYSeed.itemID : -1;
     }
 
     /**

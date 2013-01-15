@@ -106,7 +106,7 @@ public class EntityJellyfish extends EntityWaterMob
      */
     public int getDropItemId()
     {
-        return ModRCMM.Jellyfish.shiftedIndex;
+        return ModRCMM.Jellyfish.itemID;
     }
 
     /**

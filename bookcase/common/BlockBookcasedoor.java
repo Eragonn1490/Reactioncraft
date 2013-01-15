@@ -1,18 +1,16 @@
 package Reactioncraft.bookcase.common;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBookcasedoor extends BlockDoor
 {
@@ -398,7 +396,7 @@ public class BlockBookcasedoor extends BlockDoor
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return (par1 & 8) != 0 ? 0 : (this.blockMaterial == Material.iron ? RCBB.IronBookcasedoor.shiftedIndex : RCBB.WoodenBookcasedoor.shiftedIndex);
+        return (par1 & 8) != 0 ? 0 : (this.blockMaterial == Material.iron ? RCBB.IronBookcasedoor.itemID : RCBB.WoodenBookcasedoor.itemID);
     }
 
     @SideOnly(Side.CLIENT)
@@ -408,7 +406,7 @@ public class BlockBookcasedoor extends BlockDoor
      */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return this.blockMaterial == Material.iron ? RCBB.IronBookcasedoor.shiftedIndex : RCBB.WoodenBookcasedoor.shiftedIndex;
+        return this.blockMaterial == Material.iron ? RCBB.IronBookcasedoor.itemID : RCBB.WoodenBookcasedoor.itemID;
     }
 
     /**

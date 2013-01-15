@@ -17,7 +17,7 @@ public class CreativeTabReactioncraft extends CreativeTabs
     @Override
     public int getTabIconItemIndex()
     {
-        return RCB.Mask.shiftedIndex;
+        return RCB.Mask.itemID;
     }
     
     public String getTranslatedTabLabel()

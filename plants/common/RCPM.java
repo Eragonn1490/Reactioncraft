@@ -1,7 +1,12 @@
 package Reactioncraft.plants.common;
 
+import Reactioncraft.basic.common.ClientProxy;
+import Reactioncraft.basic.common.CommonProxy;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockReed;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
@@ -9,10 +14,8 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
-import Reactioncraft.basic.common.CommonProxy;
-import Reactioncraft.basic.common.ItemBasic;
-import Reactioncraft.basic.common.ItemBasicFood;
-import Reactioncraft.basic.common.ItemBasicSeed;
+import Reactioncraft.base.common.RCB;
+import Reactioncraft.basic.common.*;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -45,7 +48,7 @@ public class RCPM
 	//config for blocks
 	public static int CocoCropID;
 	public static int AncientPlantID;
-	//public static int sugarcaneID;
+	public static int sugarcaneBlockID;
 
 	//config for items
 	public static int AncientFruitIID;
@@ -54,12 +57,13 @@ public class RCPM
 	public static int CocoBeanIID;
 	public static int VanillaSeedIID;
 	public static int VanillaBeanIID;
+	public static int sugarcaneItemIID;
 	
 	
 	//Blocks
 	public static Block CocoCrop;
 	public static Block AncientPlant;
-	//public static Block sugarcane;
+	public static Block sugarcaneBlock;
 	
 	//Items
 	public static Item AncientFruit;
@@ -70,6 +74,7 @@ public class RCPM
     public static Item AncientSeeds;
     public static Item CocoSeed;
     public static Item VanillaSeed;
+    public static Item sugarcaneItem;
     	
     
     @PreInit
@@ -87,7 +92,7 @@ public class RCPM
         //Claimed IDs 3081 - 3090
         CocoCropID = config.getBlock("Coco Crop", 3081).getInt();
         AncientPlantID = config.getBlock("Ancient Plant", 3082).getInt();
-        //sugarcaneID = config.getBlock("Sugar Cane", 3083).getInt();
+        sugarcaneBlockID = config.getBlock("Sugar Cane", 3083).getInt();
         
         AncientSeedsIID = config.getItem("Ancient Seeds", 10301).getInt();
         AncientFruitIID = config.getItem("Ancient Fruit", 10302).getInt();
@@ -95,6 +100,7 @@ public class RCPM
         CocoBeanIID = config.getItem("Coco Bean", 10304).getInt();
         VanillaSeedIID = config.getItem("Vanilla Seed", 10305).getInt();
         VanillaBeanIID = config.getItem("Vanilla Bean", 10306).getInt();
+        sugarcaneItemIID = config.getItem("Sugar Cane Item", 10307).getInt();
         
         //Claimed Item ids 10301 - 10400 
         
@@ -109,30 +115,41 @@ public class RCPM
 		//Claimed Block Ids 3081 - 3099
 		proxy.registerRenderInformation();
 		
+		//Blocks
 		CocoCrop = new BlockCocoPlant(CocoCropID, 225).setHardness(0.0F).setResistance(1.0F).setBlockName("CocoCrop");
 		AncientPlant = new BlockAncientPlant(AncientPlantID, 0).setHardness(0.0F).setResistance(1.0F).setBlockName("AncientPlant");
+		sugarcaneBlock = (new BlockSugarcane(sugarcaneBlockID, 73)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("sugarcaneBlock").disableStats();
 		
+		//Items
 		AncientSeeds = new ItemBasicSeed(AncientSeedsIID, RCPM.AncientPlant.blockID, Block.tilledField.blockID).setIconCoord(133, 0).setItemName("AncientSeeds");
 		AncientFruit = new ItemBasicFood(AncientFruitIID, 8, true).setIconCoord(100, 0).setItemName("AncientFruit");
 		CocoSeed = new ItemBasicSeed(CocoSeedIID, RCPM.CocoCrop.blockID, Block.tilledField.blockID).setIconCoord(255, 0).setItemName("CocoSeed");
 		CocoBean = new ItemBasic(CocoBeanIID).setIconCoord(255, 0).setItemName("CocoBean");
 		VanillaSeed= new ItemBasic(VanillaSeedIID).setIconCoord(109, 0).setItemName("VanillaSeed");
 		VanillaBean= new ItemBasic(VanillaBeanIID).setIconCoord(109, 0).setItemName("VanillaBean");
+		sugarcaneItem = (new Itemsugarcane(sugarcaneItemIID, RCPM.sugarcaneBlock)).setIconCoord(27, 0).setItemName("sugarcaneItem").setCreativeTab(RCB.Reactioncraft);
 		
 		//Registry Code
-		GameRegistry.registerBlock(CocoCrop);
-		GameRegistry.registerBlock(AncientPlant);
+		GameRegistry.registerBlock(CocoCrop, "CocoCrop");
+		GameRegistry.registerBlock(AncientPlant, "AncientPlant");
+		GameRegistry.registerBlock(sugarcaneBlock, "SugarcaneBlock");
+		GameRegistry.registerItem(sugarcaneItem, "sugarcaneItem");
 		
-		GameRegistry.addSmelting(CocoSeed.shiftedIndex, new ItemStack(CocoBean), 0.1F); 
+		
+		GameRegistry.addSmelting(CocoSeed.itemID, new ItemStack(CocoBean), 0.1F); 
 		
 		//Item Code
 		LanguageRegistry.addName(AncientSeeds, "Ancient Seeds");
 		LanguageRegistry.addName(AncientFruit, "Ancient Fruit");
 		LanguageRegistry.addName(CocoSeed, "Coco Seed");
 		LanguageRegistry.addName(CocoBean, "Coco Bean");
+		LanguageRegistry.addName(sugarcaneItem, "Sugar Cane");
 		
+		//MY Taller Sugarcane to Paper & sugar
+		GameRegistry.addRecipe(new ItemStack(Item.paper, 3), new Object[] {"###", '#', RCPM.sugarcaneItem});
+		GameRegistry.addRecipe(new ItemStack(Item.sugar, 1), new Object[] {"#", '#', RCPM.sugarcaneItem});
 		
-		//Mojang coco bean to ours... Cooked one to ours
+		//Mojang coco bean to ours... Cooked one to ours (Rewriting this)
 		GameRegistry.addShapelessRecipe(new ItemStack(AncientSeeds, 3), new Object[] {AncientFruit,});
 		GameRegistry.addRecipe(new ItemStack(CocoSeed, 1), new Object[]{ "   ", " # ", "   ", Character.valueOf('#'), CocoBean});
 		GameRegistry.addRecipe(new ItemStack(CocoSeed, 1), new Object[]{ "   ", " # ", "   ", Character.valueOf('#'), new ItemStack(Item.dyePowder, 1, 3)});

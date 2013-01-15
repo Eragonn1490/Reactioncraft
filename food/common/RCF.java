@@ -311,7 +311,7 @@ public class RCF
 	 	public void furnaceRecipes() 
 		{
 //			GameRegistry.addSmelting(uncookedcc.shiftedIndex, new ItemStack(ccItem), 0.5F); 
-			GameRegistry.addSmelting(Item.rottenFlesh.shiftedIndex, new ItemStack(EdibleFlesh), 0.5F); 
+			GameRegistry.addSmelting(Item.rottenFlesh.itemID, new ItemStack(EdibleFlesh), 0.5F); 
 			//GameRegistry.addSmelting(Item.ingotGold.shiftedIndex, new ItemStack(RefinedGIngot), 0.5F); 
 		}
 	 	

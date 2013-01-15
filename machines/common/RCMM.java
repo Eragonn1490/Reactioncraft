@@ -141,7 +141,7 @@ public class RCMM
 	{
 		GameRegistry.registerBlock(FreezerActive, "FreezerActive");
 		GameRegistry.registerBlock(FreezerIdle, "FreezerIdle");
-		GameRegistry.addSmelting(RCMM.IceBucket.shiftedIndex, new ItemStack(Item.bucketWater, 1), 0.5F);
+		GameRegistry.addSmelting(RCMM.IceBucket.itemID, new ItemStack(Item.bucketWater, 1), 0.5F);
 		GameRegistry.registerTileEntity(TileEntityFreezer.class, "Freezer");
 		GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{"RSR", "LOW", "RSR",  Character.valueOf('W'), Item.bucketWater ,Character.valueOf('L'), Block.lever ,Character.valueOf('S'), Block.blockSteel ,Character.valueOf('O'), Block.stoneOvenIdle, Character.valueOf('R'), Item.redstone});
 		GameRegistry.addShapelessRecipe(new ItemStack(Block.ice, 1), new Object[]{IceBucket,});
@@ -150,8 +150,8 @@ public class RCMM
 
 	private void FreezerRecipes() 
 	{
-		FreezerRecipes.smelting().addSmelting(Item.bucketLava.shiftedIndex , new ItemStack(ObsidianBucket, 1, 0), 0.5F);
-		FreezerRecipes.smelting().addSmelting(Item.bucketWater.shiftedIndex, new ItemStack(IceBucket), 0.5F);
+		FreezerRecipes.smelting().addSmelting(Item.bucketLava.itemID , new ItemStack(ObsidianBucket, 1, 0), 0.5F);
+		FreezerRecipes.smelting().addSmelting(Item.bucketWater.itemID, new ItemStack(IceBucket), 0.5F);
 	}
 
 	private void OreDictionary() 
