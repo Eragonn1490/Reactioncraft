@@ -30,7 +30,6 @@ public class BlockSugarcane extends BlockReed implements IPlantable
     {
 		return "/Reactioncraft/images/terrain.png";
 	}
-
     
     /**
      * Ticks the block if it's been scheduled
@@ -46,7 +45,7 @@ public class BlockSugarcane extends BlockReed implements IPlantable
                 ;
             }
 
-            if (var6 < 13)
+            if (var6 < 3)
             {
                 int var7 = par1World.getBlockMetadata(par2, par3, par4);
 
@@ -68,7 +67,6 @@ public class BlockSugarcane extends BlockReed implements IPlantable
      */
     public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
     {
-    	//Block block = RCPM.sugarcaneBlock;
         Block block = Block.blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
         return (block != null && block.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this));
     }
@@ -85,14 +83,14 @@ public class BlockSugarcane extends BlockReed implements IPlantable
     /**
      * Checks if current block pos is valid, if not, breaks the block as dropable item. Used for reed and cactus.
      */
-//    protected final void checkBlockCoordValid(World par1World, int par2, int par3, int par4)
-//    {
-//        if (!this.canBlockStay(par1World, par2, par3, par4))
-//        {
-//            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-//            par1World.setBlockWithNotify(par2, par3, par4, 0);
-//        }
-//    }
+    public final void checkBlockCoordValid(World par1World, int par2, int par3, int par4)
+    {
+        if (!this.canBlockStay(par1World, par2, par3, par4))
+        {
+            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
+            par1World.setBlockWithNotify(par2, par3, par4, 0);
+        }
+    }
 
     /**
      * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
@@ -171,4 +169,6 @@ public class BlockSugarcane extends BlockReed implements IPlantable
     {
         return world.getBlockMetadata(x, y, z);
     }
+ 
+    
 }

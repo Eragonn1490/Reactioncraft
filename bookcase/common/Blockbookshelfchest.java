@@ -379,7 +379,7 @@ public class Blockbookshelfchest extends BlockContainer
 
                         if (var9.hasTagCompound())
                         {
-                            var14.func_92014_d().setTagCompound((NBTTagCompound)var9.getTagCompound().copy());
+                            var14.getEntityItem().setTagCompound((NBTTagCompound)var9.getTagCompound().copy());
                         }
                     }
                 }
