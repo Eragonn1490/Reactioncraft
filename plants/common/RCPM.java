@@ -32,7 +32,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.plants.common.CommonProxy;
 
 
-@Mod( modid = "RCPM", name="Reactioncraft Plants", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCPM", name="Reactioncraft Plants", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCPM" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCPM

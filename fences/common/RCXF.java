@@ -22,7 +22,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.fences.common.CommonProxy;
 //import Reactioncraft.fences.common.ClientProxy;
 
-@Mod( modid = "RCXF", name="Reactioncraft Extra Fences", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCXF", name="Reactioncraft Extra Fences", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCCXF" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCXF

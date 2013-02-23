@@ -28,7 +28,7 @@ import Reactioncraft.christmas.common.CommonProxy;
 (
         modid = "RCHRM",
         name = "Reactioncraft Christmas Mod",
-        version = "[1.4.5] Reactioncraft Version 5.0"
+        version = "[1.4.7] Reactioncraft Version 7.0"
 )
 @NetworkMod
 (

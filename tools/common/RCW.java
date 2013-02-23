@@ -21,7 +21,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod( modid = "RCW", name="Reactioncraft Weapons", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCW", name="Reactioncraft Weapons", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCW" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCW

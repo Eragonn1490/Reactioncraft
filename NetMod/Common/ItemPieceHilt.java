@@ -1,14 +1,18 @@
-package net.minecraft.item;
+package Reactioncraft.NetMod.Common;
 
 import java.util.List;
 
+import Reactioncraft.base.common.RCB;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class ItemPieceHilt extends Item {
 
 	public ItemPieceHilt(int par1) {
 		super(par1);
 		this.setItemName("pieceHilt");
+		this.setCreativeTab(RCB.Reactioncraft);
 	}
 
 	@Override

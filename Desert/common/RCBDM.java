@@ -25,7 +25,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.ores.common.ClientProxy;
 //import Reactioncraft.ores.common.CommonProxy;
 
-@Mod( modid = "RCBDM", name="Reactioncraft Better Desert Mod", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCBDM", name="Reactioncraft Better Desert Mod", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCBDM" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCBDM

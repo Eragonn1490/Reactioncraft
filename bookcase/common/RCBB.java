@@ -21,7 +21,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
-@Mod( modid = "RCBB", name="Reactioncraft Better Bookcases Mod", version="[1.4.6] Reactioncraft Version 6.0.0")
+@Mod( modid = "RCBB", name="Reactioncraft Better Bookcases Mod", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCBB" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCBB
@@ -146,8 +146,8 @@ public class RCBB
 		GameRegistry.registerBlock(Bookcasechest, "Bookcasechest");
 		GameRegistry.registerBlock(WoodenBookcasedoorBlock, "WoodenBookcasedoorBlock");
 		GameRegistry.registerBlock(IronBookcasedoorBlock, "IronBookcasedoorBlock");
-		GameRegistry.registerItem(WoodenBookcasedoor, "WoodenBookcasedoorBlock");
-		GameRegistry.registerItem(IronBookcasedoor, "Iron Bookcase Door");
+		//GameRegistry.registerItem(WoodenBookcasedoor, "WoodenBookcasedoorBlock");
+		//GameRegistry.registerItem(IronBookcasedoor, "Iron Bookcase Door");
 	}
 
 	public void items() 

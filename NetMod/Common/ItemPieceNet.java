@@ -1,14 +1,25 @@
-package net.minecraft.item;
+package Reactioncraft.NetMod.Common;
 
 import java.util.List;
 
+import Reactioncraft.base.common.RCB;
+
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class ItemPieceNet extends Item {
 
 	public ItemPieceNet(int par1) {
 		super(par1);
 		this.setItemName("pieceNet");
+		this.setCreativeTab(RCB.Reactioncraft);
+	}
+	
+	@Override
+	public String getTextureFile()
+	{
+		return "/Reactioncraft/images/Items.png";
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package ltd.genuine.database;
+package Reactioncraft.NetMod.ltd.genuine.database;
 
 import java.util.ArrayList;
 import java.util.Collection;

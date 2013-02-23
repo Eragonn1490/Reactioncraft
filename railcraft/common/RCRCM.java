@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.basic.common.ClientProxy;
 //import Reactioncraft.basic.common.CommonProxy;
 
-@Mod( modid = "RCRCM", name="Reactioncraft: Railcraft Addon", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCRCM", name="Reactioncraft: Railcraft Addon", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCRCM" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCRCM

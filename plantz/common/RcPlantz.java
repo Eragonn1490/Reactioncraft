@@ -23,7 +23,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.plantz.common.CommonProxy;
 
 
-@Mod( modid = "RCP", name="Reactioncraft Plantz", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCP", name="Reactioncraft Plantz", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCP" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RcPlantz

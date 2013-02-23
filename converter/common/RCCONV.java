@@ -24,7 +24,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.base.common.CommonProxy;
 //import Reactioncraft.base.common.ClientProxy;
 
-@Mod( modid = "RCCONV", name="Reactioncraft Converter Mod", version="[1.4.5] Reactioncraft Version 5.0")
+@Mod( modid = "RCCONV", name="Reactioncraft Converter Mod", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCHRM" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCCONV

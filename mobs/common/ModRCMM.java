@@ -18,7 +18,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "ModRCMM", name="Reactioncraft Mobs Mod", version = "1.0", dependencies="required-after:FML@[4.2.18,)")
+@Mod(modid = "ModRCMM", name="Reactioncraft Mobs Mod", version="[1.4.7] Reactioncraft Version 7.0", dependencies="required-after:FML@[4.2.18,)")
 
 @NetworkMod(channels = { "ModRCMM" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 

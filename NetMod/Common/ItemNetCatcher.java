@@ -1,22 +1,31 @@
-package net.minecraft.item;
+package Reactioncraft.NetMod.Common;
 
 import java.util.List;
-
-import ltd.genuine.database.ExclusionList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.src.mod_NetCatcher;
+import Reactioncraft.NetMod.ltd.genuine.database.ExclusionList;
+import Reactioncraft.base.common.RCB;
 
 public class ItemNetCatcher extends ItemTool {
 
 	public ItemNetCatcher(int par1) {
 		super(par1, 0, EnumToolMaterial.WOOD, new Block[] {});
 		this.setItemName("completeNet");
+		this.setCreativeTab(RCB.Reactioncraft);
 	}
-
+	
+	@Override
+	public String getTextureFile()
+	{
+		return "/Reactioncraft/images/Items.png";
+	}
+	
 	@Override
 	public String getItemDisplayName(ItemStack par1ItemStack) {
 		return "Catching Net";
@@ -38,7 +47,7 @@ public class ItemNetCatcher extends ItemTool {
 		nbt.removeTag("HurtTime");
 		nbt.removeTag("DeathTime");
 		nbt.removeTag("AttackTime");
-		ItemStack is = new ItemStack(mod_NetCatcher.caught);
+		ItemStack is = new ItemStack(RCN.caught);
 		is.stackTagCompound = new NBTTagCompound();
 		is.stackTagCompound.setString("entity", EntityList.getEntityString(entity));
 		is.stackTagCompound.setCompoundTag("entityData", nbt);

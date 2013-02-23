@@ -29,7 +29,7 @@ import Reactioncraft.base.common.CommonProxy;
 import Reactioncraft.base.common.FuelHandler;
 
 
-@Mod( modid = "RCB", name="Reactioncraft Basic", version="[1.4.6] Reactioncraft Version 6.0.0")
+@Mod( modid = "RCB", name="Reactioncraft Basic", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCB" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class)
 
 public class RCB

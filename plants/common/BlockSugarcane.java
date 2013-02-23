@@ -80,17 +80,18 @@ public class BlockSugarcane extends BlockReed implements IPlantable
         this.checkBlockCoordValid(par1World, par2, par3, par4);
     }
 
-    /**
-     * Checks if current block pos is valid, if not, breaks the block as dropable item. Used for reed and cactus.
-     */
-    public final void checkBlockCoordValid(World par1World, int par2, int par3, int par4)
-    {
-        if (!this.canBlockStay(par1World, par2, par3, par4))
-        {
-            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
-        }
-    }
+//    /**
+//     * Checks if current block pos is valid, if not, breaks the block as dropable item. Used for reed and cactus.
+//     */
+//    @Override
+//    public void checkBlockCoordValid(World par1World, int par2, int par3, int par4)
+//    {
+//        if (!this.canBlockStay(par1World, par2, par3, par4))
+//        {
+//            this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
+//            par1World.setBlockWithNotify(par2, par3, par4, 0);
+//        }
+//    }
 
     /**
      * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.

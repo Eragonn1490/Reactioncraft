@@ -28,7 +28,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import Reactioncraft.base.common.CommonProxy;
 //import Reactioncraft.base.common.ClientProxy;
 
-@Mod( modid = "RCC", name="Reactioncraft Core", version="[1.4.6] Reactioncraft Version 6.0.0")
+@Mod( modid = "RCC", name="Reactioncraft Core", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCC" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
 public class RCC

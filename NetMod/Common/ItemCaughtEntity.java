@@ -1,8 +1,11 @@
-package net.minecraft.item;
+package Reactioncraft.NetMod.Common;
 
+import Reactioncraft.base.common.RCB;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagDouble;
 import net.minecraft.nbt.NBTTagFloat;
@@ -14,8 +17,15 @@ public class ItemCaughtEntity extends Item {
 	public ItemCaughtEntity(int par1) {
 		super(par1);
 		this.setItemName("GenuineCaught");
+		//this.setCreativeTab(RCB.Reactioncraft);
 	}
-
+	
+	@Override
+	public String getTextureFile()
+	{
+		return "/Reactioncraft/images/Items.png";
+	}
+	
 	@Override
 	public String getItemDisplayName(ItemStack itemStack) {
 		return "Caught " + itemStack.stackTagCompound.getString("entity");
