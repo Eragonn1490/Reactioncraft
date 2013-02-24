@@ -2,12 +2,17 @@ package Reactioncraft.Desert.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.BaseMod;
+import net.minecraft.src.ModLoader;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import Reactioncraft.basic.common.CommonProxy;
+import Reactioncraft.basic.common.ItemBasic;
 import Reactioncraft.basic.common.ItemMulti;
 import Reactioncraft.basic.common.PacketHandler;
 import cpw.mods.fml.common.Mod;
@@ -28,7 +33,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod( modid = "RCBDM", name="Reactioncraft Better Desert Mod", version="[1.4.7] Reactioncraft Version 7.0")
 @NetworkMod(channels = { "RCBDM" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 
-public class RCBDM
+public class RCBDM extends BaseMod
 {
 	@SidedProxy(clientSide = "Reactioncraft.basic.common.ClientProxy", serverSide = "Reactioncraft.basic.common.CommonProxy")
 	public static CommonProxy proxy;
@@ -47,6 +52,8 @@ public class RCBDM
 	public static int CherryTreeLeavesID;
 	public static int CherrywoodID;
 	public static int CherryTreeSaplingID;
+	public static int GoldChiselIID;
+	public static int FlintChiselIID;
 	
 	public static Block DarkSand;
 	public static Block DarkSandstone;
@@ -87,6 +94,8 @@ public class RCBDM
         CactusMultiID = config.getBlock("Cactus Blocks", 3035).getInt();
         
         //Items... 10101 - 10200
+        FlintChiselIID = config.getItem("Flint Chisel", 10101).getInt();
+        GoldChiselIID = config.getItem("Gold Chisel", 10102).getInt();
         
         config.save();
 	 }
@@ -107,6 +116,8 @@ public class RCBDM
 	
 	public void addRecipes() 
 	 {
+		    //for (int damage = 0; damage < FlintChisel.maxStackSize; damage++)
+			//ModLoader.addRecipe(new ItemStack(Block.glass), new Object[] {new ItemStack(FlintChisel, 1, damage), Block.dirt});
 //			GameRegistry.addShapelessRecipe(new ItemStack(LBDesertGem1), new Object[] {
 //				GoldChisel, LBDesertGem
 //    		});
@@ -200,7 +211,8 @@ public class RCBDM
 
 	public void itemCode() 
 	 {
-
+		 FlintChisel = (new ItemChisel(FlintChiselIID)).setMaxDamage(10).setIconCoord(110, 0).setItemName("Flintchisel");
+         GoldChisel = (new ItemBasic(GoldChiselIID)).setMaxStackSize(1).setMaxDamage(20).setIconCoord(113, 0).setItemName("Goldchisel");
    	 }
 
 	public void blockCode() 
@@ -292,4 +304,48 @@ public class RCBDM
 	 {
 		 
 	 }
+	
+	@Override
+	public void takenFromCrafting(EntityPlayer entityplayer, ItemStack itemstack, IInventory iinventory) {
+		for (int i = 0; i < iinventory.getSizeInventory(); i++) {
+			ItemStack item = iinventory.getStackInSlot(i);
+			// You can do other checks to make sure it's the right recipe if you have other recipes in which the item is not damaged but is used as normal.
+			if (item != null && item.getItem() == FlintChisel) 
+			
+			{
+				// Damage the item.
+				item.setItemDamage(item.getItemDamage() + 1);
+				// Dirty hack to keep one in there, you should set your items max stack size to 1 as damaged items in stacks all items in the stack are damaged not just one.
+				item.stackSize = 2;
+				// Dirty hack to compensate for some weird glitch where only half the items are created when shift clicking.
+				if (itemstack.stackSize == 0 && item.getItemDamage() % 2 == 0) {
+					ItemStack newItem = itemstack.copy();
+					newItem.stackSize = 1;
+					entityplayer.inventory.addItemStackToInventory(newItem);
+				}
+				// Debug. As you'll notice that the itemstack that is introduced is actually what you clicked on the crafting result with plus that item.
+				// When shift clicking the itemstack has a stack size of 0 for some reason.
+				System.out.println("It worked with " + item.getItemDamage() + " damage and resulted in " + itemstack);
+			}
+		}
+		// This isn't needed I don't think, but just in case :3
+		super.takenFromCrafting(entityplayer, itemstack, iinventory);
+	}
+	
+	
+	
+	//Stuff Needed To Satify Modloader
+	@Deprecated
+	//@Override
+	public String getVersion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Deprecated
+	//@Override
+	public void load() {
+		// TODO Auto-generated method stub
+		
+	}
 }

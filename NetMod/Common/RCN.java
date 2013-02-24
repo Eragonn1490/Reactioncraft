@@ -169,6 +169,7 @@ public class RCN extends BaseMod
 		}
 	}
 	
+	//Stuff Needed To Satify Modloader
 	@Deprecated
 	//@Override
 	public String getVersion() {
