@@ -118,7 +118,7 @@ public class RCPM
 		//Blocks
 		CocoCrop = new BlockCocoPlant(CocoCropID, 225).setHardness(0.0F).setResistance(1.0F).setBlockName("CocoCrop");
 		AncientPlant = new BlockAncientPlant(AncientPlantID, 0).setHardness(0.0F).setResistance(1.0F).setBlockName("AncientPlant");
-		sugarcaneBlock = (new BlockSugarcane(sugarcaneBlockID, 73)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("sugarcaneBlock");//.disableStats();
+		sugarcaneBlock = (new BlockReed1(sugarcaneBlockID, 73)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("sugarcaneBlock");//.disableStats();
 		
 		//Items
 		AncientSeeds = new ItemBasicSeed(AncientSeedsIID, RCPM.AncientPlant.blockID, Block.tilledField.blockID).setIconCoord(133, 0).setItemName("AncientSeeds");
@@ -161,7 +161,8 @@ public class RCPM
 		//To aquire ancient plant seeds
 		//ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(lootStack, minStackSize, maxStackSize, chance));
 		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST, new WeightedRandomChestContent(new ItemStack(RCPM.AncientFruit), 1, 2, 5));
-		ChestGenHooks.addItem(ChestGenHooks. MINESHAFT_CORRIDOR, new WeightedRandomChestContent(new ItemStack(RCPM.AncientFruit), 1, 5, 15));
+		ChestGenHooks.addItem(ChestGenHooks.MINESHAFT_CORRIDOR, new WeightedRandomChestContent(new ItemStack(RCPM.AncientFruit), 1, 5, 15));
+		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_JUNGLE_CHEST, new WeightedRandomChestContent(new ItemStack(RCPM.sugarcaneItem), 1, 5, 15));
 	 }
 	 
 
