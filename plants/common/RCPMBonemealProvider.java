@@ -19,6 +19,17 @@ public class RCPMBonemealProvider
                     return;
             }
             
+            if (event.ID == RCPM.cornStalk.blockID)
+            {       
+                    if (!event.world.isRemote)
+                    {
+                        ((BlockCornStalk)RCPM.cornStalk).fertilize(event.world, event.X, event.Y, event.Z);
+                        //--par1ItemStack.stackSize;
+                    }
+
+                    return;
+            }
+            
             if (event.ID == RCPM.AncientPlant.blockID)
             {       
                     if (!event.world.isRemote)

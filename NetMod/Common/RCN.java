@@ -115,7 +115,7 @@ public class RCN extends BaseMod
 	public void itemCode() 
 	 {
 		 hilt = new ItemPieceHilt(hiltID).setIconCoord(5, 3);
-		 net = new ItemPieceNet(netID).setIconCoord(251, 0);
+		 net = new ItemPieceNet(netID).setIconCoord(249, 0);
 		 completeNet = new ItemNetCatcher(completeNetID).setIconCoord(251, 0);
 		 caught = new ItemCaughtEntity(caughtID).setIconCoord(250, 0);
 	 }

@@ -1,3 +1,14 @@
+Changelog as of 3/2/2013 2:03 PM Eastern Time
+
+Corn Grows away from water (might be a tad slower.. than near water)
+Stalkers now Properly Creep..(not completly fixed)
+Fixed Net mob not accounting for age
+Fixed Chain Ladder's block bounds and invisble texture
+Added Corn.
+Started Fixing corn Bugs.
+Fixed Taller Sugarcane
+Added Taller SugarCane
+
 Changelog as of 1/6/2013 3:46 PM Eastern Time
 
 Added a Freezer GUI that looks better(not implemented as of yet)

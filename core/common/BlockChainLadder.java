@@ -4,20 +4,22 @@ import Reactioncraft.base.common.RCB;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-import net.minecraft.block.Block;
+
+import net.minecraft.block.BlockLadder;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
 import net.minecraftforge.common.ForgeDirection;
 import static net.minecraftforge.common.ForgeDirection.*;
 
-public class BlockChainLadder extends Block
+public class BlockChainLadder extends BlockLadder
 {
     protected BlockChainLadder(int par1, int par2)
     {
-        super(par1, par2, Material.circuits);
+        super(par1, par2);
         this.setCreativeTab(RCB.Reactioncraft);
     }
 
@@ -114,7 +116,10 @@ public class BlockChainLadder extends Block
                par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH);
     }
 
-    public int func_85104_a(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    /**
+     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
+     */
+    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
     {
         int var10 = par9;
 

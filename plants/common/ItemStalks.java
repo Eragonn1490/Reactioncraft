@@ -9,17 +9,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class Itemsugarcane extends Item
+public class ItemStalks extends Item
 {
     private int spawnID;
 
-    public Itemsugarcane(int var1, Block var2)
+    public ItemStalks(int var1, Block var2)
     {
         super(var1);
         this.spawnID = var2.blockID;
         this.setCreativeTab(RCB.Reactioncraft);
         this.setIconIndex(4);
-        this.setItemName("Sugarcane");
+        this.setItemName("Stalks");
     }
 
     /**
@@ -101,6 +101,6 @@ public class Itemsugarcane extends Item
 
     public String getTextureFile()
     {
-        return "/Reactioncraft/images/mojangitems.png";
+        return "/Reactioncraft/images/Items.png";
     }
 }

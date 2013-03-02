@@ -5,8 +5,10 @@ import Reactioncraft.food.common.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import Reactioncraft.base.common.RCB;
 import Reactioncraft.basic.common.BlockBasicCake;
 import Reactioncraft.basic.common.ItemBasic;
@@ -100,6 +102,13 @@ public class RCF
 	//Implemented
 	public static int EdibleFleshIID;
 	public static int knifeIID;
+	
+	public static int UnwrappedCornIID;
+	public static int cookedCornIID;
+    public static int popcornseedsIID;
+    public static int bagofpopcornIID;
+    public static int poppedbagofpopcornIID;
+    public static int rawcornIID;
 
 //	public static Item Jellyfishonstick;
 //	public static Item bowlofeggs;
@@ -156,7 +165,14 @@ public class RCF
 	//Implemented Items
 	public static Item Knfie;
 	public static Item EdibleFlesh;
-	 
+	
+	public static Item cookedCorn;
+    public static Item popcornseeds;
+    public static Item bagofpopcorn;
+    public static Item poppedbagofpopcorn;
+    public static Item UnwrappedCorn;
+	public static Item rawcorn;
+    
 	 @PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
 	 {
@@ -225,6 +241,13 @@ public class RCF
 //         VanillaPlantIID = config.getItem("Vanilla Plant", 10657).getInt();
          knifeIID = config.getItem("Knife", 10658).getInt();
          EdibleFleshIID = config.getItem("Edible Flesh", 10601).getInt();
+         
+         cookedCornIID = config.getItem("Cooked Corn", 10602).getInt();
+         popcornseedsIID = config.getItem("Popcorn Seeds", 10603).getInt();
+         bagofpopcornIID = config.getItem("Bag of Popcorn", 10604).getInt();
+         poppedbagofpopcornIID = config.getItem("Popped bag of Popcorn", 10605).getInt();
+         rawcornIID = config.getItem("Raw Corn", 10606).getInt();
+         UnwrappedCornIID = config.getItem("Unwrapped Corn", 10607).getInt();
 
          config.save();
 	 }
@@ -296,8 +319,15 @@ public class RCF
 //		Noodles= new ItemFoodMod(NoodlesIID, 0, false).setIconCoord(109, 0).setItemName("Noodles");
 //		bowlofnoodles = new ItemFoodMod(bowlofnoodlesIID, 0, false).setIconCoord(109, 0).setItemName("bowlofnoodlesNoodles").setContainerItem(Item.bowlEmpty);
 		
+		cookedCorn = new ItemFoodMod(cookedCornIID, 8, false).setIconCoord(243, 0).setItemName("cookedCorn").setCreativeTab(RCB.Reactioncraftfood);
+        popcornseeds = new ItemBasic(popcornseedsIID).setIconCoord(247, 0).setItemName("popcornseeds").setCreativeTab(RCB.Reactioncraftfood);
+        bagofpopcorn = new ItemBasic(bagofpopcornIID).setIconCoord(246, 0).setItemName("bagofpopcorn").setCreativeTab(RCB.Reactioncraftfood);
+        poppedbagofpopcorn = new ItemFoodMod(poppedbagofpopcornIID, 10, true).setIconCoord(245, 0).setItemName("poppedbagofpopcorn").setCreativeTab(RCB.Reactioncraftfood);
+        rawcorn = new ItemFoodMod(rawcornIID, 7, false).setIconCoord(243, 0).setItemName("rawcorn").setCreativeTab(RCB.Reactioncraftfood);
+        UnwrappedCorn = new ItemFoodMod(UnwrappedCornIID, 6, false).setIconCoord(248, 0).setItemName("UnwrappedCorn").setCreativeTab(RCB.Reactioncraftfood);
+
 		
-		//Goes Into Reactioncraft Main Tab
+		//Goes Into Reactioncraft Main Creative Tab
 		EdibleFlesh= new ItemBasicFood(EdibleFleshIID, 6, true).setIconCoord(175, 0).setItemName("EdibleFlesh").setCreativeTab(RCB.Reactioncraft);
 		Knfie = (new ItemBasic(knifeIID)).setIconCoord(123, 0).setItemName("Knfie").setContainerItem(Knfie).setCreativeTab(RCB.Reactioncraft);
 		
@@ -310,13 +340,23 @@ public class RCF
 	
 	 	public void furnaceRecipes() 
 		{
-//			GameRegistry.addSmelting(uncookedcc.shiftedIndex, new ItemStack(ccItem), 0.5F); 
+      	  //GameRegistry.addSmelting(uncookedcc.shiftedIndex, new ItemStack(ccItem), 0.5F); 
 			GameRegistry.addSmelting(Item.rottenFlesh.itemID, new ItemStack(EdibleFlesh), 0.5F); 
-			//GameRegistry.addSmelting(Item.ingotGold.shiftedIndex, new ItemStack(RefinedGIngot), 0.5F); 
+		  //GameRegistry.addSmelting(Item.ingotGold.shiftedIndex, new ItemStack(RefinedGIngot), 0.5F); 
+			
+			//Corn Recipes
+			GameRegistry.addSmelting(RCF.bagofpopcorn.itemID, new ItemStack(poppedbagofpopcorn), 0.5F);
+			GameRegistry.addSmelting(RCF.rawcorn.itemID, new ItemStack(cookedCorn), 0.5F);
 		}
 	 	
 	 	private void recipes() 
 	 	{
+	 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCF.UnwrappedCorn), true, new Object[]{"   ", " Y ", "   ", Character.valueOf('Y'), "wrappedCorn"}));
+	 		
+	 		GameRegistry.addShapelessRecipe(new ItemStack(RCF.rawcorn, 1), new Object[]{RCF.UnwrappedCorn});
+	 		GameRegistry.addShapelessRecipe(new ItemStack(RCF.popcornseeds, 5), new Object[]{RCF.rawcorn});
+	 		GameRegistry.addRecipe(new ItemStack(bagofpopcorn, 1), new Object[] {"AAA", "BBB", "AAA", 'A', Item.paper, 'B', RCF.popcornseeds});
+	 		
 //	 		GameRegistry.addShapelessRecipe(new ItemStack(SlicedBread, 1), new Object[] {
 //	            Item.bread, Knfie
 //	             });
@@ -382,7 +422,14 @@ public class RCF
 //			LanguageRegistry.addName(uncookedcc, "Uncooked Carrot Cake");
 //			LanguageRegistry.addName(ccItem, "Carrot Cake");
 	 		LanguageRegistry.addName(Knfie, "Knife");
-	 		LanguageRegistry.addName(EdibleFlesh, "Edible Flesh");		
+	 		LanguageRegistry.addName(EdibleFlesh, "Edible Flesh");
+	 		
+	 		LanguageRegistry.addName(cookedCorn, "Cooked Corn");
+	 		LanguageRegistry.addName(popcornseeds, "Popcorn Kernals");
+	 		LanguageRegistry.addName(bagofpopcorn, "Unpopped Bag of Popcorn");
+	 		LanguageRegistry.addName(poppedbagofpopcorn, "Bag of Popcorn");
+	 		LanguageRegistry.addName(rawcorn, "Uncooked Corn");
+	 		LanguageRegistry.addName(UnwrappedCorn, "Corn");
 	 	}
 			
 

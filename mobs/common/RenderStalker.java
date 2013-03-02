@@ -37,7 +37,7 @@ public class RenderStalker extends RenderLiving
 
     protected void preRenderScale(EntityStalker entitystalker, float f)
     {
-        GL11.glScalef(1.25F, 1.25F, 1.25F);
+        GL11.glScalef(1.0F, 1.0F, 1.0F);
     }
 
     /**

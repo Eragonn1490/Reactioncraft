@@ -40,7 +40,7 @@ public class ItemNetCatcher extends ItemTool {
 		nbt.removeTag("Pos");
 		nbt.removeTag("Motion");
 		nbt.removeTag("Rotation");
-		nbt.removeTag("Age");
+		//nbt.removeTag("Age"); Removed to allow caught item to recognize age
 		nbt.removeTag("Dimension");
 		nbt.removeTag("PortalCooldown");
 		nbt.removeTag("InLove");

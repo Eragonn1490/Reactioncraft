@@ -213,7 +213,7 @@ public class EntitySeaCreeper extends EntityWaterMob
 
             if (var1 > 0 && this.timeSinceIgnited == 0)
             {
-                //this.func_85030_a("random.fuse", 1.0F, 0.5F);
+                this.playSound("random.fuse", 1.0F, 0.5F);
             }
 
             this.timeSinceIgnited += var1;

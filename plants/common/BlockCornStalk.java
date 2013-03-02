@@ -2,14 +2,16 @@ package Reactioncraft.plants.common;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class BlockAncientPlant extends BlockFlower
+public class BlockCornStalk extends BlockFlower
 {
-    public BlockAncientPlant(int par1, int par2)
+    public BlockCornStalk(int par1, int par2)
     {
         super(par1, par2);
         this.blockIndexInTexture = par2;
@@ -28,11 +30,12 @@ public class BlockAncientPlant extends BlockFlower
     {
         return false;
     }
-    @Override
-	public String getTextureFile() {
-		// TODO Auto-generated method stub
-		return "/Reactioncraft/images/plants.png";
-	}
+    
+    public String getTextureFile()
+    {
+  		return "/Reactioncraft/images/plants.png"; //return the block texture where the block texture is saved in
+ 	}
+    
     //End Eragonn Code
     /**
      * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of
@@ -156,14 +159,14 @@ public class BlockAncientPlant extends BlockFlower
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         if (metadata == 7)
         {
-            ret.add(new ItemStack(RCPM.AncientFruit));
+            ret.add(new ItemStack(RCPM.stalksItem));
         }
         
-        for (int n = 0; n < 3 + fortune; n++)
+        for (int n = 0; n < 2 + fortune; n++)
         {
             if (world.rand.nextInt(15) <= metadata)
             {
-                ret.add(new ItemStack(RCPM.AncientSeeds));
+                ret.add(new ItemStack(RCPM.CornSeed));
             }
         }
         
@@ -177,19 +180,19 @@ public class BlockAncientPlant extends BlockFlower
             int w = par2Random.nextInt(20);
             if (w == 0)
             {
-                return RCPM.AncientFlower.itemID;
+                return RCPM.stalksItem.itemID;
             }
             if (w == 15)
             {
-                return RCPM.AncientFlower.itemID;
+                return RCPM.stalksItem.itemID;
             }
             if (w == 20)
             {
-                return RCPM.AncientFlower.itemID;
+                return RCPM.stalksItem.itemID;
             }
             else
             {
-                return RCPM.AncientSeeds.itemID;
+                return RCPM.stalksItem.itemID;
             }         
     }
 
@@ -198,6 +201,6 @@ public class BlockAncientPlant extends BlockFlower
      */
     public int quantityDropped(Random par1Random)
     {
-        return 2;
+        return 1;
     }
 }

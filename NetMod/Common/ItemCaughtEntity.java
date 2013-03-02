@@ -27,8 +27,9 @@ public class ItemCaughtEntity extends Item {
 	}
 	
 	@Override
-	public String getItemDisplayName(ItemStack itemStack) {
-		return "Caught " + itemStack.stackTagCompound.getString("entity");
+	public String getItemDisplayName(ItemStack itemStack) 
+	{
+		return "Caught " + itemStack.stackTagCompound.getString("entity"); //+ itemStack.stackTagCompound.getString("age");
 	}
 
 	@Override

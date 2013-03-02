@@ -184,13 +184,13 @@ public class EntityZombieCrawling extends EntityMob
         return "mob.zombie.death";
     }
 
-//    /**
-//     * Plays step sound at given x, y, z for the entity
-//     */
-//    protected void playStepSound(int par1, int par2, int par3, int par4)
-//    {
-//        this.func_85030_a("mob.zombie.step", 0.15F, 1.0F);
-//    }
+    /**
+     * Plays step sound at given x, y, z for the entity
+     */
+    protected void playStepSound(int par1, int par2, int par3, int par4)
+    {
+        this.playSound("mob.zombie.step", 0.15F, 1.0F);
+    }
 
     /**
      * Returns the item ID for the item the mob drops on death.

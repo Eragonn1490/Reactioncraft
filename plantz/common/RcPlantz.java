@@ -116,7 +116,7 @@ public class RcPlantz
         crystalID = config.getBlock("Kush7", 3097).getInt();
         WildKPID = config.getBlock("WildKush Plant", 3098).getInt();
         
-        //Claimed Item IDS 10401 - 10500
+        //Claimed Item IDS 10401 - 10499 (500 is being used by the PLANTS mod)
         BlueDreamSeedIID = config.getItem("Blue Dream Seed", 10401).getInt();
         BYYSeedIID = config.getItem("Blueberry Yum Yum Seed", 10402).getInt();
         CrystalSeedIID = config.getItem("Crystal Seed", 10403).getInt();

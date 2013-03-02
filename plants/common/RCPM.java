@@ -49,6 +49,8 @@ public class RCPM
 	public static int CocoCropID;
 	public static int AncientPlantID;
 	public static int sugarcaneBlockID;
+	public static int cornStalkID;
+	public static int HayBaleID;
 
 	//config for items
 	public static int AncientFruitIID;
@@ -58,24 +60,36 @@ public class RCPM
 	public static int VanillaSeedIID;
 	public static int VanillaBeanIID;
 	public static int sugarcaneItemIID;
+	public static int cornBlockID;
+	public static int AncientFlowerIID;
+	public static int WrappedcornIID;
+	public static int CornSeedIID;
+	public static int stalksItemIID;
 	
 	
 	//Blocks
 	public static Block CocoCrop;
 	public static Block AncientPlant;
 	public static Block sugarcaneBlock;
+	public static Block cornBlock;
+	public static Block cornStalk;
+	public static Block HayBale;
 	
 	//Items
 	public static Item AncientFruit;
 	public static Item CocoBean;
 	public static Item VanillaBean;
+	public static Item AncientFlower;
+	public static Item Wrappedcorn;
 	
 	//Seeds
     public static Item AncientSeeds;
     public static Item CocoSeed;
     public static Item VanillaSeed;
     public static Item sugarcaneItem;
-    	
+    public static Item CornSeed;
+    public static Item stalksItem;
+    
     
     @PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
@@ -93,6 +107,10 @@ public class RCPM
         CocoCropID = config.getBlock("Coco Crop", 3081).getInt();
         AncientPlantID = config.getBlock("Ancient Plant", 3082).getInt();
         sugarcaneBlockID = config.getBlock("Sugar Cane", 3083).getInt();
+        cornBlockID = config.getBlock("corn Block", 3084).getInt();
+        cornStalkID = config.getBlock("corn Stalk", 3085).getInt();
+        HayBaleID = config.getBlock("Hay Bale", 3086).getInt();
+        
         
         AncientSeedsIID = config.getItem("Ancient Seeds", 10301).getInt();
         AncientFruitIID = config.getItem("Ancient Fruit", 10302).getInt();
@@ -101,6 +119,10 @@ public class RCPM
         VanillaSeedIID = config.getItem("Vanilla Seed", 10305).getInt();
         VanillaBeanIID = config.getItem("Vanilla Bean", 10306).getInt();
         sugarcaneItemIID = config.getItem("Sugar Cane Item", 10307).getInt();
+        WrappedcornIID = config.getItem("Wrapped Corn", 10308).getInt();
+        CornSeedIID = config.getItem("Corn Seed", 10309).getInt();
+        stalksItemIID = config.getItem("stalksItem", 10400).getInt();
+        AncientFlowerIID = config.getItem("Ancient Flower", 10500).getInt();
         
         //Claimed Item ids 10301 - 10400 
         
@@ -118,18 +140,31 @@ public class RCPM
 		//Blocks
 		CocoCrop = new BlockCocoPlant(CocoCropID, 225).setHardness(0.0F).setResistance(1.0F).setBlockName("CocoCrop");
 		AncientPlant = new BlockAncientPlant(AncientPlantID, 0).setHardness(0.0F).setResistance(1.0F).setBlockName("AncientPlant");
-		sugarcaneBlock = (new BlockReed1(sugarcaneBlockID, 73)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("sugarcaneBlock");//.disableStats();
+		sugarcaneBlock = (new BlockReed1(sugarcaneBlockID, 73)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("sugarcaneBlock");
+		cornBlock = new BlockCorn(cornBlockID, 40).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("sugarcaneBlock");
+		cornStalk = new BlockCornStalk(cornStalkID, 24).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("cornStalk");
+		HayBale = new BlockHayBale(HayBaleID, 24).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setBlockName("HayBale");
+		
 		
 		//Items
+		AncientFlower = new ItemBasic(AncientFlowerIID).setIconCoord(238, 0).setItemName("AncientFlower").setCreativeTab(RCB.Reactioncraft);
+		CornSeed = new ItemBasicSeed(CornSeedIID, RCPM.cornStalk.blockID, Block.tilledField.blockID).setIconCoord(247, 0).setItemName("CornSeed");
 		AncientSeeds = new ItemBasicSeed(AncientSeedsIID, RCPM.AncientPlant.blockID, Block.tilledField.blockID).setIconCoord(133, 0).setItemName("AncientSeeds");
 		AncientFruit = new ItemBasicFood(AncientFruitIID, 8, true).setIconCoord(100, 0).setItemName("AncientFruit");
 		CocoSeed = new ItemBasicSeed(CocoSeedIID, RCPM.CocoCrop.blockID, Block.tilledField.blockID).setIconCoord(255, 0).setItemName("CocoSeed");
 		CocoBean = new ItemBasic(CocoBeanIID).setIconCoord(255, 0).setItemName("CocoBean");
 		VanillaSeed= new ItemBasic(VanillaSeedIID).setIconCoord(109, 0).setItemName("VanillaSeed");
 		VanillaBean= new ItemBasic(VanillaBeanIID).setIconCoord(109, 0).setItemName("VanillaBean");
-		sugarcaneItem = (new Itemsugarcane(sugarcaneItemIID, RCPM.sugarcaneBlock)).setIconCoord(27, 0).setItemName("sugarcaneItem").setCreativeTab(RCB.Reactioncraft);
+		sugarcaneItem = (new Itemsugarcane(sugarcaneItemIID, RCPM.sugarcaneBlock)).setIconCoord(27, 0).setItemName("sugarcaneItem").setCreativeTab(RCB.Reactioncraftfood);
+		stalksItem = (new ItemStalks(stalksItemIID, RCPM.cornBlock)).setIconCoord(244, 0).setItemName("Stalks").setCreativeTab(RCB.Reactioncraft);
+		Wrappedcorn = new ItemBasic(WrappedcornIID).setIconCoord(239, 0).setItemName("Wrappedcorn").setCreativeTab(RCB.Reactioncraftfood);
+		
+		
 		
 		//Registry Code
+		GameRegistry.registerBlock(cornStalk, "cornStalk");
+		GameRegistry.registerBlock(HayBale, "Hay Bale");
+		GameRegistry.registerBlock(cornBlock, "Corn Block");
 		GameRegistry.registerBlock(CocoCrop, "CocoCrop");
 		GameRegistry.registerBlock(AncientPlant, "AncientPlant");
 		GameRegistry.registerBlock(sugarcaneBlock, "SugarcaneBlock");
@@ -138,16 +173,32 @@ public class RCPM
 		
 		GameRegistry.addSmelting(CocoSeed.itemID, new ItemStack(CocoBean), 0.1F); 
 		
+		//Block Code
+		LanguageRegistry.addName(cornBlock, "Corn Plant");
+		LanguageRegistry.addName(cornStalk, "Corn Stalk");
+		
+		
 		//Item Code
+		LanguageRegistry.addName(CornSeed, "Corn Seed");
 		LanguageRegistry.addName(AncientSeeds, "Ancient Seeds");
 		LanguageRegistry.addName(AncientFruit, "Ancient Fruit");
 		LanguageRegistry.addName(CocoSeed, "Coco Seed");
 		LanguageRegistry.addName(CocoBean, "Coco Bean");
 		LanguageRegistry.addName(sugarcaneItem, "Sugar Cane");
+		LanguageRegistry.addName(AncientFlower, "Ancient Flower");
+		LanguageRegistry.addName(Wrappedcorn, "Corn");
+		LanguageRegistry.addName(stalksItem, "Corn Stalks");
 		
 		//MY Taller Sugarcane to Paper & sugar
 		GameRegistry.addRecipe(new ItemStack(Item.paper, 3), new Object[] {"###", '#', RCPM.sugarcaneItem});
 		GameRegistry.addRecipe(new ItemStack(Item.sugar, 1), new Object[] {"#", '#', RCPM.sugarcaneItem});
+		
+		//How to get mutated sugarcane
+		GameRegistry.addShapelessRecipe(new ItemStack(sugarcaneItem, 1), new Object[] {AncientFlower, Item.reed});
+		
+		//Hay Bale Recipe and Downgrade Recipe
+		GameRegistry.addRecipe(new ItemStack(RCPM.HayBale, 1), new Object[]{ "###", "###", "###", Character.valueOf('#'), Item.wheat});	
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.wheat, 9), new Object[]{HayBale});
 		
 		//Mojang coco bean to ours... Cooked one to ours (Rewriting this)
 		GameRegistry.addShapelessRecipe(new ItemStack(AncientSeeds, 3), new Object[] {AncientFruit,});
@@ -157,6 +208,7 @@ public class RCPM
 		
 		//Ore Dict
 		OreDictionary.registerOre("cocoBean", new ItemStack(CocoBean));
+		OreDictionary.registerOre("wrappedCorn", new ItemStack(Wrappedcorn));
 		
 		//To aquire ancient plant seeds
 		//ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(lootStack, minStackSize, maxStackSize, chance));
@@ -169,7 +221,7 @@ public class RCPM
 	 @PostInit
 	 public void modsLoaded(FMLPostInitializationEvent evt)
 	 {
-	 //new as well! How about that stuff after the mods are loaded/initialized?
+		 //new as well! How about that stuff after the mods are loaded/initialized?
 	 }
 	 
 	 
