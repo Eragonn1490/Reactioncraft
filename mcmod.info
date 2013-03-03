@@ -289,6 +289,23 @@
   ]
 },
 {
+  "modid": "RCCONV",
+  "name": "Reactioncraft: Ore Dictionary Converter Mod",
+  "description": "Extending Forge Mods Ability to work in unison",
+  "version": "",
+  "credits": "Created by Eragonn1490",
+  "logoFile": "/Reactioncraft/images/logo/RC_logo.png",
+  "mcversion": "",
+  "url": "http://www.minecraftforum.net/topic/1712976-reactioncraft-147/",
+  "updateUrl": "",
+  "authors": [ "Eragonn1490", "Reactioncraft Team" ],
+  "parent": "RCC",
+  "screenshots": [],
+  "dependencies": [
+     "mod_MinecraftForge"
+  ]
+},
+{
   "modid": "RCRCM",
   "name": "Reactioncraft: Railcraft Addon",
   "description": "Extending Railcraft with BoreHeads",
@@ -299,7 +316,7 @@
   "url": "http://www.minecraftforum.net/topic/1712976-reactioncraft-147/",
   "updateUrl": "",
   "authors": [ "Eragonn1490", "Reactioncraft Team" ],
-  "parent": "BuildCraft|Core",
+  "parent": "RCC",
   "screenshots": [],
   "dependencies": [
      "mod_MinecraftForge"
