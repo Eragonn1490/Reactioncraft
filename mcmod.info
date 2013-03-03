@@ -247,23 +247,6 @@
   "mcversion": "",
   "url": "http://www.minecraftforum.net/topic/1712976-reactioncraft-147/",
   "updateUrl": "",
-  "authors": [ "Eragonn1490", "Exodus01", "Reactioncraft Team" ],
-  "parent": "RCC",
-  "screenshots": [],
-  "dependencies": [
-     "mod_MinecraftForge"
-  ]
-},
-{
-  "modid": "RCP",
-  "name": "Reactioncraft: Plants Mod",
-  "description": "Extending Minecraft with 100% Legal Plants...",
-  "version": "",
-  "credits": "Created by Eragonn1490",
-  "logoFile": "/Reactioncraft/images/logo/RC_logo.png",
-  "mcversion": "",
-  "url": "http://www.minecraftforum.net/topic/1712976-reactioncraft-147/",
-  "updateUrl": "",
   "authors": [ "Eragonn1490", "Reactioncraft Team" ],
   "parent": "RCC",
   "screenshots": [],
