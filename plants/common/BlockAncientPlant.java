@@ -167,6 +167,14 @@ public class BlockAncientPlant extends BlockFlower
             }
         }
         
+        for (int n = 0; n < 6 + fortune; n++)
+        {
+            if (world.rand.nextInt(15) <= metadata)
+            {
+                ret.add(new ItemStack(RCPM.AncientFlower));
+            }
+        }
+        
         return ret;
     }
 
