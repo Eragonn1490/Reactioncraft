@@ -194,14 +194,15 @@ public class RCPM
 		GameRegistry.addRecipe(new ItemStack(Item.sugar, 1), new Object[] {"#", '#', RCPM.sugarcaneItem});
 		
 		//How to get mutated sugarcane
-		GameRegistry.addShapelessRecipe(new ItemStack(sugarcaneItem, 3), new Object[] {AncientFlower, Item.reed});
+		GameRegistry.addShapelessRecipe(new ItemStack(sugarcaneItem, 2), new Object[] {AncientFlower, Item.reed});
 		
 		//Hay Bale Recipe and Downgrade Recipe
 		GameRegistry.addRecipe(new ItemStack(RCPM.HayBale, 1), new Object[]{ "###", "###", "###", Character.valueOf('#'), Item.wheat});	
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.wheat, 9), new Object[]{HayBale});
 		
 		//Mojang coco bean to ours... Cooked one to ours (Rewriting this)
-		GameRegistry.addShapelessRecipe(new ItemStack(AncientSeeds, 3), new Object[] {AncientFruit,});
+		GameRegistry.addShapelessRecipe(new ItemStack(AncientSeeds, 1), new Object[] {AncientFlower});
+		GameRegistry.addShapelessRecipe(new ItemStack(AncientSeeds, 2), new Object[] {AncientFruit});
 		GameRegistry.addRecipe(new ItemStack(CocoSeed, 1), new Object[]{ "   ", " # ", "   ", Character.valueOf('#'), CocoBean});
 		GameRegistry.addRecipe(new ItemStack(CocoSeed, 1), new Object[]{ "   ", " # ", "   ", Character.valueOf('#'), new ItemStack(Item.dyePowder, 1, 3)});
 		GameRegistry.addRecipe(new ItemStack(Item.cookie, 12), new Object[]{ "   ", "   ", "D#D", Character.valueOf('#'), CocoBean, Character.valueOf('D'), Item.wheat});

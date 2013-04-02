@@ -12,9 +12,11 @@ import net.minecraft.nbt.NBTTagFloat;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 
-public class ItemCaughtEntity extends Item {
+public class ItemCaughtEntity extends Item 
+{
 
-	public ItemCaughtEntity(int par1) {
+	public ItemCaughtEntity(int par1) 
+	{
 		super(par1);
 		this.setItemName("GenuineCaught");
 		//this.setCreativeTab(RCB.Reactioncraft);

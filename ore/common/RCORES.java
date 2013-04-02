@@ -13,6 +13,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -53,6 +54,19 @@ public class RCORES
 	 
 	 public static Item OreItems;
 	 public static Item magmaflint;
+	 
+	 public static boolean RCBDM() throws ClassNotFoundException 
+	 {
+			try
+			{
+				Class.forName("Reactioncraft.Desert.common.RCBDM");
+			}
+			catch (NoClassDefFoundError ex) 
+			{
+				return false ;
+			}
+			return true ;
+	 }
 	 
 	 public static boolean IC2() throws ClassNotFoundException 
 	 {
@@ -155,6 +169,8 @@ public class RCORES
 		    OreDictionary.registerOre("ingotSilver", new ItemStack(OreItems,1, 4));
 		    OreDictionary.registerOre("ingotSuperheatediron", new ItemStack(OreItems,1, 9));
 		    OreDictionary.registerOre("gemWizimite", new ItemStack(OreItems,1, 5));
+		    OreDictionary.registerOre("shardDragonstone", new ItemStack(OreItems,1,7));
+		    OreDictionary.registerOre("gemDragonstone", new ItemStack(OreItems,1,8));
 		    
 		    
 		    //Blocks
@@ -195,11 +211,25 @@ public class RCORES
 			{
 				System.out.println(" Reactioncraft Ores did not find IC2, macerator recipe disabled");
 			}
+			
+			//Reactioncraft integration
+			try 
+			{
+				if(RCBDM())
+				{
+					Integration.loadReactioncraft();
+					System.out.println("Reactioncraft Chisel Mod enabled");
+				}
+			}
+			catch (ClassNotFoundException e)	
+			{
+				System.out.println(" Reactioncraft Ores did not find Reactioncraft Better Desert Mod, Chisel recipes disabled");
+			}
 	 }
 
 	  @PostInit
 	  public void modsLoaded(FMLPostInitializationEvent evt)
 	  {
-		  //new as well! How about that stuff after the mods are loaded/initialized?
+		  FMLLog.info("Reactioncraft Ores Has Fully loaded...Time to Mine!");
 	  } 
 }

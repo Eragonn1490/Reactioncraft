@@ -30,14 +30,14 @@ public class WorldGenHandler implements IWorldGenerator
             (new WorldGenMinable(RCORES.surfaceOres.blockID, 0, 5)).generate(world, random, randPosX, randPosY, randPosZ);
 		}
   		
-  		//Magma
-  		for(int i = 0; i < 7; i++)
-  		{
-  			int randPosX = blockX + random.nextInt(16);
-  			int randPosY = random.nextInt(128);
-  			int randPosZ = blockZ + random.nextInt(16);
-  			(new WorldGenMinable(RCORES.surfaceOres.blockID, 1, 4)).generate(world, random, randPosX, randPosY, randPosZ);
-  		}
+//  		//Magma
+//  		for(int i = 0; i < 7; i++)
+//  		{
+//  			int randPosX = blockX + random.nextInt(16);
+//  			int randPosY = random.nextInt(128);
+//  			int randPosZ = blockZ + random.nextInt(16);
+//  			(new WorldGenMinable(RCORES.surfaceOres.blockID, 1, 4)).generate(world, random, randPosX, randPosY, randPosZ);
+//  		}
 //  		for(int i = 0; i < 10; i++)
 //  		{
 //                int randPosX2 = blockX + random.nextInt(16);

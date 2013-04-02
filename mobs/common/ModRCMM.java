@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -54,6 +55,7 @@ public class ModRCMM
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
+		//MinecraftForge.EVENT_BUS.register(new LivingDropsEvent());
 		proxy.registerRenderInformation();
 		registerGlobal();
 		registerEntities();

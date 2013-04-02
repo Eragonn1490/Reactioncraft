@@ -48,6 +48,7 @@ public class RCXF
 	public static int Stonebrick3ID;
 	public static int Stonebrick4ID;
 	public static int netherbrickID;
+//	public static int BloodstonebrickID;
 	
 	//Blocks
 	public static Block stonewall;
@@ -63,10 +64,24 @@ public class RCXF
 	public static Block Stonebrick3;
 	public static Block Stonebrick4;
 	public static Block Netherbrickwall;
+//	public static Block Bloodstonebrickwall;
 	
 	//Items
 	//public static Item Scroll;
-	 
+	
+	public static boolean RCBDM() throws ClassNotFoundException 
+	 {
+			try
+			{
+				Class.forName("Reactioncraft.Desert.common.RCBDM");
+			}
+			catch (NoClassDefFoundError ex) 
+			{
+				return false ;
+			}
+			return true ;
+	 }
+	
 	@PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
 	 {
@@ -89,8 +104,9 @@ public class RCXF
     	 Stonebrick3ID = config.getBlock("Used for Texture 3", 3051).getInt();
     	 Stonebrick4ID = config.getBlock("Used for Texture  4", 3052).getInt();
     	 netherbrickID = config.getBlock("Nether Brick Wall", 3053).getInt();
+//    	 BloodstonebrickID = config.getBlock("Bloodstone brick Wall", 3054).getInt();
 
-        config.save();
+        config.save(); 
 	 }
 
 	 @Init
@@ -129,6 +145,19 @@ public class RCXF
 		registerBlocks();
 		addRecipes();
 		
+		//Reactioncraft integration
+		try 
+		{
+			if(RCBDM())
+			{
+				Integration.loadReactioncraft();
+				System.out.println("Reactioncraft Chisel Mod enabled");
+			}
+		}
+		catch (ClassNotFoundException e)	
+		{
+			System.out.println(" Reactioncraft Walls'N'Fences did not find Reactioncraft Better Desert Mod, recipes disabled");
+		}
 	 }
 	 
 

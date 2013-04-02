@@ -1,18 +1,23 @@
 package Reactioncraft.NetMod.Common;
 
+import Reactioncraft.NetMod.ltd.genuine.database.ExclusionList;
 import Reactioncraft.basic.common.PacketHandler;
 import Reactioncraft.basic.common.ClientProxy;
 import Reactioncraft.basic.common.CommonProxy;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -79,9 +84,15 @@ public class RCN extends BaseMod
 		itemRegistry();
 	    names();
 	    recipes();
+	    ExclusionList();
 	 }
 	    
-	 public void itemRegistry() 
+	 private void ExclusionList() 
+	 {
+		
+	 }
+
+	public void itemRegistry() 
 	 {
 		//GameRegistry.registerItem(hilt, "");
 		//GameRegistry.registerItem(net, "");
@@ -96,20 +107,29 @@ public class RCN extends BaseMod
 			{
 				Object[] hiltRec = new Object[] { " XI", "XIX", "IX ", 'X', Item.stick, 'I', levels[i] };
 				Object[] netRec = new Object[] { "IXI", "XIX", "IXI", 'X', Item.silk, 'I', levels[i] };
+				//Object[] completeNetRec = new Object[] {" N ", " H ", "   ",};
+				
 				ItemStack hiltIs = new ItemStack(hilt);
 				ItemStack netIs = new ItemStack(net);
+				//ItemStack completenetIs = new ItemStack(completeNet);
+				
 				hiltIs.stackTagCompound = new NBTTagCompound();
 				netIs.stackTagCompound = new NBTTagCompound();
+				//completenetIs.stackTagCompound = new NBTTagCompound();
+				
 				hiltIs.stackTagCompound.setByte("str", (byte) (i + 1));
 				netIs.stackTagCompound.setByte("str", (byte) (i + 1));
+				//completenetIs.stackTagCompound.setByte("str", (byte) (i + 1));
+				
 				ModLoader.addRecipe(hiltIs, hiltRec);
 				ModLoader.addRecipe(netIs, netRec);
+				//ModLoader.addRecipe(completenetIs, completeNetRec);
 			}
 	 }
 
 	public void names() 
 	 {
-		
+
 	 }
 
 	public void itemCode() 
@@ -168,6 +188,12 @@ public class RCN extends BaseMod
 			}
 		}
 	}
+	
+	@PostInit
+	 public void modsLoaded(FMLPostInitializationEvent evt)
+	 {
+		FMLLog.info("Looks Like We Are Catching Dinner Tonight!");
+	 }	
 	
 	//Stuff Needed To Satify Modloader
 	@Deprecated

@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import Reactioncraft.basic.common.ItemMulti;
@@ -91,6 +93,17 @@ public class RCBB
 		blockRegistry();
 		languageRegistry();
 		worldgen();
+		HarvestLevel();
+	}
+
+	public void HarvestLevel() 
+	{
+		  //Setting Harvest Level
+	    MinecraftForge.setBlockHarvestLevel(RCBB.Bookcasechest,     "axe", 1);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 0,   "axe", 1);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 1,   "axe", 1);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 2,   "axe", 1);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 3,   "axe", 1);
 	}
 
 	public void fuelHandler() 
@@ -158,10 +171,10 @@ public class RCBB
 
 	public void blocks() 
 	{
-		bookcasemeta = new BlockBookcaseMulti(bookcasemetaID, Material.rock).setHardness(3.0F).setBlockName("bookcasemeta");
-		WoodenBookcasedoorBlock = new BlockBookcasedoor(WoodenBookcasedoorBlockID, Material.wood).setHardness(3.0F).setBlockName("WoodenBookcasedoorBlock").setRequiresSelfNotify();;
-		IronBookcasedoorBlock = new BlockBookcasedoor(IronBookcasedoorBlockID, Material.iron).setHardness(3.0F).setBlockName("IronBookcasedoorBlock").setRequiresSelfNotify();;
-		Bookcasechest = (new Blockbookshelfchest(BookcasechestID)).setHardness(1.0F).setResistance(1.0F).setBlockName("Bookcasechest");
+		bookcasemeta = new BlockBookcaseMulti(bookcasemetaID, Material.rock).setHardness(1.5F).setBlockName("bookcasemeta");
+		WoodenBookcasedoorBlock = new BlockBookcasedoor(WoodenBookcasedoorBlockID, Material.wood).setHardness(1.5F).setBlockName("WoodenBookcasedoorBlock").setRequiresSelfNotify();;
+		IronBookcasedoorBlock = new BlockBookcasedoor(IronBookcasedoorBlockID, Material.iron).setHardness(1.5F).setBlockName("IronBookcasedoorBlock").setRequiresSelfNotify();;
+		Bookcasechest = (new Blockbookshelfchest(BookcasechestID)).setHardness(1.5F).setResistance(1.0F).setBlockName("Bookcasechest");
 	}
 
 	public void tileentities() 

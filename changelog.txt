@@ -1,3 +1,42 @@
+Changelog as of 4/1/2013 7:14PM Central Time
+
+Fixed Harvest Levels of tools in Reactioncraft Tools
+Fixed Hardness of Bookcases in Better Bookcases
+Set Harvest Level of Bookcases in Better Bookcases
+Added DarkSand Generation in Oceans
+Tweaks to Core
+
+Changelog as of 3/31/2013 3:10PM Central Time
+
+Added Knife Recipe
+added Chisel (Each specific one) Recipe
+Added Chisel Recipes
+Added Chisel Inegration to the Ores Mod
+Added Recipes to get Columns
+Fixed Ancient Flower Drop.
+Added Recipe for ancient flower to make ancient seeds
+Added Bloodstone Bricks
+Turned Knife into a Weapon
+Added Knife's ability to act as a chisel
+Added Ham Sandwich
+Added Added Sliced Bread
+Added Parts of Bloodstone Sword
+Added New items to the Ore Dictionary
+Changed Bloodstone Sword Recipe
+Increased Difficulty of creating Bloodstone Sword
+Transformed MetaCactus..
+Created Two new Cactus's
+Added Written in Boocks to the wizim Library..
+Started Addeding The Histroy of the Wizim.
+Added Hireoglyphics..
+Added Chisel Recipes
+Fixed Endless Chain Ladder Loop
+
+
+Changelog as of 3/3/2013 8:27 PM Eastern Time
+
+Added Mod.info file
+
 Changelog as of 3/2/2013 2:03 PM Eastern Time
 
 Corn Grows away from water (might be a tad slower.. than near water)

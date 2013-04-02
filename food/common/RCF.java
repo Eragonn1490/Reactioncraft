@@ -3,6 +3,7 @@ package Reactioncraft.food.common;
 import Reactioncraft.food.common.ClientProxy;
 import Reactioncraft.food.common.CommonProxy;
 import net.minecraft.block.Block;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -13,6 +14,7 @@ import Reactioncraft.base.common.RCB;
 import Reactioncraft.basic.common.BlockBasicCake;
 import Reactioncraft.basic.common.ItemBasic;
 import Reactioncraft.basic.common.ItemBasicFood;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -46,7 +48,6 @@ public class RCF
 //	public static int CakepanIID;
 //	public static int CakeMBIID;
 //	public static int uncookedbreadIID;
-//	public static int IceBucketIID;
 //	public static int saltedFishIID;
 //	public static int fishonstickIID;
 //	public static int JellyfishIID;
@@ -60,12 +61,8 @@ public class RCF
 //	public static int CoconutcakeIID;
 //	public static int BaconIID;
 //	public static int BaconRawIID;
-//	public static int ChickenNuggetsIID;
-//	public static int RawNuggetsIID;
-//	public static int SlicedBreadIID;
 //	public static int SteakSandwichIID;
 //	public static int FishSandwichIID;
-//	public static int HamSandwichIID;
 //	public static int HamIID;
 //	public static int SlicedCheeseIID;
 //	public static int HamandCheeseSandwichIID;
@@ -109,7 +106,12 @@ public class RCF
     public static int bagofpopcornIID;
     public static int poppedbagofpopcornIID;
     public static int rawcornIID;
-
+	public static int ChickenNuggetsIID;
+	public static int RawNuggetsIID;
+	public static int SlicedBreadIID;
+	public static int HamSandwichIID;
+	
+	//Items
 //	public static Item Jellyfishonstick;
 //	public static Item bowlofeggs;
 //	public static Item whitechoclatebar;
@@ -119,12 +121,8 @@ public class RCF
 //	public static Item Coconutcake;
 //	public static Item Bacon;
 //	public static Item BaconRaw;
-//	public static Item ChickenNuggets;
-//	public static Item RawNuggets;
-//	public static Item SlicedBread;
 //	public static Item SteakSandwich;
 //	public static Item FishSandwich;
-//	public static Item HamSandwich;
 //	public static Item Ham;
 //	public static Item SlicedCheese;
 //	public static Item HamandCheeseSandwich;
@@ -172,7 +170,11 @@ public class RCF
     public static Item poppedbagofpopcorn;
     public static Item UnwrappedCorn;
 	public static Item rawcorn;
-    
+	public static Item ChickenNuggets;
+	public static Item RawNuggets;
+	public static Item SlicedBread;
+	public static Item HamSandwich;
+	
 	 @PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
 	 {
@@ -204,12 +206,8 @@ public class RCF
 //         choclatebarmouldIID = config.getItem("Chocolate bar mould", 10619).getInt();
 //         CoconutcakeIID = config.getItem("Coconut Cake", 10620).getInt();
 //         BaconIID = config.getItem("Bacon", 10621).getInt();
-//         ChickenNuggetsIID = config.getItem("Chicken Nuggets", 10622).getInt();
-//         RawNuggetsIID = config.getItem("Raw Nuggets", 10623).getInt();
-//         SlicedBreadIID = config.getItem("Sliced Bread", 10624).getInt();
 //         SteakSandwichIID = config.getItem("Steak Sandwich", 10625).getInt();
 //         FishSandwichIID = config.getItem("Fish Sandwich", 10626).getInt();
-//         HamSandwichIID = config.getItem("Ham Sandwich", 10627).getInt();
 //         HamIID = config.getItem("Ham", 10628).getInt();
 //         SlicedCheeseIID = config.getItem("Sliced Cheese", 10629).getInt();
 //         HamandCheeseSandwichIID = config.getItem("Ham and Cheese Sandwich", 10630).getInt();
@@ -248,6 +246,10 @@ public class RCF
          poppedbagofpopcornIID = config.getItem("Popped bag of Popcorn", 10605).getInt();
          rawcornIID = config.getItem("Raw Corn", 10606).getInt();
          UnwrappedCornIID = config.getItem("Unwrapped Corn", 10607).getInt();
+         RawNuggetsIID = config.getItem("Raw Nuggets", 10608).getInt();
+         ChickenNuggetsIID = config.getItem("Chicken Nuggets", 10609).getInt();
+         SlicedBreadIID = config.getItem("Sliced Bread", 10610).getInt();
+         HamSandwichIID = config.getItem("Ham Sandwich", 10611).getInt();
 
          config.save();
 	 }
@@ -272,7 +274,6 @@ public class RCF
 //		
 //		//Uncooked Regular Foods
 //		BaconRaw = new ItemFoodMod(BaconRawIID, 0, false).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setIconCoord(109, 0).setItemName("BaconRaw");
-//		RawNuggets = new ItemFoodMod(RawNuggetsIID, 0, false).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setIconCoord(109, 0).setItemName("RawNuggets");
 //		UncookedChoclateCake= new ItemFoodMod(UncookedChoclateCakeIID, 0, false).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setIconCoord(109, 0).setItemName("UncookedChoclateCake");
 //		uncookedwizimsurprise= new ItemFoodMod(uncookedwizimsurpriseIID, 0, false).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setIconCoord(109, 0).setItemName("uncookedwizimsurprise");
 //		Bowlofeggs= new ItemFoodMod(BowlofeggsIID, 0, false).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setIconCoord(109, 0).setItemName("Bowlofeggs");
@@ -286,11 +287,8 @@ public class RCF
 //		choclatebarmould = new ItemFoodMod(choclatebarmouldIID, 0, false).setIconCoord(109, 0).setItemName(" choclatebarmould");
 //		Coconutcake = new ItemFoodMod(CoconutcakeIID, 0, false).setIconCoord(109, 0).setItemName("Coconutcake");
 //		Bacon = new ItemFoodMod(BaconIID, 0, false).setIconCoord(109, 0).setItemName("Bacon");
-//		ChickenNuggets = new ItemFoodMod(ChickenNuggetsIID, 0, false).setIconCoord(109, 0).setItemName("ChickenNuggets");
-//		SlicedBread = new ItemFoodMod(SlicedBreadIID, 0, false).setIconCoord(109, 0).setItemName("SlicedBread");
 //		SteakSandwich = new ItemFoodMod(SteakSandwichIID, 0, false).setIconCoord(109, 0).setItemName("SteakSandwich");
 //		FishSandwich = new ItemFoodMod(FishSandwichIID, 0, false).setIconCoord(109, 0).setItemName("FishSandwich");
-//		HamSandwich = new ItemFoodMod(HamSandwichIID, 0, false).setIconCoord(109, 0).setItemName("HamSandwich");
 //		Ham = new ItemFoodMod(HamIID, 0, false).setIconCoord(109, 0).setItemName("Ham");
 //		SlicedCheese= new ItemFoodMod(SlicedCheeseIID, 0, false).setIconCoord(109, 0).setItemName("SlicedCheese");
 //		HamandCheeseSandwich= new ItemFoodMod(HamandCheeseSandwichIID, 0, false).setIconCoord(109, 0).setItemName("HamandCheeseSandwich");
@@ -325,24 +323,38 @@ public class RCF
         poppedbagofpopcorn = new ItemFoodMod(poppedbagofpopcornIID, 10, true).setIconCoord(245, 0).setItemName("poppedbagofpopcorn").setCreativeTab(RCB.Reactioncraftfood);
         rawcorn = new ItemFoodMod(rawcornIID, 7, false).setIconCoord(243, 0).setItemName("rawcorn").setCreativeTab(RCB.Reactioncraftfood);
         UnwrappedCorn = new ItemFoodMod(UnwrappedCornIID, 6, false).setIconCoord(248, 0).setItemName("UnwrappedCorn").setCreativeTab(RCB.Reactioncraftfood);
-
+        RawNuggets = new ItemFoodMod(RawNuggetsIID, 5, true).setPotionEffect(Potion.hunger.id, 30, 0, 0.8F).setIconCoord(127, 0).setItemName("RawNuggets").setCreativeTab(RCB.Reactioncraftfood);
+        ChickenNuggets = new ItemFoodMod(ChickenNuggetsIID, 8, true).setIconCoord(122, 0).setItemName("ChickenNuggets").setCreativeTab(RCB.Reactioncraftfood);
+		SlicedBread = new ItemFoodMod(SlicedBreadIID, 4, false).setIconCoord(124, 0).setItemName("SlicedBread").setCreativeTab(RCB.Reactioncraftfood);
+		HamSandwich = new ItemFoodMod(HamSandwichIID, 12, false).setIconCoord(213, 0).setItemName("HamSandwich").setCreativeTab(RCB.Reactioncraftfood);
 		
 		//Goes Into Reactioncraft Main Creative Tab
 		EdibleFlesh= new ItemBasicFood(EdibleFleshIID, 6, true).setIconCoord(175, 0).setItemName("EdibleFlesh").setCreativeTab(RCB.Reactioncraft);
-		Knfie = (new ItemBasic(knifeIID)).setIconCoord(123, 0).setItemName("Knfie").setContainerItem(Knfie).setCreativeTab(RCB.Reactioncraft);
+		Knfie = (new ItemKnife(knifeIID, EnumToolMaterial.IRON)).setIconCoord(123, 0).setItemName("Knfie").setContainerItem(Knfie).setCreativeTab(RCB.Reactioncraft);
 		
 		//.setContainerItem(bucketEmpty)
 		registry();
 		langRegistry();
 		recipes();
 		furnaceRecipes();
+		Handlers();
 		}
 	
-	 	public void furnaceRecipes() 
+	 	private void Handlers()
+	 	{
+	 		GameRegistry.registerCraftingHandler(new CraftingHandler());
+	 	}
+
+
+		public void furnaceRecipes() 
 		{
       	  //GameRegistry.addSmelting(uncookedcc.shiftedIndex, new ItemStack(ccItem), 0.5F); 
+			
+			//Rotten Flesh to Edible Flesh
 			GameRegistry.addSmelting(Item.rottenFlesh.itemID, new ItemStack(EdibleFlesh), 0.5F); 
-		  //GameRegistry.addSmelting(Item.ingotGold.shiftedIndex, new ItemStack(RefinedGIngot), 0.5F); 
+			
+			//Cooking Chicken Nuggets
+			GameRegistry.addSmelting(RCF.RawNuggets.itemID, new ItemStack(RCF.ChickenNuggets), 0.5F);
 			
 			//Corn Recipes
 			GameRegistry.addSmelting(RCF.bagofpopcorn.itemID, new ItemStack(poppedbagofpopcorn), 0.5F);
@@ -356,15 +368,16 @@ public class RCF
 	 		GameRegistry.addShapelessRecipe(new ItemStack(RCF.rawcorn, 1), new Object[]{RCF.UnwrappedCorn});
 	 		GameRegistry.addShapelessRecipe(new ItemStack(RCF.popcornseeds, 5), new Object[]{RCF.rawcorn});
 	 		GameRegistry.addRecipe(new ItemStack(bagofpopcorn, 1), new Object[] {"AAA", "BBB", "AAA", 'A', Item.paper, 'B', RCF.popcornseeds});
+	 		GameRegistry.addShapelessRecipe(new ItemStack(RawNuggets, 5), new Object[] {Item.chickenRaw, new ItemStack(RCF.Knfie,1,-1)});
+	 		GameRegistry.addShapelessRecipe(new ItemStack(SlicedBread, 6), new Object[] {Item.bread, new ItemStack(RCF.Knfie,1,-1)});
+	 		GameRegistry.addRecipe(new ItemStack(HamSandwich, 1), new Object[] {" A ", " C ", " A ", 'A', RCF.SlicedBread, 'B', Item.porkRaw});
 	 		
-//	 		GameRegistry.addShapelessRecipe(new ItemStack(SlicedBread, 1), new Object[] {
-//	            Item.bread, Knfie
-//	             });
+	 		GameRegistry.addRecipe(new ItemStack(Knfie, 1), new Object[] {"   ", " B ", " A ", 'A', Item.stick, 'B', Item.ingotIron});
+	 		
+	 		
+	 		//not used yet
 //	 		GameRegistry.addShapelessRecipe(new ItemStack(SteakSandwich, 1), new Object[] {
 //	            Item.beefRaw, SlicedBread, SlicedBread
-//	             });
-//	 		GameRegistry.addShapelessRecipe(new ItemStack(RawNuggets, 4), new Object[] {
-//	            Item.chickenRaw, Knfie 
 //	             });
 //	 		GameRegistry.addShapelessRecipe(new ItemStack(BaconRaw, 4), new Object[] {
 //	        	Item.porkRaw, Knfie
@@ -390,12 +403,8 @@ public class RCF
 //			LanguageRegistry.addName(Coconutcake, "Coconut cake");
 //			LanguageRegistry.addName(Bacon, " Bacon");
 //			LanguageRegistry.addName(BaconRaw, "Raw Bacon");
-//			LanguageRegistry.addName(ChickenNuggets, "Chicken Nuggets");
-//	 		LanguageRegistry.addName(RawNuggets, "Raw Nuggets");
-//			LanguageRegistry.addName(SlicedBread, "sliced bread");
 //			LanguageRegistry.addName(SteakSandwich, "Uncooked Carrot Cake");
 //			LanguageRegistry.addName(FishSandwich, "Uncooked Carrot Cake");
-//			LanguageRegistry.addName(HamSandwich, "Uncooked Carrot Cake");
 //			LanguageRegistry.addName(Ham, "Carrot Cake");
 //	 		LanguageRegistry.addName(SlicedCheese, "Uncooked Carrot Cake");
 //			LanguageRegistry.addName(HamandCheeseSandwich, "Uncooked Carrot Cake");
@@ -430,6 +439,10 @@ public class RCF
 	 		LanguageRegistry.addName(poppedbagofpopcorn, "Bag of Popcorn");
 	 		LanguageRegistry.addName(rawcorn, "Uncooked Corn");
 	 		LanguageRegistry.addName(UnwrappedCorn, "Corn");
+			LanguageRegistry.addName(ChickenNuggets, "Chicken Nuggets");
+			LanguageRegistry.addName(RawNuggets, "Raw Nuggets");
+			LanguageRegistry.addName(SlicedBread, "sliced bread");
+			LanguageRegistry.addName(HamSandwich, "Ham Sandwich");
 	 	}
 			
 
@@ -442,6 +455,6 @@ public class RCF
 		@PostInit
 	 	public void modsLoaded(FMLPostInitializationEvent evt)
 	 	{
-	 		//new as well! How about that stuff after the mods are loaded/initialized?
+	 		FMLLog.info("Were Cookin Tonight..");
 	 	}	 
 }

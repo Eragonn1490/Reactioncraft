@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenOcean;
 import net.minecraft.world.biome.BiomeGenRiver;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenHandler implements IWorldGenerator 
@@ -25,7 +26,7 @@ public class WorldGenHandler implements IWorldGenerator
 	{
 		//Sponge
 		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(blockX, blockZ);
-    	if(biomegenbase instanceof BiomeGenOcean || biomegenbase instanceof BiomeGenRiver)
+    	if(biomegenbase instanceof BiomeGenOcean)
     	{
     		for(int k = 0; k < 10; k++)
             {
@@ -35,8 +36,16 @@ public class WorldGenHandler implements IWorldGenerator
                    (new WorldGenSponge(6)).generate(world, random, RandPosX, RandPosY, RandPosZ);
             }
     	}
+//    	//Magma
+//    	for(int i = 0; i < 7; i++)
+//    	{
+//    		int RandPosX = blockX + random.nextInt(16);
+//    		int RandPosY = random.nextInt(128);
+//    		int RandPosZ = blockZ + random.nextInt(16);
+//    		(new WorldGenMinable(RCC.MagmaLiquidFlowing.blockID, 2, 1)).generate(world, random, RandPosX, RandPosY, RandPosZ);
+//    	}
 	}
-
+	
 	public void generateNether(World world, Random random, int blockX, int blockZ) 
 	{
 		

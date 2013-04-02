@@ -9,7 +9,6 @@ public class BasicSword extends ItemSword
 	{
 		super(i, var2);
 		this.setCreativeTab(Reactioncraft.base.common.RCB.Reactioncraft);
-		//this.setCreativeTab(CreativeTabs.tabRedstone);
 	}
 
 	@Override

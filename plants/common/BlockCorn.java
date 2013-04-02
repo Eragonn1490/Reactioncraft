@@ -8,6 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
 public class BlockCorn extends Block
 {
@@ -146,40 +148,8 @@ public class BlockCorn extends Block
                     var1.setBlockWithNotify(var2, var3 + 1, var4, this.blockID);
                     var1.setBlockMetadataWithNotify(var2, var3, var4, 0);
                 }
-                else if (var1.getBlockLightValue(var2, var3 + 1, var4) >= 9 && this.nearWater(var1, var2, var3, var4))
-                {
-                    var1.setBlockMetadataWithNotify(var2, var3, var4, var7 + 1);
-                }
             }
         }
-    }
-
-    public boolean nearWater(World var1, int var2, int var3, int var4)
-    {
-        boolean var5 = true;
-
-        if (var1.getBlockId(var2, var3 - 1, var4) == this.blockID && this.nearWater(var1, var2, var3 - 1, var4))
-        {
-            var5 = true;
-        }
-        else if (var1.getBlockMaterial(var2 - 1, var3 - 1, var4) == Material.water)
-        {
-            var5 = true;
-        }
-        else if (var1.getBlockMaterial(var2 + 1, var3 - 1, var4) == Material.water)
-        {
-            var5 = true;
-        }
-        else if (var1.getBlockMaterial(var2, var3 - 1, var4 - 1) == Material.water)
-        {
-            var5 = true;
-        }
-        else if (var1.getBlockMaterial(var2, var3 - 1, var4 + 1) == Material.water)
-        {
-            var5 = true;
-        }
-
-        return var5;
     }
 
     /**

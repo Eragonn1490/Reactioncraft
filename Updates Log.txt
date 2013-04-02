@@ -1,24 +1,15 @@
+Change Colored Glass Recipe (Add Molten Glass..and a Color for each type..to make mix molten glass + Dye to make glass Block put 4 in a block Mould and then put in Freezer)
+
 Remove Modloader From Netmod
 
-add sound back to the crawling skleton
-
-add sound back to crawling zombie
-
-add fuse sound back to seacreeper
-
-check .setDisableStats();
 
 #0 Recode Config
 its fucking fucked up again....tragedy..
-
-#0.5 Fix Sugarcane Fuckup and Reset MCP i made a few base edits that interfere with actual running of the mod..
 
 #1 Fix Biomes...
 #1.1 Fix Gen inside of Desert Mod
 #1.2 allow librarys to spawn again..
 #1.3 Fix anything else..
-
-#2 chisels!
 
 #3 deep frier
 
@@ -29,8 +20,6 @@ its fucking fucked up again....tragedy..
     add to api
 
 #5 add frezer to api
-
-#6 recode meta cactus
 
 #7 Lever Bookcase
 

@@ -29,8 +29,8 @@ public class BlockAncientPlant extends BlockFlower
         return false;
     }
     @Override
-	public String getTextureFile() {
-		// TODO Auto-generated method stub
+	public String getTextureFile() 
+    {
 		return "/Reactioncraft/images/plants.png";
 	}
     //End Eragonn Code
@@ -163,14 +163,6 @@ public class BlockAncientPlant extends BlockFlower
         {
             if (world.rand.nextInt(15) <= metadata)
             {
-                ret.add(new ItemStack(RCPM.AncientSeeds));
-            }
-        }
-        
-        for (int n = 0; n < 6 + fortune; n++)
-        {
-            if (world.rand.nextInt(15) <= metadata)
-            {
                 ret.add(new ItemStack(RCPM.AncientFlower));
             }
         }
@@ -187,17 +179,9 @@ public class BlockAncientPlant extends BlockFlower
             {
                 return RCPM.AncientFlower.itemID;
             }
-            if (w == 15)
-            {
-                return RCPM.AncientFlower.itemID;
-            }
-            if (w == 20)
-            {
-                return RCPM.AncientFlower.itemID;
-            }
             else
             {
-                return RCPM.AncientSeeds.itemID;
+                return RCPM.AncientFruit.itemID;
             }         
     }
 
@@ -206,6 +190,6 @@ public class BlockAncientPlant extends BlockFlower
      */
     public int quantityDropped(Random par1Random)
     {
-        return 2;
+        return 1;
     }
 }

@@ -20,24 +20,24 @@ public class WorldGenHandler implements IWorldGenerator
 
   
 
-  private void generateSurface(World world, Random random, int blockX, int blockZ) 
+  public void generateSurface(World world, Random random, int blockX, int blockZ) 
  {
-//	  for(int i = 0; i < 4; i++)
-//		{
-//          int randPosX = blockX + random.nextInt(16);
-//          int randPosY = random.nextInt(128);
-//          int randPosZ = blockZ + random.nextInt(16);
-//          (new WorldGenMinable(RCBDM.CactusMulti.blockID, 4)).generate(world, random, randPosX, randPosY, randPosZ);
-//		}
-//	  
-//	  for(int i = 0; i < 4; i++)
-//		{
-//        int randPosX = blockX + random.nextInt(16);
-//        int randPosY = random.nextInt(128);
-//        int randPosZ = blockZ + random.nextInt(16);
-//        (new WorldGenMinable(RCBDM.CactusMulti.blockID, 4, 1)).generate(world, random, randPosX, randPosY, randPosZ);
-//		}
-//	  
+	  for(int i = 0; i < 4; i++)
+		{
+		  int randPosX = blockX + random.nextInt(16);
+          int randPosY = random.nextInt(128);
+          int randPosZ = blockZ + random.nextInt(16);
+          (new WorldGenMinable(RCBDM.Cactus1.blockID, 4)).generate(world, random, randPosX, randPosY, randPosZ);
+		}
+	  
+	  for(int i = 0; i < 4; i++)
+		{
+		  int randPosX = blockX + random.nextInt(16);
+		  int randPosY = random.nextInt(128);
+		  int randPosZ = blockZ + random.nextInt(16);
+		  (new WorldGenMinable(RCBDM.Cactus2.blockID, 4)).generate(world, random, randPosX, randPosY, randPosZ);
+		}
+	  
 //	  if((new Random()).nextFloat() < 2)
 //	  {
 //		  int Xcoord1 = blockX + random.nextInt(16);
@@ -59,13 +59,9 @@ public class WorldGenHandler implements IWorldGenerator
 //	  (new WorldGenSphinx()).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
  }
  
- private void generateNether(World world, Random random, int blockX, int blockZ) 
+ public void generateNether(World world, Random random, int blockX, int blockZ) 
  {
-  //int Xcoord = blockX + random.nextInt(16);
-  //int Ycoord = random.nextInt(60);
-  //int Zcoord = blockZ + random.nextInt(16);
-  
-  //(new WorldGenMinableNether(Tutorial.oreblock.blockID, 1, 10)).generate(world, random, Xcoord, Ycoord, Zcoord);
+
  }
 
 }

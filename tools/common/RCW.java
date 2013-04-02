@@ -2,12 +2,14 @@ package Reactioncraft.tools.common;
 
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import Reactioncraft.basic.common.BasicSword;
+import Reactioncraft.basic.common.ItemBasic;
 import Reactioncraft.basic.common.PacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -19,6 +21,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod( modid = "RCW", name="Reactioncraft Weapons", version="[1.4.7] Reactioncraft Version 7.0")
@@ -44,6 +47,9 @@ public class RCW
     public int BloodstoneShovelID;
     public int BloodstoneAxeID;
     public int BloodstoneHoeID;
+    public int BloodstoneBladeIID;
+    public int GoldenSwordFragmentIID;
+    public int UnbindedSwordIID;
     public static Item ObbySword;
     public static Item ObbyPick;
     public static Item ObbyShovel;
@@ -54,8 +60,10 @@ public class RCW
     public static Item BloodstoneShovel;
     public static Item BloodstoneAxe;
     public static Item BloodstoneHoe;
+    public static Item BloodstoneBlade;
+    public static Item GoldenSwordFragment;
+    public static Item UnbindedSword;
     
-
     @PreInit
     public void preInit(FMLPreInitializationEvent var1)
     {
@@ -76,12 +84,21 @@ public class RCW
         this.BloodstoneAxeID = config.getItem("Bloodstone Axe", 10534).getInt();
         this.BloodstoneHoeID = config.getItem("Bloodstone Hoe", 10535).getInt();
         
+        this.BloodstoneBladeIID = config.getItem("Bloodstone Blade", 10536).getInt();
+        this.GoldenSwordFragmentIID = config.getItem("Golden Sword Fragment", 10537).getInt();
+        this.UnbindedSwordIID = config.getItem("Unbinded Sword", 10538).getInt();
+                
         config.save();
     }
 
     @Init
     public void init(FMLInitializationEvent var1)
     {
+    	//Tool Parts
+    	BloodstoneBlade = (new ItemBasic(BloodstoneBladeIID)).setIconCoord(212, 0).setItemName("BloodstoneBlade");
+    	GoldenSwordFragment = (new ItemBasic(GoldenSwordFragmentIID)).setIconCoord(211, 0).setItemName("GoldenSwordFragment");
+    	UnbindedSword = (new ItemBasic(UnbindedSwordIID)).setIconCoord(5, 0).setItemName("UnbindedSword");
+    	
     	//Obsidian
         ObbySword = (new BasicSword(this.ObbyPickID, EnumToolMaterialObby)).setItemName("ObbySword").setIconIndex(25);
         ObbyPick = (new BasicPick(this.ObbySwordID, EnumToolMaterialObby)).setItemName("ObbyPick").setIconIndex(24);
@@ -97,17 +114,28 @@ public class RCW
         BloodstoneHoe = (new BasicHoe(this.BloodstoneHoeID, EnumToolMaterialBloodstone)).setItemName("BloodstoneHoe").setIconIndex(89);
         
         
+        //Obsidian Tools
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ObbySword, true, new Object[]{" I ", " I ", " X ", Character.valueOf('I'), "ingotObsidian", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ObbyPick, true, new Object[]{"III", " X ", " X ", Character.valueOf('I'), "ingotObsidian", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ObbyShovel, true, new Object[]{" I ", " X ", " X ", Character.valueOf('I'), "ingotObsidian", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ObbyAxe, true, new Object[]{"II ", "IX ", " X ", Character.valueOf('I'), "ingotObsidian", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ObbyHoe, true, new Object[]{"II ", " X ", " X ", Character.valueOf('I'), "ingotObsidian", Character.valueOf('X'), "goldRod"}));
-    	CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(BloodstoneSword, true, new Object[]{" I ", " I ", " X ", Character.valueOf('I'), "ingotBloodstone", Character.valueOf('X'), "goldRod"}));
+    
+        
+        //Bloodstone Tools
+        GameRegistry.addRecipe(new ItemStack(UnbindedSword,1), new Object[]{"   ", " B ", " F ", Character.valueOf('B'), BloodstoneBlade, Character.valueOf('F'), GoldenSwordFragment});
+        CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(BloodstoneBlade, true, new Object[]{" X ", " X ", " X ", Character.valueOf('X'), "ingotBloodstone"}));
+        CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(GoldenSwordFragment, true, new Object[]{" I ", "XIX", " X ", Character.valueOf('I'), "gemDragonstone", Character.valueOf('X'), "goldRod"}));
+        
+        //Bloodstone Tools
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(BloodstonePick, true, new Object[]{"III", " X ", " X ", Character.valueOf('I'), "ingotBloodstone", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(BloodstoneShovel, true, new Object[]{" I ", " X ", " X ", Character.valueOf('I'), "ingotBloodstone", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(BloodstoneAxe, true, new Object[]{"II ", "IX ", " X ", Character.valueOf('I'), "ingotBloodstone", Character.valueOf('X'), "goldRod"}));
         CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(BloodstoneHoe, true, new Object[]{"II ", " X ", " X ", Character.valueOf('I'), "ingotBloodstone", Character.valueOf('X'), "goldRod"}));
         
+        GameRegistry.addSmelting(UnbindedSword.itemID, new ItemStack(BloodstoneSword.itemID, 1, 1), 0.5F);
+        
+        LanguageRegistry.addName(UnbindedSword, "UnBinded Sword");
         LanguageRegistry.addName(ObbySword, "Obsidian Sword");
         LanguageRegistry.addName(ObbyPick, "Obsidian Pickaxe");
         LanguageRegistry.addName(ObbyShovel, "Obsidian Shovel");
@@ -118,14 +146,16 @@ public class RCW
         LanguageRegistry.addName(BloodstoneShovel, "Bloodstone Shovel");
         LanguageRegistry.addName(BloodstoneAxe, "Bloodstone Axe");
         LanguageRegistry.addName(BloodstoneHoe, "Bloodstone Hoe");
+        LanguageRegistry.addName(BloodstoneBlade, "Bloodstone Blade");
+        LanguageRegistry.addName(GoldenSwordFragment, "Gold Sword Fragment");
         
         MinecraftForge.setToolClass(RCW.ObbyPick,    "pickaxe", 4); 
-        MinecraftForge.setToolClass(RCW.ObbyShovel,  "pickaxe", 4);
-        MinecraftForge.setToolClass(RCW.ObbyAxe,     "pickaxe", 3);
+        MinecraftForge.setToolClass(RCW.ObbyShovel,  "shovel", 4);
+        MinecraftForge.setToolClass(RCW.ObbyAxe,     "axe", 4);
         
         MinecraftForge.setToolClass(RCW.BloodstonePick,    "pickaxe", 5);
-        MinecraftForge.setToolClass(RCW.BloodstoneShovel,  "pickaxe", 5);
-        MinecraftForge.setToolClass(RCW.BloodstoneAxe,     "pickaxe", 3);
+        MinecraftForge.setToolClass(RCW.BloodstoneShovel,  "shovel", 5);
+        MinecraftForge.setToolClass(RCW.BloodstoneAxe,     "axe", 5);
         
         proxy.registerRenderInformation();
     }

@@ -1,14 +1,17 @@
-package Reactioncraft.bookcase.common;
+package Reactioncraft.core.common;
 
 import java.util.Random;
+
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenDesert;
+import net.minecraft.world.biome.BiomeGenOcean;
+import net.minecraft.world.biome.BiomeGenRiver;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class WorldGenHandler implements IWorldGenerator 
+public class WorldGenHandler2 implements IWorldGenerator 
 {
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
@@ -22,21 +25,28 @@ public class WorldGenHandler implements IWorldGenerator
 
 	public void generateSurface(World world, Random random, int blockX, int blockZ) 
 	{
-		  //WizimLibrary
-		  int Xcoord1 = blockX + random.nextInt(16);
-		  int Ycoord1 = random.nextInt(80);
-		  int Zcoord1 = blockZ + random.nextInt(16);
-		  (new WorldGenWizimLibary()).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		//DarkSand
+		BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(blockX, blockZ);
+    	if(biomegenbase instanceof BiomeGenOcean || biomegenbase instanceof BiomeGenRiver)
+    	{
+    		for(int k = 0; k < 10; k++)
+            {
+                   int RandPosX = blockX + random.nextInt(5);
+                   int RandPosY = random.nextInt(80);
+                   int RandPosZ = blockZ + random.nextInt(5);
+                   (new WorldGenDarkSand(6)).generate(world, random, RandPosX, RandPosY, RandPosZ);
+            }
+    	}
 	}
-
+	
 	public void generateNether(World world, Random random, int blockX, int blockZ) 
 	{
-
+		
 	}
 	
 	public void generateEnd(World world, Random random, int blockX, int blockZ) 
 	{
-		
+
 	}
 	
 }

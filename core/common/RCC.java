@@ -6,13 +6,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+import Reactioncraft.base.common.RCB;
 import Reactioncraft.basic.common.BlockBasic;
 import Reactioncraft.basic.common.ClientProxy;
 import Reactioncraft.basic.common.CommonProxy;
 import Reactioncraft.basic.common.ItemBasic;
 import Reactioncraft.basic.common.ItemContainer;
 import Reactioncraft.basic.common.PacketHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -43,16 +47,18 @@ public class RCC
 	
 	//Config Code
 	public static int extrapaintingsIID;
-	public static int redstoneBlockID;
 	public static int snowblockBlockID;
 	public static int chainladderID;
 	public static int ChainLoopIID;
 	public static int HammerIID;
+	public static int MagmaLiquidStillID;
+	public static int MagmaLiquidFlowingID;
 	
 	//block code
-	public static Block redstoneBlock;
 	public static Block snowblock;
 	public static Block chainladder;
+	public static Block MagmaLiquidStill;
+	public static Block MagmaLiquidFlowing;
 	
 	
 	//Item code
@@ -60,6 +66,18 @@ public class RCC
 	public static Item ChainLoop;
 	public static Item Hammer;
 	
+	public static boolean RCBDM() throws ClassNotFoundException 
+	 {
+			try
+			{
+				Class.forName("Reactioncraft.Desert.common.RCBDM");
+			}
+			catch (NoClassDefFoundError ex) 
+			{
+				return false ;
+			}
+			return true ;
+	 }
 	
 	@PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
@@ -69,10 +87,10 @@ public class RCC
 		 
 		 
 		 //Block
-		 redstoneBlockID = config.getBlock("Redstone Block", 2999).getInt();
-		 snowblockBlockID = config.getBlock("Snow Block", 2998).getInt();
-		 chainladderID = config.getBlock("chain ladder", 2997).getInt();
-		 
+		 MagmaLiquidStillID = config.getBlock("Magma Block Still", 2995).getInt();
+		 MagmaLiquidFlowingID = config.getBlock("Magma Block Flowing", 2996).getInt();
+		 snowblockBlockID = config.getBlock("Snow Block", 2997).getInt();
+		 chainladderID = config.getBlock("chain ladder", 2998).getInt();
 		 
 		 //Items
 		 //Reserved 10061 - 10080 
@@ -88,38 +106,59 @@ public class RCC
 	 {
 		ClientProxy.registerRenderInformation();
 		blockCode();
+		blockRegistry();
 		ItemCode();
 		addNames();
 		worldGenHandler();
 		recipes();
-		blockRegistry();
+		oreDictionary();
+		//Reactioncraft integration
+		try 
+		{
+			if(RCBDM())
+			{
+				Integration.loadReactioncraft();
+				System.out.println("Reactioncraft Better Desert Mod enabled");
+			}
+		}
+		catch (ClassNotFoundException e)	
+		{
+			System.out.println(" Reactioncraft Core did not find Reactioncraft Better Desert Mod, No Special Sand Generation Allowed");
+		}
 	 }
 
-	private void blockRegistry() 
+	public void oreDictionary() 
 	{
-		GameRegistry.registerBlock(snowblock, "snowblock");
-		GameRegistry.registerBlock(redstoneBlock, "redstoneBlock");
-		GameRegistry.registerBlock(chainladder, "chainladder");
-		GameRegistry.registerItem(ChainLoop, "ChainLoop");
+		
 	}
 
-	private void recipes() 
+	public void blockRegistry() 
 	{
+		GameRegistry.registerBlock(snowblock, "snowblock");
+		GameRegistry.registerBlock(chainladder, "chainladder");
+		GameRegistry.registerBlock(MagmaLiquidStill, "MagmaLiquidStill");
+		GameRegistry.registerBlock(MagmaLiquidFlowing, "MagmaLiquidFlowing");
+	}
+
+	public void recipes() 
+	{
+		
+		//
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"XY ", "   ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"   ", "XY ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"   ", "   ", "XY ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
 		GameRegistry.addRecipe(new ItemStack(Hammer, 1), new Object[]{"XXX", "XIX", " I ", Character.valueOf('I'), Item.stick, Character.valueOf('X'), Item.ingotIron});
-		GameRegistry.addRecipe(new ItemStack(redstoneBlock, 1), new Object[]{ "DDD", "DDD", "DDD", Character.valueOf('D'), new ItemStack(Item.redstone),});
 		GameRegistry.addRecipe(new ItemStack(RCC.chainladder, 2), new Object[] {"Y", "Y", "Y", 'Y', RCC.ChainLoop});
-		GameRegistry.addShapelessRecipe(new ItemStack(RCC.ChainLoop, 3), new Object[]{RCC.chainladder,});
+		GameRegistry.addShapelessRecipe(new ItemStack(RCC.ChainLoop, 2), new Object[]{RCC.chainladder,});
 		GameRegistry.addRecipe(new ItemStack(snowblock, 1), new Object[]{ "DD ", "DD ", "   ", Character.valueOf('D'), Block.ice});
 	}
 
 	public void blockCode() 
 	{
+		MagmaLiquidStill = new BlockMagmaLiquidStill(MagmaLiquidStillID).setBlockName("MagmaLiquidStill");
+		MagmaLiquidFlowing = new BlockMagmaLiquidFlowing(MagmaLiquidFlowingID).setBlockName("MagmaLiquidFlowing");
 		chainladder = new BlockChainLadder(chainladderID, 98).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setBlockName("chainladder");
 		snowblock = new BlockBasic(snowblockBlockID, 67).setHardness(3.0F).setResistance(5.0F).setBlockName("snowblock");
-		redstoneBlock = new BlockRedstoneBlock(redstoneBlockID, 99).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setBlockName("RedStoneBlock");
 	}
 
 	public void worldGenHandler() 
@@ -138,17 +177,18 @@ public class RCC
 	{
 		LanguageRegistry.addName(extrapaintings, "Extra Paintings");
 		LanguageRegistry.addName(snowblock, "Snow Block");
-		LanguageRegistry.addName(redstoneBlock, "Redstone Block");
 		LanguageRegistry.addName(chainladder, "chain ladder");
 		LanguageRegistry.addName(ChainLoop, "Chain Loop");
 		LanguageRegistry.addName(Hammer, "Hammer");
+		LanguageRegistry.addName(MagmaLiquidFlowing, "Magma Liquid");
+		LanguageRegistry.addName(MagmaLiquidFlowing, "Magma Liquid");
 	}
 	
 
 	@PostInit
 	 public void modsLoaded(FMLPostInitializationEvent evt)
 	 {
-	 
+		FMLLog.info("Looks like Reactioncraft Has Fully Loaded!");
 	 }	 
 }
 

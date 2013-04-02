@@ -3,11 +3,19 @@ package Reactioncraft.bookcase.common;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+
 public class WorldGenWizimLibary extends WorldGenerator
 {
+	private ItemStack book1 = new ItemStack(Item.writtenBook);
+
     protected int[] GetValidSpawnBlocks()
     {
         return new int[] {Block.grass.blockID};
@@ -1966,6 +1974,90 @@ public class WorldGenWizimLibary extends WorldGenerator
         var1.setBlock(var3 + 17, var4 + 9, var5 + 5, Block.fence.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 6, Block.bookShelf.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 7, RCBB.Bookcasechest.blockID);
+        							
+        
+        TileEntityBookcaseChest chest2 = new TileEntityBookcaseChest();
+        
+        var1.setBlockTileEntity(var3 + 17, var4 + 9, var5 + 7, chest2);
+        
+        Random random = new Random();
+       
+        for(int slot = 0; slot < chest2.getSizeInventory(); slot++)
+        {
+               
+                int num = random.nextInt(300);//change to higher than 30 once tested
+               
+                if (num == 1)
+                {
+                	
+	                chest2.setInventorySlotContents(slot, book1);
+	               	book1.stackTagCompound = new NBTTagCompound();
+	                NBTTagList pages = new NBTTagList();
+	                
+	                pages.appendTag(new NBTTagString("", "Welcome To Reactioncraft\n" +
+	                                                     "If this is your first time playing that is great.\n"  +
+	                		                             "-this book is annoying and will spawn every time you play so go ahead and use it as fuel in a furnace its a handly feature of Better Bookcases Mod\n"));
+	                
+	                pages.appendTag(new NBTTagString("", "-to play Reactioncraft to its fullest dont cheat!\n"  +
+	                                                     "-Reactioncraft adds tons of blocks from colored glass to hireoglyphics with mobs and even christmas trees\n" +
+	                                                     "-Tip of the Day... Build in the Special Deserts\n"));
+	                
+	                pages.appendTag(new NBTTagString("", "-Reactioncraft Rules...if you choose to read them\n" +
+	                									 "-Rule 1 dont piss off the seacreepers they explode\n" +
+	                									 "-Rule 2 dont run from the crawlers.. they like it when you run..\n" +
+	                									 "-Rule 3 if you find a wizim library burn it... the wizim wont like it but who cares right?\n"));
+	                
+	                pages.appendTag(new NBTTagString("", "Thanks to: Eragonn1490 (Primary Coder), Wizim (Texturees, LOGO's), Ri5ux (Code Assitant), LexManos,\n" +
+	                									 "Trilby11 (Code), Joey (Code), Malkerian (Code), LegendaryTriforce (Code/Textures),\n"));
+	                									 
+	                pages.appendTag(new NBTTagString("",  "CPW, DV8FROMTHEWORLD, COWEDOFFACLIFF, CovertJaguar, Fred_Funny (Textures), AND OTHERS\n" + 
+	                									 "Risugami, Cojo (Alot of Code), Corosus (Code), GenuineSounds (Code)\n" +
+	                									 "for helping make Reactioncraft possible"));
+	               
+	                book1.stackTagCompound.setTag("pages", pages);
+	                book1.stackTagCompound.setString("title", "The Complete History of the Wizim");
+	                book1.stackTagCompound.setString("author", "The Wizim Historian");
+                }
+                
+                if (num == 2)
+                {
+                	
+                chest2.setInventorySlotContents(slot, new ItemStack(Block.cobblestone));
+ 
+                }
+               
+                if (num == 5)
+                {
+                	
+                chest2.setInventorySlotContents(slot, new ItemStack(Item.beefCooked));
+ 
+                }
+               
+//                if (num == 6)
+//                {
+//                	
+//                chest2.setInventorySlotContents(slot, new ItemStack(mod_ForbiddenForest.Gel));
+// 
+//                }
+//                
+//                if (num == 7)
+//                {
+//                	
+//                chest2.setInventorySlotContents(slot, new ItemStack(mod_ForbiddenForest.PureEnergy));
+//       
+// 
+//                }
+//                
+//                if (num == 8)
+//                {
+//                	
+//                chest2.setInventorySlotContents(slot, new ItemStack(mod_ForbiddenForest.SpellTome));
+//       
+// 
+//                }
+       
+        }
+        
         var1.setBlock(var3 + 17, var4 + 9, var5 + 8, RCBB.Bookcasechest.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 9, Block.bookShelf.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 15, Block.bookShelf.blockID);

@@ -4,14 +4,14 @@ import Reactioncraft.base.common.RCB;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemSword;
 
-public class ItemChisel extends ItemSword 
+public class ItemChisel4 extends ItemChisel 
 {
 
-	public ItemChisel(int par1) 
+	public ItemChisel4(int par1) 
 	{
-		super(par1, EnumToolMaterial.EMERALD);
+		super(par1);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(10);
+		this.setMaxDamage(200);
 		this.setItemName("Chisel");
 		this.setCreativeTab(RCB.Reactioncraft);
 	}
