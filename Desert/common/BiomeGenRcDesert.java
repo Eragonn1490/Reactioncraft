@@ -1,14 +1,15 @@
 package Reactioncraft.Desert.common;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenRcDesert extends BiomeGenBase
 {
-    public BiomeGenRcDesert(int i)
+    public BiomeGenRcDesert(int par1)
     {
-        super(i);
-        topBlock = (byte)RCBDM.DarkSand.blockID;
-        fillerBlock = (byte)RCBDM.DarkSand.blockID;
-        spawnableCreatureList.clear();
+        super(par1);
+        this.spawnableCreatureList.clear();
+        this.topBlock = (byte)RCBDM.DarkSand.blockID;
+        this.fillerBlock = (byte)RCBDM.DarkSand.blockID;
     }
 }

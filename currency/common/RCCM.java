@@ -75,18 +75,18 @@ public class RCCM
 
         config.load();
         
-        //Items... 10081 - 10120
-        CrownIID = config.getItem("Crown", 10097).getInt();
-        KinglyChestIID = config.getItem("King Chest", 10098).getInt();
-        KinglyLegsIID = config.getItem("King Legs", 10099).getInt();
-        KinglyBootsIID = config.getItem("King Boots", 10100).getInt();	
-        BagIID = config.getItem("Bag", 10101).getInt();
-        SackIID = config.getItem("Sack", 10102).getInt();
-        StrawIID = config.getItem("Straw", 10103).getInt();
-        CoinMouldIID = config.getItem("Coin Mould 1", 10106).getInt();
-        CoinMould2IID = config.getItem("Coin Mould 2", 10115).getInt();
-        MetadatacoinIID = config.getItem("Metadata Coin", 10119).getInt();
-        Metadatacoin2IID = config.getItem("Second Metadata Coin", 10120).getInt();
+        //Items... 10091 - 10120
+        CrownIID = config.getItem("Crown", 10091).getInt();
+        KinglyChestIID = config.getItem("King Chest", 10092).getInt();
+        KinglyLegsIID = config.getItem("King Legs", 10093).getInt();
+        KinglyBootsIID = config.getItem("King Boots", 10094).getInt();	
+        BagIID = config.getItem("Bag", 10095).getInt();
+        SackIID = config.getItem("Sack", 10096).getInt();
+        StrawIID = config.getItem("Straw", 10097).getInt();
+        CoinMouldIID = config.getItem("Coin Mould 1", 10098).getInt();
+        CoinMould2IID = config.getItem("Coin Mould 2", 10099).getInt();
+        MetadatacoinIID = config.getItem("Metadata Coin", 10100).getInt();
+        Metadatacoin2IID = config.getItem("Second Metadata Coin", 10101).getInt();
 
         config.save();
 	 }	

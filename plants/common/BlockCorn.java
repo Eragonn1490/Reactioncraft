@@ -26,46 +26,25 @@ public class BlockCorn extends Block
     {
    		return "/Reactioncraft/images/Blocks.png";
    	}
-    
-    @Override
-    public int idDropped(int par1, Random par2Random, int par3)
+
+    public int idDropped(int var1, int var2, Random var3)
     {
-       
-            int w = par2Random.nextInt(65);
-            if (w == 0)
-            {
-                return RCPM.Wrappedcorn.itemID;
-            }
-            if (w == 15)
-            {
-                return RCPM.Wrappedcorn.itemID;
-            }
-            if (w == 20)
-            {
-                return RCPM.Wrappedcorn.itemID;
-            }
-            if (w == 35)
-            {
-                return RCPM.Wrappedcorn.itemID;
-            }
-            if (w == 40)
-            {
-                return  RCPM.Wrappedcorn.itemID;
-            }
-            if (w == 55)
-            {
-                return  RCPM.Wrappedcorn.itemID;
-            }
-            if (w == 60)
-            {
-                return  RCPM.Wrappedcorn.itemID;
-            }
-            else
-            {
-                return RCPM.Wrappedcorn.itemID;
-            }         
+        return RCPM.Wrappedcorn.itemID;
     }
-    
+
+    public int idDropped(int var1, Random var2)
+    {
+        return RCPM.Wrappedcorn.itemID;
+    }
+
+    /**
+     * Returns the ID of the items to drop on destruction.
+     */
+    public int idDropped(int var1, Random var2, int var3)
+    {
+        return RCPM.Wrappedcorn.itemID;
+    }
+
     /**
      * Returns the quantity of items to drop on block destruction.
      */
@@ -117,7 +96,7 @@ public class BlockCorn extends Block
         boolean var5 = false;
         int var6 = var1.getBlockId(var2, var3 - 1, var4);
 
-        if (var6 == Block.tilledField.blockID ||var6 == Block.grass.blockID || var6 == Block.dirt.blockID || var6 == Block.gravel.blockID || var6 == Block.sand.blockID || var6 == this.blockID)
+        if (var6 == Block.grass.blockID || var6 == Block.dirt.blockID || var6 == Block.gravel.blockID || var6 == Block.sand.blockID || var6 == this.blockID)
         {
             var5 = true;
         }
@@ -139,7 +118,7 @@ public class BlockCorn extends Block
                 ;
             }
 
-            if (var6 < 10)
+            if (var6 < 3)
             {
                 int var7 = var1.getBlockMetadata(var2, var3, var4);
 
@@ -148,8 +127,40 @@ public class BlockCorn extends Block
                     var1.setBlockWithNotify(var2, var3 + 1, var4, this.blockID);
                     var1.setBlockMetadataWithNotify(var2, var3, var4, 0);
                 }
+                else if (var1.getBlockLightValue(var2, var3 + 1, var4) >= 9 && this.nearWater(var1, var2, var3, var4))
+                {
+                    var1.setBlockMetadataWithNotify(var2, var3, var4, var7 + 1);
+                }
             }
         }
+    }
+
+    public boolean nearWater(World var1, int var2, int var3, int var4)
+    {
+        boolean var5 = false;
+
+        if (var1.getBlockId(var2, var3 - 1, var4) == this.blockID && this.nearWater(var1, var2, var3 - 1, var4))
+        {
+            var5 = true;
+        }
+        else if (var1.getBlockMaterial(var2 - 1, var3 - 1, var4) == Material.water)
+        {
+            var5 = true;
+        }
+        else if (var1.getBlockMaterial(var2 + 1, var3 - 1, var4) == Material.water)
+        {
+            var5 = true;
+        }
+        else if (var1.getBlockMaterial(var2, var3 - 1, var4 - 1) == Material.water)
+        {
+            var5 = true;
+        }
+        else if (var1.getBlockMaterial(var2, var3 - 1, var4 + 1) == Material.air)
+        {
+            var5 = true;
+        }
+
+        return var5;
     }
 
     /**

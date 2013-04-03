@@ -92,41 +92,42 @@ public class RCBDM
 	public static Item CutDBGem; //cut
 	public static Item SandStonePaste;
 	
+	//Biomes
+	public static BiomeGenBase RcDesert;
+	
 	@PreInit
 	 public void preInit(FMLPreInitializationEvent evt)
-	 {
-		//FMLLog.info("Loading Pre Configuration Now");
-		
+	 {		
 		Configuration config = new Configuration(evt.getSuggestedConfigurationFile());
 
 		MinecraftForge.EVENT_BUS.register(new RCCBonemealProvider());
 		
         config.load();
         
-        //3031 - 3040
-        CherrywoodID = config.getBlock("Cherry Tree Wood", 3022).getInt();
-        CherryTreeLeavesID = config.getBlock("Cherry Tree Leaves", 3023).getInt();
-        CherryTreeSaplingID = config.getBlock("Cherry Tree Sapling", 3024).getInt();
+        //3027 - 3040
+        CherrywoodID = config.getBlock("Cherry Tree Wood", 3027).getInt();
+        CherryTreeLeavesID = config.getBlock("Cherry Tree Leaves", 3028).getInt();
+        CherryTreeSaplingID = config.getBlock("Cherry Tree Sapling", 3029).getInt();
         DarkSandID = config.getBlock("Dark Sand", 240).getInt();
-        HireoBlocksIID = config.getBlock("Hireoglyphics", 3031).getInt();
-        DesertBlocksIID = config.getBlock("Dark Sandstone Blocks", 3032).getInt();
-        ColumnBlockID = config.getBlock("Column Blocks", 3033).getInt();
-        DesertBlockMultiID = config.getBlock("Desert Blocks", 3034).getInt();
-        BloodstoneBrickID = config.getBlock("Bloodstone Brick", 3036).getInt();
+        HireoBlocksIID = config.getBlock("Hireoglyphics", 3030).getInt();
+        DesertBlocksIID = config.getBlock("Dark Sandstone Blocks", 3031).getInt();
+        ColumnBlockID = config.getBlock("Column Blocks", 3032).getInt();
+        DesertBlockMultiID = config.getBlock("Desert Blocks", 3033).getInt();
+        BloodstoneBrickID = config.getBlock("Bloodstone Brick", 3034).getInt();
         Cactus1ID = config.getBlock("Cactus Block 1", 3035).getInt();
-        Cactus2ID = config.getBlock("Cactus Block 2", 3037).getInt();
+        Cactus2ID = config.getBlock("Cactus Block 2", 3036).getInt();
         
-        //Items... 10101 - 10200
-        FlintChiselIID = config.getItem("Flint Chisel", 10101).getInt();
-        GoldChiselIID = config.getItem("Gold Chisel", 10102).getInt();
-        DiamondChiselIID = config.getItem("Diamond Chisel", 10103).getInt();
-        BloodstoneChiselIID = config.getItem("Bloodstone Chisel", 10104).getInt();
-        CopperChiselIID = config.getItem("Copper Chisel", 10105).getInt();
-        UncutLBGemIID = config.getItem("Uncut Light Blue Gem", 10106).getInt();
-        CutLBGemIID = config.getItem("Cut Light Blue Gem", 10107).getInt();
-        UncutDBGemIID = config.getItem("Uncut Dark Blue Gem", 10108).getInt();
-        CutDBGemIID = config.getItem("Cut Dark Blue Gem", 10109).getInt();
-        SandStonePasteIID = config.getItem("Sandstone Paste", 10110).getInt();
+        //Items... 10121 - 10220
+        FlintChiselIID = config.getItem("Flint Chisel", 10121).getInt();
+        GoldChiselIID = config.getItem("Gold Chisel", 10122).getInt();
+        DiamondChiselIID = config.getItem("Diamond Chisel", 10123).getInt();
+        BloodstoneChiselIID = config.getItem("Bloodstone Chisel", 10124).getInt();
+        CopperChiselIID = config.getItem("Copper Chisel", 10125).getInt();
+        UncutLBGemIID = config.getItem("Uncut Light Blue Gem", 10126).getInt();
+        CutLBGemIID = config.getItem("Cut Light Blue Gem", 10127).getInt();
+        UncutDBGemIID = config.getItem("Uncut Dark Blue Gem", 10128).getInt();
+        CutDBGemIID = config.getItem("Cut Dark Blue Gem", 10129).getInt();
+        SandStonePasteIID = config.getItem("Sandstone Paste", 10130).getInt();
         
         config.save();
 	 }
@@ -139,13 +140,31 @@ public class RCBDM
 		itemCode();
 		registerHandlers();
 		addNames();
-		addBiomes(); 
 		oreDictionary();
 		addRecipes();
+		HarvestLevel();
+		addSmelting();
+		initBiomes();
+		addBiomes(); 
 	 }
 	
 		
 	
+	public void addSmelting() 
+	{
+		 GameRegistry.addSmelting(RCBDM.DarkSand.blockID, new ItemStack(Block.glass.blockID, 1, 1), 0.5F);
+	}
+
+	public void HarvestLevel() 
+	{
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DarkSand,     "shovel", 1);
+	}
+
+	public void initBiomes() 
+	{
+		RcDesert = (new BiomeGenRcDesert(30)).setBiomeName("Darksand Desert").setDisableRain().setMinMaxHeight(0.1F, 0.2F).setColor(230609);
+	}
+
 	public void oreDictionary() 
 	{
 		OreDictionary.registerOre("BloodstoneBrick", new ItemStack(RCBDM.BloodstoneBrick));
@@ -390,7 +409,7 @@ public class RCBDM
 
 	public void addBiomes() 
 	{
-		
+		GameRegistry.addBiome(RcDesert);
 	}
 
 	public void addNames() 

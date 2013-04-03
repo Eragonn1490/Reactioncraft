@@ -51,9 +51,9 @@ public class RCRCM
 
 	        config.load();
 	        
-	    	BlackdiamondboreIID = config.getItem("Black Diamond Bore", 10501).getInt();
-	    	BloodstoneboreIID = config.getItem("Bloodstone Bore", 10502).getInt();
-	    	//Claimed Item IDS 10501 - 10525
+	    	BlackdiamondboreIID = config.getItem("Black Diamond Bore", 10921).getInt();
+	    	BloodstoneboreIID = config.getItem("Bloodstone Bore", 10922).getInt();
+	    	//Claimed Item IDS 10921 - 10930
 
 	        config.save();
 		 } 

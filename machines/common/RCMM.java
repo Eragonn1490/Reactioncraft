@@ -80,11 +80,14 @@ public class RCMM
 		config.load();
 
 		MinecraftForge.EVENT_BUS.register(this);
-		FreezerActiveID = config.getBlock("Freezer Active", 4000).getInt();
-		FreezerIdleID   = config.getBlock("Freezer Idle", 4001).getInt();
-
-		IceBucketIID = config.getItem("Ice Bucket", 12000).getInt();
-		ObsidianBucketIID = config.getItem("Obsidian Bucket", 12001).getInt();
+		
+		//3066- 3070
+		FreezerActiveID = config.getBlock("Freezer Active", 3066).getInt();
+		FreezerIdleID   = config.getBlock("Freezer Idle", 3067).getInt();
+		
+		//10801 - 10820
+		IceBucketIID = config.getItem("Ice Bucket", 10801).getInt();
+		ObsidianBucketIID = config.getItem("Obsidian Bucket", 10802).getInt();
 
 
 		config.save();

@@ -15,6 +15,14 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class WorldGenWizimLibary extends WorldGenerator
 {
 	private ItemStack book1 = new ItemStack(Item.writtenBook);
+	private ItemStack book2 = new ItemStack(Item.writtenBook);
+	private ItemStack book3 = new ItemStack(Item.writtenBook);
+	private ItemStack book4 = new ItemStack(Item.writtenBook);
+	private ItemStack book5 = new ItemStack(Item.writtenBook);
+	private ItemStack book6 = new ItemStack(Item.writtenBook);
+	private ItemStack book7 = new ItemStack(Item.writtenBook);
+	private ItemStack book8 = new ItemStack(Item.writtenBook);
+
 
     protected int[] GetValidSpawnBlocks()
     {
@@ -1994,67 +2002,292 @@ public class WorldGenWizimLibary extends WorldGenerator
 	               	book1.stackTagCompound = new NBTTagCompound();
 	                NBTTagList pages = new NBTTagList();
 	                
-	                pages.appendTag(new NBTTagString("", "Welcome To Reactioncraft\n" +
-	                                                     "If this is your first time playing that is great.\n"  +
-	                		                             "-this book is annoying and will spawn every time you play so go ahead and use it as fuel in a furnace its a handly feature of Better Bookcases Mod\n"));
+	                pages.appendTag(new NBTTagString("", "The story of the wizim begins long ago, so long ago that it was around the begenning of the human race.\n" +
+	                                                     "There were a certian group of individuals that caught the eye of the almighty Zeus.\n"  +
+	                		                             "This tribe, at the time had no idea of the existance of the gods, much less a heritage of there own\n"));
 	                
-	                pages.appendTag(new NBTTagString("", "-to play Reactioncraft to its fullest dont cheat!\n"  +
-	                                                     "-Reactioncraft adds tons of blocks from colored glass to hireoglyphics with mobs and even christmas trees\n" +
-	                                                     "-Tip of the Day... Build in the Special Deserts\n"));
+	                pages.appendTag(new NBTTagString("", "The tribe showed a great amount of knowledge, and various other traits that seemed out of place during there time\n"  +
+	                                                     "Zues, wanting to further investigate them went to earth appearing as one of them.\n" +
+	                                                     "He lived among them for 7 years, watching and trying to pinpoint what made them so special, though he couldn't find a signle clue\n"));
 	                
-	                pages.appendTag(new NBTTagString("", "-Reactioncraft Rules...if you choose to read them\n" +
-	                									 "-Rule 1 dont piss off the seacreepers they explode\n" +
-	                									 "-Rule 2 dont run from the crawlers.. they like it when you run..\n" +
-	                									 "-Rule 3 if you find a wizim library burn it... the wizim wont like it but who cares right?\n"));
+	                pages.appendTag(new NBTTagString("", "Like as with many human women, Zeus found himself smitten with the humanly affection of love with one of the tribal women.\n" +
+	                									 "Her name was Wiajzim, Like other humans he married her and with the blessing o the cheif Wakiakam, soon she bore a child.\n" +
+	                									 "What struck Zeus oddly enough, was that his child showed even greater power than those before, and soon realised something was afoot.\n" +
+	                									 "Farther off in another but still close galaxy reigned the god Neptune, who without informing the other Gods had also visited earth\n"));
 	                
-	                pages.appendTag(new NBTTagString("", "Thanks to: Eragonn1490 (Primary Coder), Wizim (Texturees, LOGO's), Ri5ux (Code Assitant), LexManos,\n" +
-	                									 "Trilby11 (Code), Joey (Code), Malkerian (Code), LegendaryTriforce (Code/Textures),\n"));
+	                pages.appendTag(new NBTTagString("", "Where he had also by some coidence had taken pity on a feeble woman, that seemed near death.\n" +
+	                									 "He saved her, though not without a price for his help. Before he left he impregnated her with his child.\n" +
+	                									 "The child, a daughter who would  become the adopted princess of the feeble womans tribe the 'IZM'.\n"));
 	                									 
-	                pages.appendTag(new NBTTagString("",  "CPW, DV8FROMTHEWORLD, COWEDOFFACLIFF, CovertJaguar, Fred_Funny (Textures), AND OTHERS\n" + 
-	                									 "Risugami, Cojo (Alot of Code), Corosus (Code), GenuineSounds (Code)\n" +
-	                									 "for helping make Reactioncraft possible"));
+	                pages.appendTag(new NBTTagString("", "In an attempt at peace the Cheiftan of the 'IZM' tribe offered his adopted princess to the Wakiakam Tribe's Grandson that would one day rule the tribe.\n" + 
+	                									 "Soon once they reached the age of mating the Daughter of Neptune and the Son of Zeus married, and soon had a son.\n" +
+	                									 "They Chose the name 'Wizim' for there son."));
 	               
 	                book1.stackTagCompound.setTag("pages", pages);
-	                book1.stackTagCompound.setString("title", "The Complete History of the Wizim");
+	                book1.stackTagCompound.setString("title", "Fragment of the Wizim History");
 	                book1.stackTagCompound.setString("author", "The Wizim Historian");
                 }
                 
-                if (num == 2)
-                {
-                	
-                chest2.setInventorySlotContents(slot, new ItemStack(Block.cobblestone));
- 
-                }
-               
                 if (num == 5)
                 {
                 	
-                chest2.setInventorySlotContents(slot, new ItemStack(Item.beefCooked));
+                chest2.setInventorySlotContents(slot, book2);
+               	book2.stackTagCompound = new NBTTagCompound();
+               	NBTTagList pages = new NBTTagList();
+                
+                pages.appendTag(new NBTTagString("", "The Above Newborn grandson of two gods only spurred the tribe onward, there might increasing beyond any who'd ever existed, more powerful than even Zeus himself.\n" +
+                                                     "They began on a spree of invasions, pillaging those to weak to put up a resistance, and conquering the others and destroying there ways of life.\n"  +
+                		                             "This lead to the other gods soon taking notice of the Dimigod race now lead by Wizim the grandson of Zeus and Neptune, who now call them selves the 'Wizim'.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Especially Hera, Zeus's Goddess wife and also the Goddess of marriage. soon she learned of the marriage of Zues and Wiajzim.\n"  +
+                                                     "Enraged by the marriage and the effect of the race Zues unintentionally created, she decended upon earth and went to the palace where the now very elderly woman,\n" +
+                                                     "Wiajzim was staying and living the life of luxury as her grandson Wizim said she should live and Killed her in cold blood.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Then she cursed her spirit to the underworld as further torture, before fleeing to the underworld her self to make a secrete contract with hades,\n" +
+                									 "With the intention of ruining the race of the Wizim. In her haste to do this before Zeus noticed this as he was still at the time living among the Wizim\n" +
+                									 "she signed the contract now known as the contract of Eros-gon. Giving Hades permission to start the fragmentation of the race.\n" +
+                									 "Hera returned to Mount Olympus the home of the gods soon afterwords without anyone knowing she had ever left.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Three days later Zues who was out with his grandson Wizim watching him lead the glorious armies of the wizim on there conquests, soon learned of Wijazim's Fate\n" +
+                									 "He then rushed to the war camp across the temporary village created by the army during there break from the march and interupted the war meeting between Wizim and his Generals\n +" +
+                									 "and informed him of his Grandmothers fate. He then ordered a hault to the conquests until the tribe wide mourning period was over."));
+                									 
+                pages.appendTag(new NBTTagString("", "Zeus who returned to the palace ahead of Wizim who had to reorganise the troops retreat, saw the body of his wife, and noticed that the weapon which killed her was not of mortal creation.\n" + 
+                									 "Soon afterwords he had messenger take a later he wrote to Wizim saying that he must go on a trip alone to sort out his life and telling him that he will not be returning.\n" +
+                									 "Zeus soon left his mortal form and returned to Mount Olympus.. where he resumed his duties as the most powerful God.. though still keeping slight watch over the Wizim."));
+               
+                book2.stackTagCompound.setTag("pages", pages);
+                book2.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                book2.stackTagCompound.setString("author", "The Wizim Historian");
  
                 }
                
-//                if (num == 6)
-//                {
-//                	
-//                chest2.setInventorySlotContents(slot, new ItemStack(mod_ForbiddenForest.Gel));
-// 
-//                }
-//                
-//                if (num == 7)
-//                {
-//                	
-//                chest2.setInventorySlotContents(slot, new ItemStack(mod_ForbiddenForest.PureEnergy));
-//       
-// 
-//                }
-//                
-//                if (num == 8)
-//                {
-//                	
-//                chest2.setInventorySlotContents(slot, new ItemStack(mod_ForbiddenForest.SpellTome));
-//       
-// 
-//                }
+                if (num == 10)
+                {
+                	
+                chest2.setInventorySlotContents(slot, book3);
+               	book3.stackTagCompound = new NBTTagCompound();
+               	NBTTagList pages = new NBTTagList();
+                
+                pages.appendTag(new NBTTagString("", "Hades who waited a year after Zeus' departure finally decided to act with the powers granted to him through the contract of Eros-gon" +
+                                                     "His plan was to divide the wizim into two species, to do so he impregnated a hunter woman of the Wizim.\n"  +
+                		                             "The Woman whos name was lost to time, or is found in a book not found in our archives bore hades Quadruplets two sons and two daughters.\n"));
+                
+                pages.appendTag(new NBTTagString("", "The woman named her children after the contract that brought them to her as he was deemed unable to bear children at a young age."  +
+                                                     "The Eragonians shortened to Eragonn soon grew old enough to work. The Daughters grew to be two of the most skilled Hunters in the tribe of the Wizim.\n" +
+                                                     "The Sons grew to be two of the best combatants of the wizim tribes army.\n"));
+                
+                pages.appendTag(new NBTTagString("", "From four to eight, from eight to sixteen, the Eragonians numbers grew and they began to become noticibly different in height and showed more warrior like traits\n" +
+                									 "The Eragonians whos numbers now equaled 30% of the Wizim Tribe which spanned a large territory with over a million or so citizens\n" +
+                									 "The now Cheiftan of the Wizim tribe Wizim 3 Great Great Grandson of Wizim deemed the age of the Tribe over.\n" +
+                									 "He then Proclaimed himself Emperor Wizim of the Imperial Wizim Empire.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Now Eragonn great grandson of the first Eragonian son of Hades, proclaimed himself Viceroy Eragonn of Eragonians.\n" +
+                									 "Thus causing the great 'Wizim Split' which lead to the caste system of Eragonians being categorized as lower 'Wizim' and not as pure as 'Wizim'.\n"));
+                									 
+                pages.appendTag(new NBTTagString("", "Emperor Wizim soon called for a metting with the self proclaimed Viceroy of the Eragonians in an attempt for peace.\n" + 
+                									 "He called for the Eragonians to stand down and disban there self created government and follow traditional Wizim law.\n" +
+                									 "Viceroy Eragonn said 'We will never disban' and thus Emperor Wizim left after saying 'war it will be'."));
+               
+                book3.stackTagCompound.setTag("pages", pages);
+                book3.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                book3.stackTagCompound.setString("author", "The Wizim Historian");
+                }
+               
+                if (num == 15)
+                {
+                	
+                chest2.setInventorySlotContents(slot, book4);
+               	book4.stackTagCompound = new NBTTagCompound();
+               	NBTTagList pages = new NBTTagList();
+               	
+               	pages.appendTag(new NBTTagString("", "The shadow of war draws closer, the Pureblood Wizim start arming there troops for war," +
+               										 "The Eragonians also started arming there troops for war, but with more advanced machinery.\n"  +
+               										 "Four weeks after the declaration of war and two weeks after the arming of the troops the empire had been split.\n"));
+
+               	pages.appendTag(new NBTTagString("", "The Side Loyal to the Ways of old, The Eragonian Side, and the Smallest Reformist side that was Neutral."  +
+               										 "The Side Loyal to the ways of old wanted to rid the empire of those who didnt follow traditional wizim law.\n" +
+               										 "The Eragonians wanted to reform the government to allow for equal treatment of the Eragonians.\n"));
+
+               	pages.appendTag(new NBTTagString("", "While those two sides both locked in destruction of the other....there were those on both sides that wanted a united government\n" +
+               										 "With a Wizim King and an Eragonian King Ruling the empire as equals and deciding for the fate of the entire empire for its benefit.\n" +
+						 							 "Five weeks later after thousands of battles on both of the two major sides of the empire the armys of the wizim and eragonn both 500,000 strong,\n" +
+               										 "Were Decimated town to only 200,000 in a three month period.\n"));
+
+               	pages.appendTag(new NBTTagString("", "Now the Wizim Holding there side of the empire and the eragonians fighting for every inch they could get went for an end game battle to settle the score once and for all.\n" +
+               										 "The Eragonians decided that taking the city of 'Wizim' would break the enemy morale to the point of surrender and they reorganised all of there troops to bee-line towards the capital city under wizim control.\n"));
+						 
+               	pages.appendTag(new NBTTagString("", "The Wizim noticing the Eragonians armys lack of pushing on there lines realised that they had changed course to hit with force at the capital.\n" + 
+               										 "So they called there entire force to defend the city to the last man.\n" +
+               										 "400,000 men on both side entered the battle no soldiers remained at the end of the battle.\n"));
+               	
+               	pages.appendTag(new NBTTagString("", "The Bloodiest battle in Wizim history was at the hands of the people of its own empire.\n" +
+                      								 "The Gods Wittnessing the battle spared only two from the battle the son of Emperor Wizim, Wizim 4 and the son of Emperor Eragonn, Eragonn 4.\n"));
+               	
+            	pages.appendTag(new NBTTagString("", "The Gods Decided that the only way to prevent a reoccurence of what brought an end to the empire of the wizim was to wipe the memories of both survivors.\n" +
+							 						 "The Gods also had a fail safe in mind to ensure it will never occur they froze them both in time to be thawed out together and become friends.\n"));
+
+               	
+               	book4.stackTagCompound.setTag("pages", pages);
+                book4.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                book4.stackTagCompound.setString("author", "The Wizim Historian");
+                
+                }
+                
+                if (num == 20)
+                {
+                	
+                	chest2.setInventorySlotContents(slot, book5);
+                   	book5.stackTagCompound = new NBTTagCompound();
+                   	NBTTagList pages = new NBTTagList();
+                   	
+                   	pages.appendTag(new NBTTagString("", "Though the collapse of the empire of the Wizim was swift the Reformists Survied," +
+                   										 "Though not much is known about the Reformists its rumored that they continued to live in a modified society as equals.\n"  +
+                   										 "There Society is theorized to be a Utopian Society with Wizim and Eragonians working as one people.\n"));
+
+                   	book5.stackTagCompound.setTag("pages", pages);
+                    book5.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                    book5.stackTagCompound.setString("author", "The Wizim Historian");
+ 
+                }
+                
+                if (num == 25)
+                {
+                				
+                	chest2.setInventorySlotContents(slot, book6);
+                	book6.stackTagCompound = new NBTTagCompound();
+                	NBTTagList pages = new NBTTagList();
+               	
+                	pages.appendTag(new NBTTagString("", "All those with wizim blood running through there veins shall follow Wizim Law." +
+               										     "All Wizim shall defend one another until death.\n"  +
+               										     "'=W='.\n"));
+
+                	book6.stackTagCompound.setTag("pages", pages);
+                	book6.stackTagCompound.setString("title", "Wizim Law");
+                	book6.stackTagCompound.setString("author", "The Wizim Law Maker");
+                
+                }
+                
+                if (num == 30)
+                {
+                				
+                	chest2.setInventorySlotContents(slot, book7);
+                	book7.stackTagCompound = new NBTTagCompound();
+                	NBTTagList pages = new NBTTagList();
+               	
+                	pages.appendTag(new NBTTagString("", "The people of the empire are debating on how to continue with there now being divisions of the populus," +
+               										     "The warrior sect, and the General Public.\n"  +
+               										     "Society cant handle this sudden change, the government isnt doing enough to stop it before it gets out of hand.\n"));
+
+                	book7.stackTagCompound.setTag("pages", pages);
+                	book7.stackTagCompound.setString("title", "The Wizim Split");
+                	book7.stackTagCompound.setString("author", "The Eragonian Historian");
+            
+                }
+                
+                if (num == 30)
+                {
+                				
+                	chest2.setInventorySlotContents(slot, book8);
+                	book8.stackTagCompound = new NBTTagCompound();
+                	NBTTagList pages = new NBTTagList();
+                	
+                	
+                	pages.appendTag(new NBTTagString("", "The story of the wizim begins long ago, so long ago that it was around the begenning of the human race.\n" +
+                										 "There were a certian group of individuals that caught the eye of the almighty Zeus.\n"  +
+                										 "This tribe, at the time had no idea of the existance of the gods, much less a heritage of there own\n"));
+
+                	pages.appendTag(new NBTTagString("", "The tribe showed a great amount of knowledge, and various other traits that seemed out of place during there time\n"  +
+                										 "Zues, wanting to further investigate them went to earth appearing as one of them.\n" +
+                										 "He lived among them for 7 years, watching and trying to pinpoint what made them so special, though he couldn't find a signle clue\n"));
+
+                	pages.appendTag(new NBTTagString("", "Like as with many human women, Zeus found himself smitten with the humanly affection of love with one of the tribal women.\n" +
+                										 "Her name was Wiajzim, Like other humans he married her and with the blessing o the cheif Wakiakam, soon she bore a child.\n" +
+                										 "What struck Zeus oddly enough, was that his child showed even greater power than those before, and soon realised something was afoot.\n" +
+                										 "Farther off in another but still close galaxy reigned the god Neptune, who without informing the other Gods had also visited earth\n"));
+
+                	pages.appendTag(new NBTTagString("", "Where he had also by some coidence had taken pity on a feeble woman, that seemed near death.\n" +
+                										 "He saved her, though not without a price for his help. Before he left he impregnated her with his child.\n" +
+                										 "The child, a daughter who would  become the adopted princess of the feeble womans tribe the 'IZM'.\n"));
+							 
+                	pages.appendTag(new NBTTagString("", "In an attempt at peace the Cheiftan of the 'IZM' tribe offered his adopted princess to the Wakiakam Tribe's Grandson that would one day rule the tribe.\n" + 
+							 							 "Soon once they reached the age of mating the Daughter of Neptune and the Son of Zeus married, and soon had a son.\n" +
+                										 "They Chose the name 'Wizim' for there son."));
+                	
+                	pages.appendTag(new NBTTagString("", "The Above Newborn grandson of two gods only spurred the tribe onward, there might increasing beyond any who'd ever existed, more powerful than even Zeus himself.\n" +
+                             							 "They began on a spree of invasions, pillaging those to weak to put up a resistance, and conquering the others and destroying there ways of life.\n"  +
+                										 "This lead to the other gods soon taking notice of the Dimigod race now lead by Wizim the grandson of Zeus and Neptune, who now call them selves the 'Wizim'.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Especially Hera, Zeus's Goddess wife and also the Goddess of marriage. soon she learned of the marriage of Zues and Wiajzim.\n"  +
+                										 "Enraged by the marriage and the effect of the race Zues unintentionally created, she decended upon earth and went to the palace where the now very elderly woman,\n" +
+                										 "Wiajzim was staying and living the life of luxury as her grandson Wizim said she should live and Killed her in cold blood.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Then she cursed her spirit to the underworld as further torture, before fleeing to the underworld her self to make a secrete contract with hades,\n" +
+                										 "With the intention of ruining the race of the Wizim. In her haste to do this before Zeus noticed this as he was still at the time living among the Wizim\n" +
+                										 "she signed the contract now known as the contract of Eros-gon. Giving Hades permission to start the fragmentation of the race.\n" +
+							 							 "Hera returned to Mount Olympus the home of the gods soon afterwords without anyone knowing she had ever left.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Three days later Zues who was out with his grandson Wizim watching him lead the glorious armies of the wizim on there conquests, soon learned of Wijazim's Fate\n" +
+                										 "He then rushed to the war camp across the temporary village created by the army during there break from the march and interupted the war meeting between Wizim and his Generals\n +" +
+                										 "and informed him of his Grandmothers fate. He then ordered a hault to the conquests until the tribe wide mourning period was over."));
+							 
+                	pages.appendTag(new NBTTagString("", "Zeus who returned to the palace ahead of Wizim who had to reorganise the troops retreat, saw the body of his wife, and noticed that the weapon which killed her was not of mortal creation.\n" + 
+                										 "Soon afterwords he had messenger take a later he wrote to Wizim saying that he must go on a trip alone to sort out his life and telling him that he will not be returning.\n" +
+                					   					 "Zeus soon left his mortal form and returned to Mount Olympus.. where he resumed his duties as the most powerful God.. though still keeping slight watch over the Wizim."));
+                	
+                	pages.appendTag(new NBTTagString("", "Hades who waited a year after Zeus' departure finally decided to act with the powers granted to him through the contract of Eros-gon" +
+                            							 "His plan was to divide the wizim into two species, to do so he impregnated a hunter woman of the Wizim.\n"  +
+                            							 "The Woman whos name was lost to time, or is found in a book not found in our archives bore hades Quadruplets two sons and two daughters.\n"));
+
+                	pages.appendTag(new NBTTagString("", "The woman named her children after the contract that brought them to her as he was deemed unable to bear children at a young age."  +
+                            						     "The Eragonians shortened to Eragonn soon grew old enough to work. The Daughters grew to be two of the most skilled Hunters in the tribe of the Wizim.\n" +
+                            							 "The Sons grew to be two of the best combatants of the wizim tribes army.\n"));
+
+                	pages.appendTag(new NBTTagString("", "From four to eight, from eight to sixteen, the Eragonians numbers grew and they began to become noticibly different in height and showed more warrior like traits\n" +
+                										 "The Eragonians whos numbers now equaled 30% of the Wizim Tribe which spanned a large territory with over a million or so citizens\n" +
+                										 "The now Cheiftan of the Wizim tribe Wizim 3 Great Great Grandson of Wizim deemed the age of the Tribe over.\n" +
+                										 "He then Proclaimed himself Emperor Wizim of the Imperial Wizim Empire.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Now Eragonn great grandson of the first Eragonian son of Hades, proclaimed himself Viceroy Eragonn of Eragonians.\n" +
+							 							 "Thus causing the great 'Wizim Split' which lead to the caste system of Eragonians being categorized as lower 'Wizim' and not as pure as 'Wizim'.\n"));
+							 
+                	pages.appendTag(new NBTTagString("", "Emperor Wizim soon called for a metting with the self proclaimed Viceroy of the Eragonians in an attempt for peace.\n" + 
+                										 "He called for the Eragonians to stand down and disban there self created government and follow traditional Wizim law.\n" +
+                										 "Viceroy Eragonn said 'We will never disban' and thus Emperor Wizim left after saying 'war it will be'."));
+
+                	
+                	pages.appendTag(new NBTTagString("", "The shadow of war draws closer, the Pureblood Wizim start arming there troops for war," +
+                										 "The Eragonians also started arming there troops for war, but with more advanced machinery.\n"  +
+                										 "Four weeks after the declaration of war and two weeks after the arming of the troops the empire had been split.\n"));
+
+                	pages.appendTag(new NBTTagString("", "The Side Loyal to the Ways of old, The Eragonian Side, and the Smallest Reformist side that was Neutral."  +
+								                         "The Side Loyal to the ways of old wanted to rid the empire of those who didnt follow traditional wizim law.\n" +
+                										 "The Eragonians wanted to reform the government to allow for equal treatment of the Eragonians.\n"));
+
+					pages.appendTag(new NBTTagString("", "While those two sides both locked in destruction of the other....there were those on both sides that wanted a united government\n" +
+													     "With a Wizim King and an Eragonian King Ruling the empire as equals and deciding for the fate of the entire empire for its benefit.\n" +
+								 						 "Five weeks later after thousands of battles on both of the two major sides of the empire the armys of the wizim and eragonn both 500,000 strong,\n" +
+								 						 "Were Decimated town to only 200,000 in a three month period.\n"));
+
+					pages.appendTag(new NBTTagString("", "Now the Wizim Holding there side of the empire and the eragonians fighting for every inch they could get went for an end game battle to settle the score once and for all.\n" +
+														 "The Eragonians decided that taking the city of 'Wizim' would break the enemy morale to the point of surrender and they reorganised all of there troops to bee-line towards the capital city under wizim control.\n"));
+
+					pages.appendTag(new NBTTagString("", "The Wizim noticing the Eragonians armys lack of pushing on there lines realised that they had changed course to hit with force at the capital.\n" + 
+														 "So they called there entire force to defend the city to the last man.\n" +
+														 "400,000 men on both side entered the battle no soldiers remained at the end of the battle.\n"));
+
+					pages.appendTag(new NBTTagString("", "The Bloodiest battle in Wizim history was at the hands of the people of its own empire.\n" +
+								 						 "The Gods Wittnessing the battle spared only two from the battle the son of Emperor Wizim, Wizim 4 and the son of Emperor Eragonn, Eragonn 4.\n"));
+
+					pages.appendTag(new NBTTagString("", "The Gods Decided that the only way to prevent a reoccurence of what brought an end to the empire of the wizim was to wipe the memories of both survivors.\n" +
+	 						 							 "The Gods also had a fail safe in mind to ensure it will never occur they froze them both in time to be thawed out together and become friends.\n"));
+
+                	
+                	book8.stackTagCompound.setTag("pages", pages);
+                	book8.stackTagCompound.setString("title", "The Complete History of The Wizim");
+                	book8.stackTagCompound.setString("author", "The Reformist Historian");
+                
+                }
        
         }
         
@@ -2062,6 +2295,314 @@ public class WorldGenWizimLibary extends WorldGenerator
         var1.setBlock(var3 + 17, var4 + 9, var5 + 9, Block.bookShelf.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 15, Block.bookShelf.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 16, RCBB.Bookcasechest.blockID);
+        
+ TileEntityBookcaseChest chest3 = new TileEntityBookcaseChest();
+        
+        var1.setBlockTileEntity(var3 + 17, var4 + 9, var5 + 16, chest3);
+        
+        Random random1 = new Random();
+       
+        for(int slot = 0; slot < chest2.getSizeInventory(); slot++)
+        {
+               
+                int num = random.nextInt(300);//change to higher than 30 once tested
+               
+                if (num == 1)
+                {
+                	
+	                chest3.setInventorySlotContents(slot, book1);
+	               	book1.stackTagCompound = new NBTTagCompound();
+	                NBTTagList pages = new NBTTagList();
+	                
+	                pages.appendTag(new NBTTagString("", "The story of the wizim begins long ago, so long ago that it was around the begenning of the human race.\n" +
+	                                                     "There were a certian group of individuals that caught the eye of the almighty Zeus.\n"  +
+	                		                             "This tribe, at the time had no idea of the existance of the gods, much less a heritage of there own\n"));
+	                
+	                pages.appendTag(new NBTTagString("", "The tribe showed a great amount of knowledge, and various other traits that seemed out of place during there time\n"  +
+	                                                     "Zues, wanting to further investigate them went to earth appearing as one of them.\n" +
+	                                                     "He lived among them for 7 years, watching and trying to pinpoint what made them so special, though he couldn't find a signle clue\n"));
+	                
+	                pages.appendTag(new NBTTagString("", "Like as with many human women, Zeus found himself smitten with the humanly affection of love with one of the tribal women.\n" +
+	                									 "Her name was Wiajzim, Like other humans he married her and with the blessing o the cheif Wakiakam, soon she bore a child.\n" +
+	                									 "What struck Zeus oddly enough, was that his child showed even greater power than those before, and soon realised something was afoot.\n" +
+	                									 "Farther off in another but still close galaxy reigned the god Neptune, who without informing the other Gods had also visited earth\n"));
+	                
+	                pages.appendTag(new NBTTagString("", "Where he had also by some coidence had taken pity on a feeble woman, that seemed near death.\n" +
+	                									 "He saved her, though not without a price for his help. Before he left he impregnated her with his child.\n" +
+	                									 "The child, a daughter who would  become the adopted princess of the feeble womans tribe the 'IZM'.\n"));
+	                									 
+	                pages.appendTag(new NBTTagString("", "In an attempt at peace the Cheiftan of the 'IZM' tribe offered his adopted princess to the Wakiakam Tribe's Grandson that would one day rule the tribe.\n" + 
+	                									 "Soon once they reached the age of mating the Daughter of Neptune and the Son of Zeus married, and soon had a son.\n" +
+	                									 "They Chose the name 'Wizim' for there son."));
+	               
+	                book1.stackTagCompound.setTag("pages", pages);
+	                book1.stackTagCompound.setString("title", "Fragment of the Wizim History");
+	                book1.stackTagCompound.setString("author", "The Wizim Historian");
+                }
+                
+                if (num == 5)
+                {
+                	
+                chest3.setInventorySlotContents(slot, book2);
+               	book2.stackTagCompound = new NBTTagCompound();
+               	NBTTagList pages = new NBTTagList();
+                
+                pages.appendTag(new NBTTagString("", "The Above Newborn grandson of two gods only spurred the tribe onward, there might increasing beyond any who'd ever existed, more powerful than even Zeus himself.\n" +
+                                                     "They began on a spree of invasions, pillaging those to weak to put up a resistance, and conquering the others and destroying there ways of life.\n"  +
+                		                             "This lead to the other gods soon taking notice of the Dimigod race now lead by Wizim the grandson of Zeus and Neptune, who now call them selves the 'Wizim'.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Especially Hera, Zeus's Goddess wife and also the Goddess of marriage. soon she learned of the marriage of Zues and Wiajzim.\n"  +
+                                                     "Enraged by the marriage and the effect of the race Zues unintentionally created, she decended upon earth and went to the palace where the now very elderly woman,\n" +
+                                                     "Wiajzim was staying and living the life of luxury as her grandson Wizim said she should live and Killed her in cold blood.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Then she cursed her spirit to the underworld as further torture, before fleeing to the underworld her self to make a secrete contract with hades,\n" +
+                									 "With the intention of ruining the race of the Wizim. In her haste to do this before Zeus noticed this as he was still at the time living among the Wizim\n" +
+                									 "she signed the contract now known as the contract of Eros-gon. Giving Hades permission to start the fragmentation of the race.\n" +
+                									 "Hera returned to Mount Olympus the home of the gods soon afterwords without anyone knowing she had ever left.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Three days later Zues who was out with his grandson Wizim watching him lead the glorious armies of the wizim on there conquests, soon learned of Wijazim's Fate\n" +
+                									 "He then rushed to the war camp across the temporary village created by the army during there break from the march and interupted the war meeting between Wizim and his Generals\n +" +
+                									 "and informed him of his Grandmothers fate. He then ordered a hault to the conquests until the tribe wide mourning period was over."));
+                									 
+                pages.appendTag(new NBTTagString("", "Zeus who returned to the palace ahead of Wizim who had to reorganise the troops retreat, saw the body of his wife, and noticed that the weapon which killed her was not of mortal creation.\n" + 
+                									 "Soon afterwords he had messenger take a later he wrote to Wizim saying that he must go on a trip alone to sort out his life and telling him that he will not be returning.\n" +
+                									 "Zeus soon left his mortal form and returned to Mount Olympus.. where he resumed his duties as the most powerful God.. though still keeping slight watch over the Wizim."));
+               
+                book2.stackTagCompound.setTag("pages", pages);
+                book2.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                book2.stackTagCompound.setString("author", "The Wizim Historian");
+ 
+                }
+               
+                if (num == 10)
+                {
+                	
+                chest3.setInventorySlotContents(slot, book3);
+               	book3.stackTagCompound = new NBTTagCompound();
+               	NBTTagList pages = new NBTTagList();
+                
+                pages.appendTag(new NBTTagString("", "Hades who waited a year after Zeus' departure finally decided to act with the powers granted to him through the contract of Eros-gon" +
+                                                     "His plan was to divide the wizim into two species, to do so he impregnated a hunter woman of the Wizim.\n"  +
+                		                             "The Woman whos name was lost to time, or is found in a book not found in our archives bore hades Quadruplets two sons and two daughters.\n"));
+                
+                pages.appendTag(new NBTTagString("", "The woman named her children after the contract that brought them to her as he was deemed unable to bear children at a young age."  +
+                                                     "The Eragonians shortened to Eragonn soon grew old enough to work. The Daughters grew to be two of the most skilled Hunters in the tribe of the Wizim.\n" +
+                                                     "The Sons grew to be two of the best combatants of the wizim tribes army.\n"));
+                
+                pages.appendTag(new NBTTagString("", "From four to eight, from eight to sixteen, the Eragonians numbers grew and they began to become noticibly different in height and showed more warrior like traits\n" +
+                									 "The Eragonians whos numbers now equaled 30% of the Wizim Tribe which spanned a large territory with over a million or so citizens\n" +
+                									 "The now Cheiftan of the Wizim tribe Wizim 3 Great Great Grandson of Wizim deemed the age of the Tribe over.\n" +
+                									 "He then Proclaimed himself Emperor Wizim of the Imperial Wizim Empire.\n"));
+                
+                pages.appendTag(new NBTTagString("", "Now Eragonn great grandson of the first Eragonian son of Hades, proclaimed himself Viceroy Eragonn of Eragonians.\n" +
+                									 "Thus causing the great 'Wizim Split' which lead to the caste system of Eragonians being categorized as lower 'Wizim' and not as pure as 'Wizim'.\n"));
+                									 
+                pages.appendTag(new NBTTagString("", "Emperor Wizim soon called for a metting with the self proclaimed Viceroy of the Eragonians in an attempt for peace.\n" + 
+                									 "He called for the Eragonians to stand down and disban there self created government and follow traditional Wizim law.\n" +
+                									 "Viceroy Eragonn said 'We will never disban' and thus Emperor Wizim left after saying 'war it will be'."));
+               
+                book3.stackTagCompound.setTag("pages", pages);
+                book3.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                book3.stackTagCompound.setString("author", "The Wizim Historian");
+                }
+               
+                if (num == 15)
+                {
+                	
+                chest3.setInventorySlotContents(slot, book4);
+               	book4.stackTagCompound = new NBTTagCompound();
+               	NBTTagList pages = new NBTTagList();
+               	
+               	pages.appendTag(new NBTTagString("", "The shadow of war draws closer, the Pureblood Wizim start arming there troops for war," +
+               										 "The Eragonians also started arming there troops for war, but with more advanced machinery.\n"  +
+               										 "Four weeks after the declaration of war and two weeks after the arming of the troops the empire had been split.\n"));
+
+               	pages.appendTag(new NBTTagString("", "The Side Loyal to the Ways of old, The Eragonian Side, and the Smallest Reformist side that was Neutral."  +
+               										 "The Side Loyal to the ways of old wanted to rid the empire of those who didnt follow traditional wizim law.\n" +
+               										 "The Eragonians wanted to reform the government to allow for equal treatment of the Eragonians.\n"));
+
+               	pages.appendTag(new NBTTagString("", "While those two sides both locked in destruction of the other....there were those on both sides that wanted a united government\n" +
+               										 "With a Wizim King and an Eragonian King Ruling the empire as equals and deciding for the fate of the entire empire for its benefit.\n" +
+						 							 "Five weeks later after thousands of battles on both of the two major sides of the empire the armys of the wizim and eragonn both 500,000 strong,\n" +
+               										 "Were Decimated town to only 200,000 in a three month period.\n"));
+
+               	pages.appendTag(new NBTTagString("", "Now the Wizim Holding there side of the empire and the eragonians fighting for every inch they could get went for an end game battle to settle the score once and for all.\n" +
+               										 "The Eragonians decided that taking the city of 'Wizim' would break the enemy morale to the point of surrender and they reorganised all of there troops to bee-line towards the capital city under wizim control.\n"));
+						 
+               	pages.appendTag(new NBTTagString("", "The Wizim noticing the Eragonians armys lack of pushing on there lines realised that they had changed course to hit with force at the capital.\n" + 
+               										 "So they called there entire force to defend the city to the last man.\n" +
+               										 "400,000 men on both side entered the battle no soldiers remained at the end of the battle.\n"));
+               	
+               	pages.appendTag(new NBTTagString("", "The Bloodiest battle in Wizim history was at the hands of the people of its own empire.\n" +
+                      								 "The Gods Wittnessing the battle spared only two from the battle the son of Emperor Wizim, Wizim 4 and the son of Emperor Eragonn, Eragonn 4.\n"));
+               	
+            	pages.appendTag(new NBTTagString("", "The Gods Decided that the only way to prevent a reoccurence of what brought an end to the empire of the wizim was to wipe the memories of both survivors.\n" +
+							 						 "The Gods also had a fail safe in mind to ensure it will never occur they froze them both in time to be thawed out together and become friends.\n"));
+
+               	
+               	book4.stackTagCompound.setTag("pages", pages);
+                book4.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                book4.stackTagCompound.setString("author", "The Wizim Historian");
+                
+                }
+                
+                if (num == 20)
+                {
+                	
+                	chest3.setInventorySlotContents(slot, book5);
+                   	book5.stackTagCompound = new NBTTagCompound();
+                   	NBTTagList pages = new NBTTagList();
+                   	
+                   	pages.appendTag(new NBTTagString("", "Though the collapse of the empire of the Wizim was swift the Reformists Survied," +
+                   										 "Though not much is known about the Reformists its rumored that they continued to live in a modified society as equals.\n"  +
+                   										 "There Society is theorized to be a Utopian Society with Wizim and Eragonians working as one people.\n"));
+
+                   	book5.stackTagCompound.setTag("pages", pages);
+                    book5.stackTagCompound.setString("title", "Fragment of the Wizim History");
+                    book5.stackTagCompound.setString("author", "The Wizim Historian");
+ 
+                }
+                
+                if (num == 25)
+                {
+                				
+                	chest3.setInventorySlotContents(slot, book6);
+                	book6.stackTagCompound = new NBTTagCompound();
+                	NBTTagList pages = new NBTTagList();
+               	
+                	pages.appendTag(new NBTTagString("", "All those with wizim blood running through there veins shall follow Wizim Law." +
+               										     "All Wizim shall defend one another until death.\n"  +
+               										     "'=W='.\n"));
+
+                	book6.stackTagCompound.setTag("pages", pages);
+                	book6.stackTagCompound.setString("title", "Wizim Law");
+                	book6.stackTagCompound.setString("author", "The Wizim Law Maker");
+                
+                }
+                
+                if (num == 30)
+                {
+                				
+                	chest3.setInventorySlotContents(slot, book7);
+                	book7.stackTagCompound = new NBTTagCompound();
+                	NBTTagList pages = new NBTTagList();
+               	
+                	pages.appendTag(new NBTTagString("", "The people of the empire are debating on how to continue with there now being divisions of the populus," +
+               										     "The warrior sect, and the General Public.\n"  +
+               										     "Society cant handle this sudden change, the government isnt doing enough to stop it before it gets out of hand.\n"));
+
+                	book7.stackTagCompound.setTag("pages", pages);
+                	book7.stackTagCompound.setString("title", "The Wizim Split");
+                	book7.stackTagCompound.setString("author", "The Eragonian Historian");
+            
+                }
+                
+                if (num == 30)
+                {
+                				
+                	chest3.setInventorySlotContents(slot, book8);
+                	book8.stackTagCompound = new NBTTagCompound();
+                	NBTTagList pages = new NBTTagList();
+                	
+                	
+                	pages.appendTag(new NBTTagString("", "The story of the wizim begins long ago, so long ago that it was around the begenning of the human race.\n" +
+                										 "There were a certian group of individuals that caught the eye of the almighty Zeus.\n"  +
+                										 "This tribe, at the time had no idea of the existance of the gods, much less a heritage of there own\n"));
+
+                	pages.appendTag(new NBTTagString("", "The tribe showed a great amount of knowledge, and various other traits that seemed out of place during there time\n"  +
+                										 "Zues, wanting to further investigate them went to earth appearing as one of them.\n" +
+                										 "He lived among them for 7 years, watching and trying to pinpoint what made them so special, though he couldn't find a signle clue\n"));
+
+                	pages.appendTag(new NBTTagString("", "Like as with many human women, Zeus found himself smitten with the humanly affection of love with one of the tribal women.\n" +
+                										 "Her name was Wiajzim, Like other humans he married her and with the blessing o the cheif Wakiakam, soon she bore a child.\n" +
+                										 "What struck Zeus oddly enough, was that his child showed even greater power than those before, and soon realised something was afoot.\n" +
+                										 "Farther off in another but still close galaxy reigned the god Neptune, who without informing the other Gods had also visited earth\n"));
+
+                	pages.appendTag(new NBTTagString("", "Where he had also by some coidence had taken pity on a feeble woman, that seemed near death.\n" +
+                										 "He saved her, though not without a price for his help. Before he left he impregnated her with his child.\n" +
+                										 "The child, a daughter who would  become the adopted princess of the feeble womans tribe the 'IZM'.\n"));
+							 
+                	pages.appendTag(new NBTTagString("", "In an attempt at peace the Cheiftan of the 'IZM' tribe offered his adopted princess to the Wakiakam Tribe's Grandson that would one day rule the tribe.\n" + 
+							 							 "Soon once they reached the age of mating the Daughter of Neptune and the Son of Zeus married, and soon had a son.\n" +
+                										 "They Chose the name 'Wizim' for there son."));
+                	
+                	pages.appendTag(new NBTTagString("", "The Above Newborn grandson of two gods only spurred the tribe onward, there might increasing beyond any who'd ever existed, more powerful than even Zeus himself.\n" +
+                             							 "They began on a spree of invasions, pillaging those to weak to put up a resistance, and conquering the others and destroying there ways of life.\n"  +
+                										 "This lead to the other gods soon taking notice of the Dimigod race now lead by Wizim the grandson of Zeus and Neptune, who now call them selves the 'Wizim'.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Especially Hera, Zeus's Goddess wife and also the Goddess of marriage. soon she learned of the marriage of Zues and Wiajzim.\n"  +
+                										 "Enraged by the marriage and the effect of the race Zues unintentionally created, she decended upon earth and went to the palace where the now very elderly woman,\n" +
+                										 "Wiajzim was staying and living the life of luxury as her grandson Wizim said she should live and Killed her in cold blood.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Then she cursed her spirit to the underworld as further torture, before fleeing to the underworld her self to make a secrete contract with hades,\n" +
+                										 "With the intention of ruining the race of the Wizim. In her haste to do this before Zeus noticed this as he was still at the time living among the Wizim\n" +
+                										 "she signed the contract now known as the contract of Eros-gon. Giving Hades permission to start the fragmentation of the race.\n" +
+							 							 "Hera returned to Mount Olympus the home of the gods soon afterwords without anyone knowing she had ever left.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Three days later Zues who was out with his grandson Wizim watching him lead the glorious armies of the wizim on there conquests, soon learned of Wijazim's Fate\n" +
+                										 "He then rushed to the war camp across the temporary village created by the army during there break from the march and interupted the war meeting between Wizim and his Generals\n +" +
+                										 "and informed him of his Grandmothers fate. He then ordered a hault to the conquests until the tribe wide mourning period was over."));
+							 
+                	pages.appendTag(new NBTTagString("", "Zeus who returned to the palace ahead of Wizim who had to reorganise the troops retreat, saw the body of his wife, and noticed that the weapon which killed her was not of mortal creation.\n" + 
+                										 "Soon afterwords he had messenger take a later he wrote to Wizim saying that he must go on a trip alone to sort out his life and telling him that he will not be returning.\n" +
+                					   					 "Zeus soon left his mortal form and returned to Mount Olympus.. where he resumed his duties as the most powerful God.. though still keeping slight watch over the Wizim."));
+                	
+                	pages.appendTag(new NBTTagString("", "Hades who waited a year after Zeus' departure finally decided to act with the powers granted to him through the contract of Eros-gon" +
+                            							 "His plan was to divide the wizim into two species, to do so he impregnated a hunter woman of the Wizim.\n"  +
+                            							 "The Woman whos name was lost to time, or is found in a book not found in our archives bore hades Quadruplets two sons and two daughters.\n"));
+
+                	pages.appendTag(new NBTTagString("", "The woman named her children after the contract that brought them to her as he was deemed unable to bear children at a young age."  +
+                            						     "The Eragonians shortened to Eragonn soon grew old enough to work. The Daughters grew to be two of the most skilled Hunters in the tribe of the Wizim.\n" +
+                            							 "The Sons grew to be two of the best combatants of the wizim tribes army.\n"));
+
+                	pages.appendTag(new NBTTagString("", "From four to eight, from eight to sixteen, the Eragonians numbers grew and they began to become noticibly different in height and showed more warrior like traits\n" +
+                										 "The Eragonians whos numbers now equaled 30% of the Wizim Tribe which spanned a large territory with over a million or so citizens\n" +
+                										 "The now Cheiftan of the Wizim tribe Wizim 3 Great Great Grandson of Wizim deemed the age of the Tribe over.\n" +
+                										 "He then Proclaimed himself Emperor Wizim of the Imperial Wizim Empire.\n"));
+
+                	pages.appendTag(new NBTTagString("", "Now Eragonn great grandson of the first Eragonian son of Hades, proclaimed himself Viceroy Eragonn of Eragonians.\n" +
+							 							 "Thus causing the great 'Wizim Split' which lead to the caste system of Eragonians being categorized as lower 'Wizim' and not as pure as 'Wizim'.\n"));
+							 
+                	pages.appendTag(new NBTTagString("", "Emperor Wizim soon called for a metting with the self proclaimed Viceroy of the Eragonians in an attempt for peace.\n" + 
+                										 "He called for the Eragonians to stand down and disban there self created government and follow traditional Wizim law.\n" +
+                										 "Viceroy Eragonn said 'We will never disban' and thus Emperor Wizim left after saying 'war it will be'."));
+
+                	
+                	pages.appendTag(new NBTTagString("", "The shadow of war draws closer, the Pureblood Wizim start arming there troops for war," +
+                										 "The Eragonians also started arming there troops for war, but with more advanced machinery.\n"  +
+                										 "Four weeks after the declaration of war and two weeks after the arming of the troops the empire had been split.\n"));
+
+                	pages.appendTag(new NBTTagString("", "The Side Loyal to the Ways of old, The Eragonian Side, and the Smallest Reformist side that was Neutral."  +
+								                         "The Side Loyal to the ways of old wanted to rid the empire of those who didnt follow traditional wizim law.\n" +
+                										 "The Eragonians wanted to reform the government to allow for equal treatment of the Eragonians.\n"));
+
+					pages.appendTag(new NBTTagString("", "While those two sides both locked in destruction of the other....there were those on both sides that wanted a united government\n" +
+													     "With a Wizim King and an Eragonian King Ruling the empire as equals and deciding for the fate of the entire empire for its benefit.\n" +
+								 						 "Five weeks later after thousands of battles on both of the two major sides of the empire the armys of the wizim and eragonn both 500,000 strong,\n" +
+								 						 "Were Decimated town to only 200,000 in a three month period.\n"));
+
+					pages.appendTag(new NBTTagString("", "Now the Wizim Holding there side of the empire and the eragonians fighting for every inch they could get went for an end game battle to settle the score once and for all.\n" +
+														 "The Eragonians decided that taking the city of 'Wizim' would break the enemy morale to the point of surrender and they reorganised all of there troops to bee-line towards the capital city under wizim control.\n"));
+
+					pages.appendTag(new NBTTagString("", "The Wizim noticing the Eragonians armys lack of pushing on there lines realised that they had changed course to hit with force at the capital.\n" + 
+														 "So they called there entire force to defend the city to the last man.\n" +
+														 "400,000 men on both side entered the battle no soldiers remained at the end of the battle.\n"));
+
+					pages.appendTag(new NBTTagString("", "The Bloodiest battle in Wizim history was at the hands of the people of its own empire.\n" +
+								 						 "The Gods Wittnessing the battle spared only two from the battle the son of Emperor Wizim, Wizim 4 and the son of Emperor Eragonn, Eragonn 4.\n"));
+
+					pages.appendTag(new NBTTagString("", "The Gods Decided that the only way to prevent a reoccurence of what brought an end to the empire of the wizim was to wipe the memories of both survivors.\n" +
+	 						 							 "The Gods also had a fail safe in mind to ensure it will never occur they froze them both in time to be thawed out together and become friends.\n"));
+
+                	
+                	book8.stackTagCompound.setTag("pages", pages);
+                	book8.stackTagCompound.setString("title", "The Complete History of The Wizim");
+                	book8.stackTagCompound.setString("author", "The Reformist Historian");
+                
+                }
+       
+        }
+        
         var1.setBlock(var3 + 17, var4 + 9, var5 + 17, RCBB.Bookcasechest.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 18, Block.bookShelf.blockID);
         var1.setBlock(var3 + 17, var4 + 9, var5 + 19, Block.fence.blockID);

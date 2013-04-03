@@ -26,7 +26,7 @@ public class EntityCrawlingSkeleton extends EntityMob
     {
         super(world);
         texture = "/Reactioncraft/images/mobs/skelly1.png";
-        moveSpeed = 0.35F;
+        moveSpeed = 0.30F;
         this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));

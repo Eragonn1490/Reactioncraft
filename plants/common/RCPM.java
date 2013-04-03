@@ -112,17 +112,18 @@ public class RCPM
         HayBaleID = config.getBlock("Hay Bale", 3086).getInt();
         
         
-        AncientSeedsIID = config.getItem("Ancient Seeds", 10301).getInt();
-        AncientFruitIID = config.getItem("Ancient Fruit", 10302).getInt();
-        CocoSeedIID = config.getItem("Coco Seed", 10303).getInt();
-        CocoBeanIID = config.getItem("Coco Bean", 10304).getInt();
-        VanillaSeedIID = config.getItem("Vanilla Seed", 10305).getInt();
-        VanillaBeanIID = config.getItem("Vanilla Bean", 10306).getInt();
-        sugarcaneItemIID = config.getItem("Sugar Cane Item", 10307).getInt();
-        WrappedcornIID = config.getItem("Wrapped Corn", 10308).getInt();
-        CornSeedIID = config.getItem("Corn Seed", 10309).getInt();
-        stalksItemIID = config.getItem("stalksItem", 10400).getInt();
-        AncientFlowerIID = config.getItem("Ancient Flower", 10500).getInt();
+        //10861 - 10880
+        AncientSeedsIID = config.getItem("Ancient Seeds", 10861).getInt();
+        AncientFruitIID = config.getItem("Ancient Fruit", 10862).getInt();
+        CocoSeedIID = config.getItem("Coco Seed", 10863).getInt();
+        CocoBeanIID = config.getItem("Coco Bean", 10864).getInt();
+        VanillaSeedIID = config.getItem("Vanilla Seed", 10865).getInt();
+        VanillaBeanIID = config.getItem("Vanilla Bean", 10866).getInt();
+        sugarcaneItemIID = config.getItem("Sugar Cane Item", 10967).getInt();
+        WrappedcornIID = config.getItem("Wrapped Corn", 10868).getInt();
+        CornSeedIID = config.getItem("Corn Seed", 10869).getInt();
+        stalksItemIID = config.getItem("stalksItem", 10870).getInt();
+        AncientFlowerIID = config.getItem("Ancient Flower", 10871).getInt();
         
         //Claimed Item ids 10301 - 10400 
         
@@ -223,6 +224,7 @@ public class RCPM
 		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_JUNGLE_CHEST, new WeightedRandomChestContent(new ItemStack(RCPM.AncientFlower), 1, 5, 15));
 		
 		//Corn
+		MinecraftForge.addGrassSeed(new ItemStack(RCPM.CornSeed), 90);
 		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST, new WeightedRandomChestContent(new ItemStack(RCPM.CornSeed), 1, 2, 5));
 		ChestGenHooks.addItem(ChestGenHooks.MINESHAFT_CORRIDOR, new WeightedRandomChestContent(new ItemStack(RCPM.CornSeed), 1, 5, 15));
 		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_JUNGLE_CHEST, new WeightedRandomChestContent(new ItemStack(RCPM.CornSeed), 1, 5, 15));

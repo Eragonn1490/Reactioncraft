@@ -116,23 +116,23 @@ public class RcPlantz
         crystalID = config.getBlock("Kush7", 3097).getInt();
         WildKPID = config.getBlock("WildKush Plant", 3098).getInt();
         
-        //Claimed Item IDS 10401 - 10499 (500 is being used by the PLANTS mod)
-        BlueDreamSeedIID = config.getItem("Blue Dream Seed", 10401).getInt();
-        BYYSeedIID = config.getItem("Blueberry Yum Yum Seed", 10402).getInt();
-        CrystalSeedIID = config.getItem("Crystal Seed", 10403).getInt();
-        FireSeedIID = config.getItem("Fire Seed", 10404).getInt();
-        LKSeedIID = config.getItem("Lemon Kush Seed", 10405).getInt();
-        OKSeedIID = config.getItem("Orange Kush Seed", 10406).getInt();
-        WildKSeedIID = config.getItem("Kush Seed", 10407).getInt();
+        //Claimed Item IDS 10881 - 10920
+        BlueDreamSeedIID = config.getItem("Blue Dream Seed", 10881).getInt();
+        BYYSeedIID = config.getItem("Blueberry Yum Yum Seed", 10882).getInt();
+        CrystalSeedIID = config.getItem("Crystal Seed", 10883).getInt();
+        FireSeedIID = config.getItem("Fire Seed", 10884).getInt();
+        LKSeedIID = config.getItem("Lemon Kush Seed", 10885).getInt();
+        OKSeedIID = config.getItem("Orange Kush Seed", 10886).getInt();
+        WildKSeedIID = config.getItem("Kush Seed", 10887).getInt();
         
         
-        BlueDreamBudIID = config.getItem("Blue Dream Bud ", 10408).getInt();
-        BYYBudIID = config.getItem("Blueberry Yum Yum Bud", 10409).getInt();
-        CrystalBudIID = config.getItem("Crystal Bud ", 10410).getInt();
-        FireBudIID = config.getItem("Fire Bud ", 10411).getInt();
-        LKBudIID = config.getItem("Lemon Kush Bud", 10412).getInt();
-        OKBudIID = config.getItem("Orange Kush Bud", 10413).getInt();
-        TokeIID = config.getItem("Bud", 10414).getInt();
+        BlueDreamBudIID = config.getItem("Blue Dream Bud ", 10888).getInt();
+        BYYBudIID = config.getItem("Blueberry Yum Yum Bud", 10889).getInt();
+        CrystalBudIID = config.getItem("Crystal Bud ", 10890).getInt();
+        FireBudIID = config.getItem("Fire Bud ", 10891).getInt();
+        LKBudIID = config.getItem("Lemon Kush Bud", 10892).getInt();
+        OKBudIID = config.getItem("Orange Kush Bud", 10893).getInt();
+        TokeIID = config.getItem("Bud", 10894).getInt();
         
         config.save();
 	 }

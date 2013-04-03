@@ -45,9 +45,9 @@ public class ModRCMM
 	        Configuration var2 = new Configuration(var1.getSuggestedConfigurationFile());
 	        var2.load();
 	        
-	        //10041-10060
-	        JellyfishIID = var2.getItem("Jellyfish", 12200).getInt();
-	        RcBeeIID = var2.getItem("Reactioncraf Bee", 12100).getInt();
+	        //10820 - 10840
+	        JellyfishIID = var2.getItem("Jellyfish", 10820).getInt();
+	        RcBeeIID = var2.getItem("Reactioncraft Bee", 10821).getInt();
 	        
 	        var2.save();
 	    }
@@ -55,7 +55,7 @@ public class ModRCMM
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
-		//MinecraftForge.EVENT_BUS.register(new LivingDropsEvent());
+		MinecraftForge.EVENT_BUS.register(new LivingDropsEvent());
 		proxy.registerRenderInformation();
 		registerGlobal();
 		registerEntities();
@@ -103,10 +103,10 @@ public class ModRCMM
 	{
 		EntityRegistry.addSpawn(EntityBee.class, 5, 1, 2, EnumCreatureType.creature, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.extremeHills});
 		EntityRegistry.addSpawn(EntityMiniBee.class, 5, 1, 2, EnumCreatureType.creature, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.extremeHills, BiomeGenBase.desert});
-		EntityRegistry.addSpawn(EntityJellyfish.class, 5, 1, 2, EnumCreatureType.creature, new BiomeGenBase[]{BiomeGenBase.ocean});
+		EntityRegistry.addSpawn(EntityJellyfish.class, 5, 1, 2, EnumCreatureType.waterCreature, new BiomeGenBase[]{BiomeGenBase.ocean});
 		EntityRegistry.addSpawn(EntityStalker.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.taiga});
 		EntityRegistry.addSpawn(EntityZombieCrawling.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.taiga});
 		EntityRegistry.addSpawn(EntityCrawlingSkeleton.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.taiga});
-		EntityRegistry.addSpawn(EntitySeaCreeper.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.ocean});
+		EntityRegistry.addSpawn(EntitySeaCreeper.class, 5, 1, 2, EnumCreatureType.waterCreature, new BiomeGenBase[]{BiomeGenBase.ocean});
 	}
 }

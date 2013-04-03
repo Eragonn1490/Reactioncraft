@@ -67,10 +67,11 @@ public class RCN extends BaseMod
 
          config.load();
          
-         caughtID = config.getItem("Caught", 17000).getInt();
-         hiltID = config.getItem("Hilt Item", 17001).getInt();
-         netID = config.getItem("Net Item", 17002).getInt();
-         completeNetID = config.getItem("Complete Item", 17003).getInt();
+         //10841 - 10850
+         caughtID = config.getItem("Caught", 10841).getInt();
+         hiltID = config.getItem("Hilt Item", 10842).getInt();
+         netID = config.getItem("Net Item", 10843).getInt();
+         completeNetID = config.getItem("Complete Item", 10844).getInt();
 
          config.save();
 	 }

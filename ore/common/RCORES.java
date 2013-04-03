@@ -93,9 +93,9 @@ public class RCORES
        	 endOresID = config.getBlock("End Ores", 3073).getInt();
        	 
        	 
-       	 //Item Ids
-       	 OreItemsIID = config.getItem("Ore Items", 10255).getInt();
-       	 magmaflintIID = config.getItem("magmaflint", 10256).getInt() ;
+       	 //Item Ids 10851 - 10860
+       	 OreItemsIID = config.getItem("Ore Items", 10852).getInt();
+       	 magmaflintIID = config.getItem("magmaflint", 10853).getInt() ;
 
          config.save();
 	 }

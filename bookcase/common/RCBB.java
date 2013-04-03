@@ -1,6 +1,7 @@
 package Reactioncraft.bookcase.common;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLever;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,7 @@ public class RCBB
 	//Config Code
 	public static int bookcasemetaID;
 	public static int BookcasechestID;
+	public static int leverbookcaseID;
 	public static int WoodenBookcasedoorBlockID;
 	public static int IronBookcasedoorBlockID;
 	public static int WoodenBookcasedoorIID;
@@ -48,6 +50,7 @@ public class RCBB
 	public static Block Bookcasechest;
 	public static Block WoodenBookcasedoorBlock;
 	public static Block IronBookcasedoorBlock;
+	public static Block leverbookcase;
 
 	//Item Code
 	public static Item WoodenBookcasedoor;
@@ -65,13 +68,14 @@ public class RCBB
 		Configuration config = new Configuration(evt.getSuggestedConfigurationFile());
 		config.load();
 
-		//Blocks
+		//Blocks 3000 - 3007
 		bookcasemetaID = config.getBlock("Metadata BookShelfs", 3000).getInt();
 		BookcasechestID = config.getBlock("BookShelf Chest", 3001).getInt();
 		WoodenBookcasedoorBlockID = config.getBlock("Wooden BookShelf Door", 3002).getInt();
 		IronBookcasedoorBlockID = config.getBlock("Iron BookShelf Door", 3003).getInt();
+		leverbookcaseID = config.getBlock("leverbookcase", 3004).getInt();
 
-		//Items
+		//Items 10001 - 10040
 		WoodenBookcasedoorIID = config.getItem("Wooden Bookcase Door", 10001).getInt();
 		IronBookcasedoorIID = config.getItem("Iron Bookcase Door", 10002).getInt();
 
@@ -104,6 +108,7 @@ public class RCBB
 	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 1,   "axe", 1);
 	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 2,   "axe", 1);
 	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 3,   "axe", 1);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.leverbookcase,     "axe", 1);
 	}
 
 	public void fuelHandler() 
@@ -118,6 +123,9 @@ public class RCBB
 
 		//Bookcase Chest
 		GameRegistry.addRecipe(new ItemStack(Bookcasechest, 1), new Object[]{"###", "BGB", "###", Character.valueOf('#'), Block.planks, Character.valueOf('G'), Block.chest, Character.valueOf('B'), Item.book});
+		
+		//Lever Bookcase
+		GameRegistry.addRecipe(new ItemStack(RCBB.leverbookcase, 1), new Object[]{"###", "BLB", "###", Character.valueOf('#'), Block.planks, Character.valueOf('G'), Block.lever, Character.valueOf('B'), Item.book});
 
 		//Bookcase Doors
 		GameRegistry.addRecipe(new ItemStack(WoodenBookcasedoor, 1), new Object[]{"## ", "## ", "## ", Character.valueOf('#'), Block.bookShelf});
@@ -151,6 +159,9 @@ public class RCBB
 		LanguageRegistry.addName(new ItemStack(bookcasemeta, 1, 0), "Empty Bookshelf");
 		LanguageRegistry.addName(new ItemStack(bookcasemeta, 1, 1), "Webbed Bookshelf");
 		LanguageRegistry.addName(new ItemStack(bookcasemeta, 1, 2), "Webbed Bookshelf");
+		
+		//Lever Bookcase
+		LanguageRegistry.addName(leverbookcase, "Lever Bookshelf");
 	}
 
 	public void blockRegistry() 
@@ -159,8 +170,7 @@ public class RCBB
 		GameRegistry.registerBlock(Bookcasechest, "Bookcasechest");
 		GameRegistry.registerBlock(WoodenBookcasedoorBlock, "WoodenBookcasedoorBlock");
 		GameRegistry.registerBlock(IronBookcasedoorBlock, "IronBookcasedoorBlock");
-		//GameRegistry.registerItem(WoodenBookcasedoor, "WoodenBookcasedoorBlock");
-		//GameRegistry.registerItem(IronBookcasedoor, "Iron Bookcase Door");
+		GameRegistry.registerBlock(leverbookcase, "leverbookcase");
 	}
 
 	public void items() 
@@ -171,6 +181,7 @@ public class RCBB
 
 	public void blocks() 
 	{
+		leverbookcase = (new BlockLeverBookcase(leverbookcaseID, 35)).setHardness(1.5F).setStepSound(Block.soundWoodFootstep).setBlockName("leverbookcase").setRequiresSelfNotify();
 		bookcasemeta = new BlockBookcaseMulti(bookcasemetaID, Material.rock).setHardness(1.5F).setBlockName("bookcasemeta");
 		WoodenBookcasedoorBlock = new BlockBookcasedoor(WoodenBookcasedoorBlockID, Material.wood).setHardness(1.5F).setBlockName("WoodenBookcasedoorBlock").setRequiresSelfNotify();;
 		IronBookcasedoorBlock = new BlockBookcasedoor(IronBookcasedoorBlockID, Material.iron).setHardness(1.5F).setBlockName("IronBookcasedoorBlock").setRequiresSelfNotify();;

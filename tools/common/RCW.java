@@ -71,22 +71,22 @@ public class RCW
         
         config.load();
         
-        //Claimed Item IDS 10526 - 10600
-        this.ObbyPickID = config.getItem("Obsidian Pick", 10526).getInt();
-        this.ObbySwordID = config.getItem("Obsidian Sword", 10527).getInt();
-        this.ObbyShovelID = config.getItem("Obsidian Shovel", 10528).getInt();
-        this.ObbyAxeID = config.getItem("Obsidian Axe", 10529).getInt();
-        this.ObbyHoeID = config.getItem("Obsidian Hoe", 10530).getInt();
+        //Claimed Item IDS 10931 - 10950
+        this.ObbyPickID = config.getItem("Obsidian Pick", 10931).getInt();
+        this.ObbySwordID = config.getItem("Obsidian Sword", 10932).getInt();
+        this.ObbyShovelID = config.getItem("Obsidian Shovel", 10933).getInt();
+        this.ObbyAxeID = config.getItem("Obsidian Axe", 10934).getInt();
+        this.ObbyHoeID = config.getItem("Obsidian Hoe", 10935).getInt();
         
-    	this.BloodstonePickID = config.getItem("Bloodstone Pick", 10531).getInt();
-        this.BloodstoneSwordID = config.getItem("Bloodstone Sword", 10532).getInt();
-        this.BloodstoneShovelID = config.getItem("Bloodstone Shovel", 10533).getInt();
-        this.BloodstoneAxeID = config.getItem("Bloodstone Axe", 10534).getInt();
-        this.BloodstoneHoeID = config.getItem("Bloodstone Hoe", 10535).getInt();
+    	this.BloodstonePickID = config.getItem("Bloodstone Pick", 10936).getInt();
+        this.BloodstoneSwordID = config.getItem("Bloodstone Sword", 10937).getInt();
+        this.BloodstoneShovelID = config.getItem("Bloodstone Shovel", 10938).getInt();
+        this.BloodstoneAxeID = config.getItem("Bloodstone Axe", 10939).getInt();
+        this.BloodstoneHoeID = config.getItem("Bloodstone Hoe", 10940).getInt();
         
-        this.BloodstoneBladeIID = config.getItem("Bloodstone Blade", 10536).getInt();
-        this.GoldenSwordFragmentIID = config.getItem("Golden Sword Fragment", 10537).getInt();
-        this.UnbindedSwordIID = config.getItem("Unbinded Sword", 10538).getInt();
+        this.BloodstoneBladeIID = config.getItem("Bloodstone Blade", 10941).getInt();
+        this.GoldenSwordFragmentIID = config.getItem("Golden Sword Fragment", 10942).getInt();
+        this.UnbindedSwordIID = config.getItem("Unbinded Sword", 10943).getInt();
                 
         config.save();
     }

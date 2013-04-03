@@ -51,14 +51,14 @@ public class RCC
 	public static int chainladderID;
 	public static int ChainLoopIID;
 	public static int HammerIID;
-	public static int MagmaLiquidStillID;
-	public static int MagmaLiquidFlowingID;
-	
+	public static int spongeAbsorbtion;
+
 	//block code
+	public static Block newSponge; int newSpongeId;
+    public static Block clearBlock; int clearBlockId;
+    
 	public static Block snowblock;
 	public static Block chainladder;
-	public static Block MagmaLiquidStill;
-	public static Block MagmaLiquidFlowing;
 	
 	
 	//Item code
@@ -86,17 +86,18 @@ public class RCC
 		 config.load();
 		 
 		 
-		 //Block
-		 MagmaLiquidStillID = config.getBlock("Magma Block Still", 2995).getInt();
-		 MagmaLiquidFlowingID = config.getBlock("Magma Block Flowing", 2996).getInt();
-		 snowblockBlockID = config.getBlock("Snow Block", 2997).getInt();
-		 chainladderID = config.getBlock("chain ladder", 2998).getInt();
+		 //Block 3020-3026
+		 newSpongeId = config.getBlock("Dry Sponge", 3020).getInt();
+		 spongeAbsorbtion = config.get("Settings", "Sponge absortion (blocks)", 4).getInt();
+		 clearBlockId = config.getBlock("Clear Block", 3021).getInt();
+		 snowblockBlockID = config.getBlock("Snow Block", 3022).getInt();
+		 chainladderID = config.getBlock("chain ladder", 3023).getInt();
 		 
 		 //Items
-		 //Reserved 10061 - 10080 
+		 //Reserved 10081 - 10090 
 		 extrapaintingsIID = config.getItem("Extra Paintings", 10081).getInt(); 
-		 ChainLoopIID = config.getItem("Chain Loop", 10079).getInt();
-		 HammerIID = config.getItem("Hammer", 10078).getInt();
+		 ChainLoopIID = config.getItem("Chain Loop", 10082).getInt();
+		 HammerIID = config.getItem("Hammer", 10083).getInt();
 		 
 		 config.save();
 	 }
@@ -105,6 +106,12 @@ public class RCC
 	 public void load(FMLInitializationEvent event)
 	 {
 		ClientProxy.registerRenderInformation();
+		
+		//Andr3wrulz Code
+		newSponge = new NewSponge(newSpongeId, spongeAbsorbtion);
+		clearBlock = new ClearBlock(clearBlockId);
+		//
+		
 		blockCode();
 		blockRegistry();
 		ItemCode();
@@ -136,12 +143,13 @@ public class RCC
 	{
 		GameRegistry.registerBlock(snowblock, "snowblock");
 		GameRegistry.registerBlock(chainladder, "chainladder");
-		GameRegistry.registerBlock(MagmaLiquidStill, "MagmaLiquidStill");
-		GameRegistry.registerBlock(MagmaLiquidFlowing, "MagmaLiquidFlowing");
+		GameRegistry.registerBlock(newSponge, "newSponge");
+		GameRegistry.registerBlock(clearBlock, "clearBlock");
 	}
 
 	public void recipes() 
 	{
+		GameRegistry.addSmelting(Block.sponge.blockID, new ItemStack(RCC.newSponge), 0.1F); 
 		
 		//
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(RCC.ChainLoop,3,8), true, new Object[]{"XY ", "   ", "   ", Character.valueOf('X'), RCC.Hammer, Character.valueOf('Y'), "ingotSuperheatediron"}));
@@ -155,8 +163,6 @@ public class RCC
 
 	public void blockCode() 
 	{
-		MagmaLiquidStill = new BlockMagmaLiquidStill(MagmaLiquidStillID).setBlockName("MagmaLiquidStill");
-		MagmaLiquidFlowing = new BlockMagmaLiquidFlowing(MagmaLiquidFlowingID).setBlockName("MagmaLiquidFlowing");
 		chainladder = new BlockChainLadder(chainladderID, 98).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setBlockName("chainladder");
 		snowblock = new BlockBasic(snowblockBlockID, 67).setHardness(3.0F).setResistance(5.0F).setBlockName("snowblock");
 	}
@@ -175,13 +181,13 @@ public class RCC
 
 	public void addNames() 
 	{
+		LanguageRegistry.addName(newSponge, "Sponge");
+		LanguageRegistry.addName(clearBlock, "Clear Block");
 		LanguageRegistry.addName(extrapaintings, "Extra Paintings");
 		LanguageRegistry.addName(snowblock, "Snow Block");
 		LanguageRegistry.addName(chainladder, "chain ladder");
 		LanguageRegistry.addName(ChainLoop, "Chain Loop");
 		LanguageRegistry.addName(Hammer, "Hammer");
-		LanguageRegistry.addName(MagmaLiquidFlowing, "Magma Liquid");
-		LanguageRegistry.addName(MagmaLiquidFlowing, "Magma Liquid");
 	}
 	
 

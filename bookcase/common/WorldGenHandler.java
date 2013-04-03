@@ -24,7 +24,7 @@ public class WorldGenHandler implements IWorldGenerator
 	{
 		  //WizimLibrary
 		  int Xcoord1 = blockX + random.nextInt(16);
-		  int Ycoord1 = random.nextInt(80);
+		  int Ycoord1 = random.nextInt(1000);
 		  int Zcoord1 = blockZ + random.nextInt(16);
 		  (new WorldGenWizimLibary()).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 	}

@@ -86,6 +86,7 @@ public class RCHRM
         Configuration var2 = new Configuration(var1.getSuggestedConfigurationFile());
         var2.load();
         
+        // 3008 - 3018
         presentID = var2.getBlock("present", 3008).getInt();
         StarID = var2.getBlock("Star", 3013).getInt();
         ChristmasleavesID = var2.getBlock("Christmas Leaves", 3015).getInt();
@@ -97,7 +98,7 @@ public class RCHRM
         GingerbreadmanIID = var2.getItem("Ginger Bread Man", 10042).getInt();
         GingerRootIID = var2.getItem("Ginger Root", 10043).getInt();        
         cardboardIID = var2.getItem("Cardboard", 10044).getInt();
-        BoxItemIID = var2.getItem("Box Item", 12300).getInt();
+        BoxItemIID = var2.getItem("Box Item", 10045).getInt();
         wrappingpaperIID = var2.getItem("Wraping Paper", 10046).getInt();
         BowIID = var2.getItem("Bow Item", 10047).getInt();
         ChristmaslightmetaIID = var2.getItem("Christmas Light Meta", 10048).getInt();
