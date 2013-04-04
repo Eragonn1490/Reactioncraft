@@ -158,7 +158,8 @@ public class RCORES
 	    	
 	    	//End Ores
 	    	LanguageRegistry.addName(new ItemStack(RCORES.endOres, 1, 0), "Wizimite");
-		    
+	    	
+	    	MinecraftForge.setBlockHarvestLevel(RCORES.netherOres, 0,   "pickaxe", 4);
 		    
 		    //Ore Dictionary
 		    //Items

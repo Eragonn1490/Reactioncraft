@@ -103,12 +103,12 @@ public class RCBB
 	public void HarvestLevel() 
 	{
 		  //Setting Harvest Level
-	    MinecraftForge.setBlockHarvestLevel(RCBB.Bookcasechest,     "axe", 1);
-	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 0,   "axe", 1);
-	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 1,   "axe", 1);
-	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 2,   "axe", 1);
-	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 3,   "axe", 1);
-	    MinecraftForge.setBlockHarvestLevel(RCBB.leverbookcase,     "axe", 1);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.Bookcasechest,     "axe", 0);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 0,   "axe", 0);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 1,   "axe", 0);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 2,   "axe", 0);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.bookcasemeta, 3,   "axe", 0);
+	    MinecraftForge.setBlockHarvestLevel(RCBB.leverbookcase,     "axe", 0);
 	}
 
 	public void fuelHandler() 

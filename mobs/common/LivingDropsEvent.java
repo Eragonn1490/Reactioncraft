@@ -14,7 +14,7 @@ public void playerKilledSheep(LivingDeathEvent event)
 {
 	if(event.entityLiving instanceof EntitySheep)
  		{
-	 		event.entityLiving.dropItem(Item.porkCooked.itemID, 1);
+	 		event.entityLiving.dropItem(Item.porkRaw.itemID, 1);
  		}
 	}
 }

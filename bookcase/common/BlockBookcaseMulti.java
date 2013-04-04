@@ -555,9 +555,4 @@ public class BlockBookcaseMulti extends Block
     {
         return "/Reactioncraft/images/bookcases.png";
     }
-
-    public boolean canMineBlock(World var1, int var2, int var3, int var4, EntityMinecart var5, ItemStack var6)
-    {
-        return true;
-    }
 }

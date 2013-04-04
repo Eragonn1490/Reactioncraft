@@ -14,25 +14,39 @@ public class CommonProxy implements IGuiHandler
 
 	//returns an instance of the Container you made earlier
     @Override
-    public Object getServerGuiElement(int id, EntityPlayer player, World world,
-                    int x, int y, int z) {
+    public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+    {
             TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
             if(tileEntity instanceof TileEntityFreezer){
                     return new ContainerFreezer(player.inventory, (TileEntityFreezer) tileEntity);
+            }
+
+            
+            if(tileEntity instanceof TileEntityBrickOven)
+            {
+                return new ContainerBrickOven(player.inventory, (TileEntityBrickOven) tileEntity);
             }
             return null;
     }
 
     //returns an instance of the Gui you made earlier
     @Override
-    public Object getClientGuiElement(int id, EntityPlayer player, World world,
-                    int x, int y, int z) {
+    public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) 
+    {
             TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
-            if(tileEntity instanceof TileEntityFreezer){
+            if(tileEntity instanceof TileEntityFreezer)
+            {
                     return new GuiFreezer(player.inventory, (TileEntityFreezer) tileEntity);
+            }
+            
+            if(tileEntity instanceof TileEntityBrickOven)
+            {
+                    return new GuiBrickoven(player.inventory, (TileEntityBrickOven) tileEntity);
             }
             return null;
     }
+    
+    
 	
 	public int addArmor(String armorName)
 	{

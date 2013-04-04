@@ -108,7 +108,7 @@ public class RCC
 		ClientProxy.registerRenderInformation();
 		
 		//Andr3wrulz Code
-		newSponge = new NewSponge(newSpongeId, spongeAbsorbtion);
+		newSponge = new NewSponge(newSpongeId, spongeAbsorbtion).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setBlockName("newSponge");
 		clearBlock = new ClearBlock(clearBlockId);
 		//
 		
@@ -119,6 +119,7 @@ public class RCC
 		worldGenHandler();
 		recipes();
 		oreDictionary();
+		
 		//Reactioncraft integration
 		try 
 		{

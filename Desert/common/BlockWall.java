@@ -1,9 +1,8 @@
-package Reactioncraft.fences.common;
+package Reactioncraft.Desert.common;
 
 import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockWall;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -13,21 +12,22 @@ import Reactioncraft.base.common.RCB;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockWalls extends BlockWall
+public class BlockWall extends net.minecraft.block.BlockWall
 {
-    public BlockWalls(int par1, Block par2)
+    public BlockWall(int par1)
     {
-        super(par1, par2);
+        super(par1, null);
         this.setHardness(blockHardness);
         this.setResistance(blockResistance / 3.0F);
-        this.setStepSound(stepSound);
+        this.setStepSound(stepSound); 
+        this.blockIndexInTexture = 139;
         this.setCreativeTab(RCB.Reactioncraft);
     }
     
     	// New code added
 	 	public String getTextureFile()
         {
-                return "/Reactioncraft/images/terrain.png";
+                return "/Reactioncraft/images/Blocks.png";
         }
        
         public int idDropped(int i, Random random)

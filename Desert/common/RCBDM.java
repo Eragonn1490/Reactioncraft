@@ -67,7 +67,9 @@ public class RCBDM
 	public static int CutDBGemIID; //cut
 	public static int BloodstoneBrickID;
 	public static int SandStonePasteIID;
+	//public static int CarvedDarkStoneWallID;
 	
+	//public static Block CarvedDarkStoneWall;
 	public static Block DarkSand;
 	public static Block DarkSandstone;
 	public static Block HireoMulti;
@@ -116,6 +118,7 @@ public class RCBDM
         BloodstoneBrickID = config.getBlock("Bloodstone Brick", 3034).getInt();
         Cactus1ID = config.getBlock("Cactus Block 1", 3035).getInt();
         Cactus2ID = config.getBlock("Cactus Block 2", 3036).getInt();
+        //CarvedDarkStoneWallID = config.getBlock("Darkstone Wall", 3037).getInt();
         
         //Items... 10121 - 10220
         FlintChiselIID = config.getItem("Flint Chisel", 10121).getInt();
@@ -141,18 +144,30 @@ public class RCBDM
 		registerHandlers();
 		addNames();
 		oreDictionary();
-		addRecipes();
 		HarvestLevel();
 		addSmelting();
+		addRecipes();
+		setHarvestinglevel();
 		initBiomes();
 		addBiomes(); 
 	 }
 	
 		
 	
+	public void setHarvestinglevel() 
+	{
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DesertBlockMulti, 0,   "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DesertBlockMulti, 1,   "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DesertBlockMulti, 2,   "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DesertBlockMulti, 3,   "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DesertBlockMulti, 4,   "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(RCBDM.DesertBlockMulti, 5,   "pickaxe", 0);
+	}
+
 	public void addSmelting() 
 	{
 		 GameRegistry.addSmelting(RCBDM.DarkSand.blockID, new ItemStack(Block.glass.blockID, 1, 1), 0.5F);
+		 GameRegistry.addSmelting(RCBDM.SandStonePaste.itemID, new ItemStack(RCBDM.DesertBlockMulti.blockID, 1, 2), 0.5F);
 	}
 
 	public void HarvestLevel() 
@@ -172,6 +187,7 @@ public class RCBDM
 	
 	public void addRecipes() 
 	 {
+		
 		/**chisel Recipes**/
 		//Flint
 		GameRegistry.addRecipe(new ItemStack(FlintChisel, 1), new Object[]{"   ", " G ", " I ", Character.valueOf('G'), Item.flint, Character.valueOf('I'), Item.stick});
@@ -247,9 +263,6 @@ public class RCBDM
 		//DarkSand Clay
 		GameRegistry.addShapelessRecipe(new ItemStack(RCBDM.SandStonePaste, 2,2), RCBDM.DarkSand, Item.bucketWater);
 
-		//Dark Sandstone
-		GameRegistry.addShapelessRecipe(new ItemStack(DesertBlockMulti, 1, 2), RCBDM.SandStonePaste, RCBDM.SandStonePaste, RCBDM.SandStonePaste, RCBDM.SandStonePaste);
-
 		//Carved Dark Sandstone
 		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{"   ","XY ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 2), Character.valueOf('Y'), new ItemStack(RCBDM.FlintChisel,1,-1)});
 		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{"   ","XY ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 2), Character.valueOf('Y'), new ItemStack(RCBDM.GoldChisel,1,-1)});
@@ -268,7 +281,7 @@ public class RCBDM
 		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 3), new Object[]{"XX ","XX ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 0)});
 
 		//Multi Colored Sandstone Brick
-		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 5), new Object[]{"XY ","YX ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 3), Character.valueOf('Y'), RCBDM.SandStonePaste});
+		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 2, 5), new Object[]{"XYX","YXY", "XYX", Character.valueOf('Y'), new ItemStack(DesertBlockMulti, 1, 3), Character.valueOf('X'), new ItemStack(RCBDM.SandStonePaste)});
 
 		/**
         LanguageRegistry.addName(new ItemStack(ColumnMulti, 1, 1), "Marble Column");
@@ -276,11 +289,11 @@ public class RCBDM
 
 
 		//Cracked Darkstone Brick to Darkstone Brick
-		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.FlintChisel,1,-1)});
-		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.GoldChisel,1,-1)});
-		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.CopperChisel,1,-1)});
-		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.DiamondChisel,1,-1)});
-		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 0), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.BloodstoneChisel,1,-1)});
+		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 3), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.FlintChisel,1,-1)});
+		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 3), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.GoldChisel,1,-1)});
+		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 3), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.CopperChisel,1,-1)});
+		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 3), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.DiamondChisel,1,-1)});
+		GameRegistry.addRecipe(new ItemStack(DesertBlockMulti, 1, 3), new Object[]{" Y "," X ", "   ", Character.valueOf('X'), new ItemStack(DesertBlockMulti, 1, 4), Character.valueOf('Y'), new ItemStack(RCBDM.BloodstoneChisel,1,-1)});
 
 
 		//Weather Hireoglyphics to Carved Dark Stone
@@ -395,6 +408,7 @@ public class RCBDM
 
 	public void blockCode() 
 	{
+		//CarvedDarkStoneWall = new BlockWall(CarvedDarkStoneWallID).setHardness(1.0F).setResistance(1.0F).setBlockName("CarvedDarkStoneWall");
 		BloodstoneBrick = new BlockBasic(BloodstoneBrickID, 84).setHardness(120.0F).setResistance(2000.0F).setLightValue(0.10F).setStepSound(Block.soundStoneFootstep).setBlockName("BloodstoneBrick").setCreativeTab(RCB.Reactioncraft);
 		Cherrywood = new BlockCherryTreeLog(CherrywoodID, 244).setHardness(0.2F).setResistance(0.5F).setBlockName("Cherrywood");
 		CherryTreeLeaves = new BlockCherryTreeLeaves(CherryTreeLeavesID, 43).setHardness(0.2F).setResistance(0.5F).setBlockName("CherryTreeLeaves");
@@ -403,8 +417,8 @@ public class RCBDM
 		HireoMulti = new BlockHireoMulti(HireoBlocksIID, Material.rock).setHardness(3.0F).setBlockName("HireoMulti");
 		ColumnMulti = new BlockColumnMulti(ColumnBlockID, Material.rock).setHardness(3.0F).setBlockName("ColumnMulti");
 		DesertBlockMulti = new BlockDesertMulti(DesertBlockMultiID, Material.rock).setHardness(3.0F).setBlockName("DesertBlockMulti");
-		Cactus1 = (new BasicFlower(Cactus1ID, 46)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("Cactus1").setRequiresSelfNotify();
-		Cactus2 = (new BasicFlower(Cactus2ID, 45)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("Cactus2").setRequiresSelfNotify();
+		Cactus1 = (new DesertFlower(Cactus1ID, 46)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("Cactus1").setRequiresSelfNotify();
+		Cactus2 = (new DesertFlower(Cactus2ID, 45)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("Cactus2").setRequiresSelfNotify();
 	}
 
 	public void addBiomes() 
@@ -414,6 +428,9 @@ public class RCBDM
 
 	public void addNames() 
 	{
+		//
+		//LanguageRegistry.addName(CarvedDarkStoneWall, "Carved Darkstone Wall");
+		
 		//Sandstone Paste
 		LanguageRegistry.addName(SandStonePaste, "Dark Sand Clay");
 		
@@ -484,7 +501,7 @@ public class RCBDM
 
 	public void registerBlocks() 
 	{
-		GameRegistry.registerBlock(DesertBlockMulti, ItemMulti.class);
+		GameRegistry.registerBlock(DesertBlockMulti, ItemMulti.class,"DesertBlockMulti");
 		GameRegistry.registerBlock(ColumnMulti, ItemMulti.class);
 		GameRegistry.registerBlock(HireoMulti, ItemMulti.class);
 		GameRegistry.registerBlock(Cactus1, "Cactus1");
@@ -494,6 +511,7 @@ public class RCBDM
 		GameRegistry.registerBlock(Cherrywood);
 		GameRegistry.registerBlock(CherryTreeSapling);
 		GameRegistry.registerBlock(BloodstoneBrick, "BloodstoneBrick");
+		//GameRegistry.registerBlock(CarvedDarkStoneWall, "CarvedDarkstoneWall");
 	}
 
 	public void registerHandlers() 

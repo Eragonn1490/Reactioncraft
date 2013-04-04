@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.ICraftingHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CraftingHandler implements ICraftingHandler 
 {
@@ -87,9 +88,8 @@ public class CraftingHandler implements ICraftingHandler
 					craftMatrix.setInventorySlotContents(G, k); //Sets the slot to the new item
 				}
 			}
-		}
+		}	
 	}
-
 	@Override
 	public void onSmelting(EntityPlayer player, ItemStack item) {
 		// TODO Auto-generated method stub

@@ -18,6 +18,7 @@ public class BlockSandRc extends BlockSand
     {
         super(par1, par2, Material.sand);
         this.setCreativeTab(RCB.Reactioncraft);
+        this.setTickRandomly(true);
     }
     
     public String getTextureFile()

@@ -26,25 +26,25 @@ public class BlockDesertMulti extends Block
         switch (i)
         {
             default:
-                return RCBDM.ColumnMulti.blockID;
+                return RCBDM.DesertBlockMulti.blockID;
 
             case 1:
-                return RCBDM.ColumnMulti.blockID;
+                return blockID;
 
             case 2:
-                return RCBDM.ColumnMulti.blockID;
+                return blockID;
 
             case 3:
-                return RCBDM.ColumnMulti.blockID;
+                return blockID;
 
             case 4:
-                return RCBDM.ColumnMulti.blockID;
+                return blockID;
 
             case 5:
-                return RCBDM.ColumnMulti.blockID;
-//
-//            case 6:
-//                return RCBDM.ColumnMulti.blockID;
+                return blockID;
+
+            case 6:
+                return blockID;
         }
     }
 
@@ -69,9 +69,9 @@ public class BlockDesertMulti extends Block
 
             case 5:
                 return 1;
-//
-//            case 6:
-//                return 1;
+
+            case 6:
+                return 1;
         }
     }
 
@@ -99,10 +99,10 @@ public class BlockDesertMulti extends Block
 
             case 5:
                 return 5;
-//
-//            case 6:
-//                return 6;
-//                
+
+            case 6:
+                return 6;
+                
 //            case 7:
 //                return 7;
         }

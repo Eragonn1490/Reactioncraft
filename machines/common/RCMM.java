@@ -42,12 +42,16 @@ public class RCMM
 	//Config Code
 	public static int FreezerActiveID;
 	public static int FreezerIdleID;
+	public static int BrickOvenActiveID;
+	public static int BrickOvenIdleID;
 	public static int IceBucketIID;
 	public static int ObsidianBucketIID;
 
 	//Block code
 	public static Block FreezerActive;
 	public static Block FreezerIdle;
+	public static Block BrickOvenActive;
+	public static Block BrickOvenIdle;
 
 
 	//Item Code
@@ -71,6 +75,18 @@ public class RCMM
 		}
 		return true ;
 	}
+	
+	public static boolean RCBDM() throws ClassNotFoundException 
+	{
+		try{
+			Class.forName("Reactioncraft.Desert.common.RCBDM");
+		}
+		catch (NoClassDefFoundError ex) 
+		{
+			return false ;
+		}
+		return true ;
+	}
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt)
@@ -84,6 +100,8 @@ public class RCMM
 		//3066- 3070
 		FreezerActiveID = config.getBlock("Freezer Active", 3066).getInt();
 		FreezerIdleID   = config.getBlock("Freezer Idle", 3067).getInt();
+		BrickOvenActiveID = config.getBlock("Brick Oven Active", 3068).getInt();
+		BrickOvenIdleID   = config.getBlock("Brick Oven Idle", 3069).getInt();
 		
 		//10801 - 10820
 		IceBucketIID = config.getItem("Ice Bucket", 10801).getInt();
@@ -118,6 +136,20 @@ public class RCMM
 		{
 			System.out.println("Reactioncraft Machines did not find railcraft, all integration disabled");
 		}
+		
+		//railcraft integration
+		try
+		{
+			if(RCBDM())
+			{
+				Integration.loadReactioncraft();
+				System.out.println("Reactioncraft integration loaded !");
+			}
+		}
+		catch (ClassNotFoundException e)
+		{
+			System.out.println("Reactioncraft Machines did not find Better Desert Mod, Brick Oven disabled");
+		}
 	}
 
 	private void ItemCode() 
@@ -131,11 +163,14 @@ public class RCMM
 	{
 		FreezerIdle = (new BlockFreezer(FreezerActiveID, false)).setHardness(3.5F).setBlockName("FreezerIdle").setRequiresSelfNotify().setCreativeTab(RCB.Reactioncraft);
 		FreezerActive = (new BlockFreezer(FreezerIdleID, true)).setHardness(3.5F).setLightValue(0.875F).setBlockName("FreezerActive").setRequiresSelfNotify();
+		BrickOvenIdle = (new BlockBrickOven(BrickOvenActiveID, false)).setHardness(3.5F).setBlockName("BrickOvenIdle").setRequiresSelfNotify().setCreativeTab(RCB.Reactioncraft);
+		BrickOvenActive = (new BlockBrickOven(BrickOvenIdleID, true)).setHardness(3.5F).setBlockName("BrickOvenActive").setRequiresSelfNotify();
 	}
 
 	private void LanguageRegistry() 
 	{
 		LanguageRegistry.addName(FreezerIdle, "Freezer");
+		LanguageRegistry.addName(BrickOvenIdle, "Brick Oven");
 		LanguageRegistry.addName(ObsidianBucket, "Bucket Of Obsidian");
 		LanguageRegistry.addName(IceBucket, "\u00a79Bucket Of Ice");
 	}
@@ -144,8 +179,11 @@ public class RCMM
 	{
 		GameRegistry.registerBlock(FreezerActive, "FreezerActive");
 		GameRegistry.registerBlock(FreezerIdle, "FreezerIdle");
+		GameRegistry.registerBlock(BrickOvenActive, "BrickActive");
+		GameRegistry.registerBlock(BrickOvenIdle, "BrickOvenIdle");
 		GameRegistry.addSmelting(RCMM.IceBucket.itemID, new ItemStack(Item.bucketWater, 1), 0.5F);
 		GameRegistry.registerTileEntity(TileEntityFreezer.class, "Freezer");
+		GameRegistry.registerTileEntity(TileEntityBrickOven.class, "BrickOven");
 		GameRegistry.addRecipe(new ItemStack(FreezerIdle, 1), new Object[]{"RSR", "LOW", "RSR",  Character.valueOf('W'), Item.bucketWater ,Character.valueOf('L'), Block.lever ,Character.valueOf('S'), Block.blockSteel ,Character.valueOf('O'), Block.stoneOvenIdle, Character.valueOf('R'), Item.redstone});
 		GameRegistry.addShapelessRecipe(new ItemStack(Block.ice, 1), new Object[]{IceBucket,});
 		GameRegistry.addShapelessRecipe(new ItemStack(Block.obsidian, 1), new Object[]{ObsidianBucket,});
