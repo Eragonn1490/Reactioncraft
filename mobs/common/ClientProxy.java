@@ -24,7 +24,6 @@ public class ClientProxy extends CommonProxy
 		//Mobs Below
 		RenderingRegistry.instance().registerEntityRenderingHandler(EntityBee.class, new RenderBee(new ModelBee(), 0.5F));
 		RenderingRegistry.instance().registerEntityRenderingHandler(EntityJellyfish.class, new RenderJellyfish(new ModelJellyfish(), 0.5F));
-		RenderingRegistry.instance().registerEntityRenderingHandler(EntityMiniBee.class, new RenderMiniBee(new ModelMiniBee(), 0.5F));
 		RenderingRegistry.instance().registerEntityRenderingHandler(EntitySeaCreeper.class, new RenderSeaCreeper(new ModelSeaCreeper(), 0.5F));
 		RenderingRegistry.instance().registerEntityRenderingHandler(EntityStalker.class, new RenderStalker(new ModelCreeper(), 0.5F));
 		RenderingRegistry.instance().registerEntityRenderingHandler(EntityZombieCrawling.class, new RenderZombieCrawling(new ModelZombieCrawling(), 0.5F));

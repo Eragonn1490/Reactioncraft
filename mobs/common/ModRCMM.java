@@ -73,7 +73,7 @@ public class ModRCMM
 	public void items() 
 	{
 		Jellyfish  = (new ItemBasic(JellyfishIID)).setIconCoord(193, 0).setItemName("Jellyfish");
-		RcBee  = (new ItemBasic(RcBeeIID)).setIconCoord(193, 0).setItemName("RcBee");
+		RcBee  = (new ItemBee(RcBeeIID)).setIconCoord(193, 0).setItemName("RcBee");
 		OreDictionary.registerOre("jellyfish", new ItemStack(Jellyfish));
 	}
 
@@ -81,7 +81,6 @@ public class ModRCMM
 	{
 		EntityRegistry.registerGlobalEntityID(EntityBee.class, "Bee", EntityRegistry.findGlobalUniqueEntityId(), 0x333333, 0x999999);
 		EntityRegistry.registerGlobalEntityID(EntityJellyfish.class, "Jellyfish", EntityRegistry.findGlobalUniqueEntityId(), 0x333333, 0x999999);
-		EntityRegistry.registerGlobalEntityID(EntityMiniBee.class, "Mini Bee", EntityRegistry.findGlobalUniqueEntityId(), 0x333333, 0x999999);
 		EntityRegistry.registerGlobalEntityID(EntitySeaCreeper.class, "Sea Creeper", EntityRegistry.findGlobalUniqueEntityId(), 0x333333, 0x999999);
 		EntityRegistry.registerGlobalEntityID(EntityStalker.class, "Stalker", EntityRegistry.findGlobalUniqueEntityId(), 0x333333, 0x999999);
 		EntityRegistry.registerGlobalEntityID(EntityZombieCrawling.class, "Crawling Zombie", EntityRegistry.findGlobalUniqueEntityId(), 0x333333, 0x999999);
@@ -92,7 +91,6 @@ public class ModRCMM
 	{
 		LanguageRegistry.instance().addStringLocalization("entity.Bee.name", "en_US", "Bee");
 		LanguageRegistry.instance().addStringLocalization("entity.Jellyfish.name", "en_US", "Jellyfish");
-		LanguageRegistry.instance().addStringLocalization("entity.Mini Bee.name", "en_US", "Bee");
 		LanguageRegistry.instance().addStringLocalization("entity.Sea Creeper.name", "en_US", "Seacreeper");
 		LanguageRegistry.instance().addStringLocalization("entity.Stalker.name", "en_US", "Stalker");
 		LanguageRegistry.instance().addStringLocalization("entity.Crawling Zombie.name", "en_US", "Crawling Zombie");
@@ -101,8 +99,7 @@ public class ModRCMM
 	
 	public void addSpawn()
 	{
-		EntityRegistry.addSpawn(EntityBee.class, 5, 1, 2, EnumCreatureType.creature, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.extremeHills});
-		EntityRegistry.addSpawn(EntityMiniBee.class, 5, 1, 2, EnumCreatureType.creature, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.extremeHills, BiomeGenBase.desert});
+		EntityRegistry.addSpawn(EntityBee.class, 5, 1, 2, EnumCreatureType.creature, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.extremeHills, BiomeGenBase.desert});
 		EntityRegistry.addSpawn(EntityJellyfish.class, 5, 1, 2, EnumCreatureType.waterCreature, new BiomeGenBase[]{BiomeGenBase.ocean});
 		EntityRegistry.addSpawn(EntityStalker.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.taiga});
 		EntityRegistry.addSpawn(EntityZombieCrawling.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.taiga});

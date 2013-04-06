@@ -23,8 +23,10 @@ public class EntityBee extends EntityAnimal
         texture = "/Reactioncraft/images/mobs/bee.png";
         setSize(0.4F, 0.4F);
         float f = 0.25F;
-        tasks.addTask(0, new EntityAISwimming(this));
-        tasks.addTask(1, new EntityAIPanic(this, 0.38F));
+        this.getNavigator().setAvoidsWater(true);
+        this.tasks.addTask(0, new EntityAIPanic(this, 0.38F));
+        tasks.addTask(1, new EntityAISwimming(this));
+        tasks.addTask(2, new EntityAIPanic(this, 0.38F));
         tasks.addTask(3, new EntityAITempt(this, 0.25F, Item.wheat.itemID, false));
         tasks.addTask(4, new EntityAIFollowParent(this, 0.28F));
         tasks.addTask(5, new EntityAIWander(this, f));
@@ -42,7 +44,7 @@ public class EntityBee extends EntityAnimal
 
     public int getMaxHealth()
     {
-        return 10;
+        return 5;
     }
 
     protected void entityInit()

@@ -1,5 +1,7 @@
 package Reactioncraft.NetMod.Common;
 
+import java.util.List;
+
 import Reactioncraft.base.common.RCB;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -69,5 +71,14 @@ public class ItemCaughtEntity extends Item
 			var2.appendTag(new NBTTagFloat((String) null, var6));
 		}
 		return var2;
+	}
+	
+	@Override
+	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
+		if (itemStack.stackTagCompound != null)
+			list.add("Caught " + itemStack.stackTagCompound.getString("entity")/**.getByte("str") **/);
+		else
+			list.add("Please craft to see results");
+		super.addInformation(itemStack, player, list, par4);
 	}
 }
